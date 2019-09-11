@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App render should render as expected 1`] = `
+<header class="header"
+        style="z-index: 1;"
+>
+  <div class="header-content display-4">
+    Book Review Aggregator
+  </div>
+</header>
+<div class="makeStyles-container-2">
+  <div class="MuiTabs-root makeStyles-tabs-1">
+    <div class="MuiTabs-scroller MuiTabs-fixed"
+         style="overflow: hidden;"
+    >
+      <div class="MuiTabs-flexContainer"
+           role="tablist"
+      >
+        <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected MuiTab-fullWidth"
+                tabindex="0"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                id="searchTab"
+        >
+          <span class="MuiTab-wrapper">
+            Search
+          </span>
+          <span class="PrivateTabIndicator-root-27 PrivateTabIndicator-colorPrimary-28 MuiTabs-indicator">
+          </span>
+        </button>
+        <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+                tabindex="0"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                id="bookshelfTab"
+        >
+          <span class="MuiTab-wrapper">
+            Bookshelf
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div style="overflow-x: hidden;">
+    <div style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+         class="react-swipeable-view-container"
+    >
+      <div style="width: 100%; flex-shrink: 0; overflow: auto;"
+           aria-hidden="false"
+           data-swipeable="true"
+      >
+        <div>
+          Test1
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
