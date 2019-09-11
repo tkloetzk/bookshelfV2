@@ -24,7 +24,7 @@ export default function App() {
   }
 
   return (
-    <fragment>
+    <>
       <Header>Book Review Aggregator</Header>
       <div className={classes.container}>
         <Tabs
@@ -53,6 +53,6 @@ export default function App() {
           <div>Test2</div>
         </SwipeableViews>
       </div>
-    </fragment>
+    </>
   );
 }

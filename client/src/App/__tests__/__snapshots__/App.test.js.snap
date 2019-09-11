@@ -51,8 +51,50 @@ exports[`App render should render as expected 1`] = `
            aria-hidden="false"
            data-swipeable="true"
       >
-        <div>
-          Test1
+        <div class="MuiGrid-root makeStyles-container-31 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8">
+            <div class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth">
+              <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline">
+                <textarea rows="1"
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                          data-testid="searchBar"
+                >
+                </textarea>
+                <textarea aria-hidden="true"
+                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                          readonly
+                          tabindex="-1"
+                          style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; width: 100%;"
+                >
+                </textarea>
+                <fieldset aria-hidden="true"
+                          style="padding-left: 8px;"
+                          class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend class="PrivateNotchedOutline-legend-174"
+                          style="width: 0px;"
+                  >
+                    <span>
+                      ​
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2">
+            <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+                    tabindex="-1"
+                    type="button"
+                    disabled
+                    data-testid="searchButton"
+            >
+              <span class="MuiButton-label">
+                Search
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
