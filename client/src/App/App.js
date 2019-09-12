@@ -1,23 +1,23 @@
-import React from "react";
-import SwipeableViews from "react-swipeable-views";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
-import { makeStyles } from "@material-ui/styles";
-import Search from "./Search/Search";
-import Header from "./header/Header";
+import React from 'react'
+import SwipeableViews from 'react-swipeable-views'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import { makeStyles } from '@material-ui/styles'
+import Search from './Search/Search'
+import Header from './header/Header'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   tabs: {
-    background: theme.palette.primary.gray
+    background: theme.palette.primary.gray,
   },
   container: {
-    marginTop: 103
-  }
-}));
+    marginTop: 103,
+  },
+}))
 
 export default function App() {
-  const classes = useStyles();
-  const [index, setIndex] = React.useState(0);
+  const classes = useStyles()
+  const [index, setIndex] = React.useState(0)
 
   return (
     <>
@@ -47,5 +47,5 @@ export default function App() {
         </SwipeableViews>
       </div>
     </>
-  );
+  )
 }

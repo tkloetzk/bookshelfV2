@@ -1,6 +1,6 @@
-import React from "react";
-import SearchBar from "./SearchBar/SearchBar";
+import React from 'react'
+import SearchBar from './SearchBar/SearchBar'
 
-const Search = () => <SearchBar />;
+const Search = () => <SearchBar />
 
-export default Search;
+export default Search
