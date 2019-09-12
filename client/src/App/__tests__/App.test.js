@@ -3,6 +3,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import muiTheme from '../../config/themeConfig';
 import App from '../App';
+import { render, cleanup, fireEvent, getByTestId, waitForDomChange, wait, waitForElement } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
 
 describe('App', () => {
   let component;
@@ -19,32 +21,13 @@ describe('App', () => {
     ).find('App');
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+  afterEach(cleanup)
 
   describe('render', () => {
     it('should render as expected', () => {
-      expect(component.html()).toMatchSnapshot();
-    });
-  });
-
-  describe('handleChangeIndex', () => {
-    it('updates the index when clicking the bookshelf tab', () => {
-      component
-        .find('#bookshelfTab')
-        .hostNodes()
-        .props()
-        .onClick();
-      expect(setState).toHaveBeenCalledWith(1);
-    });
-    it('updates the index when clicking the search tab', () => {
-      component
-        .find('#searchTab')
-        .hostNodes()
-        .props()
-        .onClick();
-      expect(setState).toHaveBeenCalledWith(0);
-    });
+      const { asFragment } = render(<MuiThemeProvider theme={muiTheme}>
+        <App />
+        </MuiThemeProvider>)
+      expect(asFragment()).toMatchSnapshot()    });
   });
 });

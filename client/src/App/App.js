@@ -19,10 +19,6 @@ export default function App() {
   const classes = useStyles();
   const [index, setIndex] = React.useState(0);
 
-  function handleChangeIndex(newValue) {
-    setIndex(newValue);
-  }
-
   return (
     <>
       <Header>Book Review Aggregator</Header>
@@ -36,21 +32,22 @@ export default function App() {
         >
           <Tab
             label="Search"
-            id="searchTab"
-            onClick={() => handleChangeIndex(0)}
+            data-testid="searchTab"
+            onClick={() => setIndex(0)}
           />
           <Tab
             label="Bookshelf"
-            id="bookshelfTab"
-            onClick={() => handleChangeIndex(1)}
+            data-testid="bookshelfTab"
+            onClick={() => setIndex(1)}
           />
         </Tabs>
         <SwipeableViews
           index={index}
-          onChangeIndex={handleChangeIndex}
+          onChangeIndex={setIndex}
         >
           <Search />
-          <div>Test2</div>
+          <div
+            data-testid="bookshelfView">Test2</div>
         </SwipeableViews>
       </div>
     </>

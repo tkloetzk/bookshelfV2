@@ -17,8 +17,13 @@ export default function SearchBar() {
   const classes = useStyles();
   const [searchedISBNs, setSearchedISBNs] = React.useState('');
 
+  function handleSearch() {
+    const formattedIsbn = isbn.replace(/[- ]/g, '');
+    console.log(formattedIsbn)
+  }
   return (
-    <Grid container justify="center" alignItems="center" spacing={4} className={classes.container}>
+    <Grid container justify="center" alignItems="center" spacing={4} className={classes.container} 
+    data-testid="searchView">
       <Grid item xs={8} >
         <Textfield 
           value={searchedISBNs}
@@ -35,6 +40,7 @@ export default function SearchBar() {
           color="primary"
           disabled={isEmpty(searchedISBNs)}
           data-testid="searchButton"
+          onClick={handleSearch}
         >
           Search
         </Button>

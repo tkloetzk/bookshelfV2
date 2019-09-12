@@ -4,6 +4,7 @@ exports[`SearchBar render should render as expected 1`] = `
 <DocumentFragment>
   <div
     class="MuiGrid-root makeStyles-container-1 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+    data-testid="searchView"
   >
     <div
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
@@ -19,6 +20,7 @@ exports[`SearchBar render should render as expected 1`] = `
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
             data-testid="searchBar"
             rows="1"
+            style="height: 0px; overflow: hidden;"
           />
           <textarea
             aria-hidden="true"
@@ -34,7 +36,7 @@ exports[`SearchBar render should render as expected 1`] = `
           >
             <legend
               class="PrivateNotchedOutline-legend-144"
-              style="width: 0px;"
+              style="width: 0.01px;"
             >
               <span>
                 ​
