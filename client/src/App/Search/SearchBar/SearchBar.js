@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import isEmpty from 'lodash/isEmpty';
 import isIsbn from 'is-isbn';
 import forEach from 'lodash/forEach';
-import map from 'lodash/map';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -28,16 +27,14 @@ export default function SearchBar() {
       const formattedIsbn = isbn.replace(/[- ]/g, '');
       if (isIsbn.validate(formattedIsbn)) {
         promiseISBNs.push(formattedIsbn);
-      } else {
-        console.log('invalid', formattedIsbn);
       }
     });
 
-    if (promiseISBNs.length) {
-      Promise.all(map(promiseISBNs, (isbn) => {
-        // getBook(isbn)
-      }));
-    }
+    // if (promiseISBNs.length) {
+    //   Promise.all(map(promiseISBNs, (isbn) => {
+    //     // getBook(isbn)
+    //   }));
+    // }
   }
   return (
     <Grid
