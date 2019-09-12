@@ -5,9 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"client-install": "npm install --prefix client",
-		"lint": "cd client && npm run lint; cd ../",
+    "install-all": "npm install && npm install --prefix client",
 		"test": "cd client && npm test; cd ../",
 		"test:coverage": "cd client && npm run test:coverage; cd ../",
+		"lint": "cd client && npm run lint; cd ../",
 		"start": "node server.js",
 		"server": "nodemon server.js",
 		"start:dev": "NODE_ENV=dev node server.js",

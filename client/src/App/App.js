@@ -1,12 +1,12 @@
 import React from 'react';
-import Search from './Search/Search';
 import SwipeableViews from 'react-swipeable-views';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import { makeStyles } from '@material-ui/styles';
+import Search from './Search/Search';
 import Header from './header/Header';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   tabs: {
     background: theme.palette.primary.gray,
   },
@@ -47,7 +47,10 @@ export default function App() {
         >
           <Search />
           <div
-            data-testid="bookshelfView">Test2</div>
+            data-testid="bookshelfView"
+          >
+Test2
+          </div>
         </SwipeableViews>
       </div>
     </>
