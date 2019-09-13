@@ -71,7 +71,7 @@ export default function Book({ book = {} }) {
         }}
       />
       <CardMedia
-        className={classes.media}
+        classes={{ media: classes.media }}
         component="img"
         image={book.thumbnail}
         title={book.title}
@@ -95,7 +95,7 @@ Book.defaultProps = {
 }
 
 Book.propTypes = {
-  book: PropTypes.shapeOf({
+  book: PropTypes.shape({
     adjustedRating: PropTypes.number,
     owned: PropTypes.bool,
     title: PropTypes.string,

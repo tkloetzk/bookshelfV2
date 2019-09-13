@@ -13,6 +13,6 @@ const Results = ({ booklist = [] }) => (
 )
 
 Results.propTypes = {
-  booklist: PropTypes.arrayOf([PropTypes.shape]),
+  booklist: PropTypes.arrayOf(PropTypes.shape),
 }
 export default Results
