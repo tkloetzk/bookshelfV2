@@ -47,23 +47,23 @@ export default function Book({ book = {} }) {
           <Typography variant="body2">
             {Math.round(book.adjustedRating * 1000) / 1000}
           </Typography>
-)}
+        )}
         action={(
           <IconButton aria-label="owned">
             {book.owned ? <OwnedBook /> : <UnownedBook />}
           </IconButton>
-)}
+        )}
         disableTypography
         title={(
           <Typography variant="body2" align="center">
             {book.title}
           </Typography>
-)}
+        )}
         subheader={(
           <Typography variant="caption" align="center">
             {book.categories.join(', ')}
           </Typography>
-)}
+        )}
         classes={{
           action: classes.iconButton,
           root: classes.cardHeader,
