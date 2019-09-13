@@ -1,6 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { render, fireEvent, wait } from '@testing-library/react'
+import { fireEvent, render, wait } from '@testing-library/react'
 import muiTheme from '../../../../config/themeConfig'
 import SearchBar from '../SearchBar'
 import '@testing-library/jest-dom/extend-expect'

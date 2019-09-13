@@ -5,6 +5,7 @@ import Tabs from '@material-ui/core/Tabs'
 import { makeStyles } from '@material-ui/styles'
 import Search from './Search/Search'
 import Header from './header/Header'
+import Bookshelf from './Bookshelf/Bookshelf'
 
 const useStyles = makeStyles((theme) => ({
   tabs: {
@@ -43,7 +44,7 @@ export default function App() {
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={setIndex}>
           <Search />
-          <div data-testid="bookshelfView">Test2</div>
+          <Bookshelf />
         </SwipeableViews>
       </div>
     </>
