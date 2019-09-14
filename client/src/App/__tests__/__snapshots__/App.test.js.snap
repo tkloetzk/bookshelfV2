@@ -40,7 +40,7 @@ exports[`App render should render as expected 1`] = `
               Search
             </span>
             <span
-              class="PrivateTabIndicator-root-27 PrivateTabIndicator-colorPrimary-28 MuiTabs-indicator"
+              class="MuiTouchRipple-root"
             />
           </button>
           <button
@@ -56,8 +56,15 @@ exports[`App render should render as expected 1`] = `
             >
               Bookshelf
             </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
         </div>
+        <span
+          class="PrivateTabIndicator-root-27 PrivateTabIndicator-colorPrimary-28 MuiTabs-indicator"
+          style="left: 0px; width: 0px;"
+        />
       </div>
     </div>
     <div
@@ -90,6 +97,7 @@ exports[`App render should render as expected 1`] = `
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
                     data-testid="searchBar"
                     rows="1"
+                    style="height: 0px; overflow: hidden;"
                   />
                   <textarea
                     aria-hidden="true"
@@ -105,7 +113,7 @@ exports[`App render should render as expected 1`] = `
                   >
                     <legend
                       class="PrivateNotchedOutline-legend-174"
-                      style="width: 0px;"
+                      style="width: 0.01px;"
                     >
                       <span>
                         ​
@@ -131,6 +139,267 @@ exports[`App render should render as expected 1`] = `
                   Search
                 </span>
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+    style="z-index: 1;"
+  >
+    <div
+      class="header-content display-4"
+    >
+      Book Review Aggregator
+    </div>
+  </header>
+  <div
+    class="makeStyles-container-203"
+  >
+    <div
+      class="MuiTabs-root makeStyles-tabs-202"
+    >
+      <div
+        class="MuiTabs-scroller MuiTabs-fixed"
+        style="overflow: hidden;"
+      >
+        <div
+          class="MuiTabs-flexContainer"
+          role="tablist"
+        >
+          <button
+            aria-selected="false"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
+            data-testid="searchTab"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiTab-wrapper"
+            >
+              Search
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-selected="true"
+            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected MuiTab-fullWidth"
+            data-testid="bookshelfTab"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiTab-wrapper"
+            >
+              Bookshelf
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <span
+          class="PrivateTabIndicator-root-228 PrivateTabIndicator-colorPrimary-229 MuiTabs-indicator"
+          style="left: 0px; width: 0px;"
+        />
+      </div>
+    </div>
+    <div
+      style="overflow-x: hidden;"
+    >
+      <div
+        class="react-swipeable-view-container"
+        style="flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; direction: ltr; display: flex; will-change: transform; transform: translate(-100%, 0);"
+      >
+        <div
+          aria-hidden="true"
+          data-swipeable="true"
+          style="width: 100%; flex-shrink: 0; overflow: auto;"
+        >
+          <div
+            class="MuiGrid-root makeStyles-container-232 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            data-testid="searchView"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+              >
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+                >
+                  <textarea
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                    data-testid="searchBar"
+                    rows="1"
+                    style="height: 0px; overflow: hidden;"
+                  />
+                  <textarea
+                    aria-hidden="true"
+                    class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                    readonly=""
+                    style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; width: 100%;"
+                    tabindex="-1"
+                  />
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-374 MuiOutlinedInput-notchedOutline"
+                    style="padding-left: 8px;"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legend-375"
+                      style="width: 0.01px;"
+                    >
+                      <span>
+                        ​
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+                data-testid="searchButton"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="false"
+          data-swipeable="true"
+          style="width: 100%; flex-shrink: 0; overflow: auto;"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-403  MuiPaper-rounded"
+            >
+              <div
+                class="MuiCardHeader-root makeStyles-cardHeader-406"
+              >
+                <div
+                  class="MuiCardHeader-avatar makeStyles-avatar-408"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body2"
+                  >
+                    3.85
+                  </p>
+                </div>
+                <div
+                  class="MuiCardHeader-content makeStyles-headerContent-407"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
+                  >
+                    The Happiest Toddler on the Block
+                  </p>
+                </div>
+                <div
+                  class="MuiCardHeader-action makeStyles-iconButton-405"
+                >
+                  <button
+                    aria-label="owned"
+                    class="MuiButtonBase-root MuiIconButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        role="presentation"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter"
+              >
+                Toddler, Parenting
+              </span>
+              <img
+                class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-404"
+                src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+                title="The Happiest Toddler on the Block"
+              />
+              <div
+                class="MuiCardContent-root"
+              >
+                <p
+                  class="MuiTypography-root makeStyles-description-409 MuiTypography-caption MuiTypography-colorTextSecondary"
+                >
+                  The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
+                </p>
+              </div>
+              <div
+                class="MuiCardActions-root makeStyles-expandAction-411 MuiCardActions-spacing"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-410"
+                  data-testid="expandButton"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
             </div>
           </div>
         </div>

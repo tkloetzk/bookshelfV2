@@ -37,18 +37,13 @@
 		}
 	},
 	"lint-staged": {
-		"*.js": [
-			"eslint --fix ./src",
-			"git add"
-		]
+		"*.js": [ "eslint --fix ./src", "git add" ]
 	},
 	"eslintConfig": {
 		"extends": "react-app"
 	},
 	"jest": {
-		"collectCoverageFrom": [
-			"src/**/*.{js,jsx,ts,tsx}"
-		],
+		"collectCoverageFrom": [ "src/**/*.{js,jsx,ts,tsx}" ],
 		"coveragePathIgnorePatterns": [
 			"<rootDir>/node_modules",
 			"<rootDir>/src/setupTests.js",
@@ -58,21 +53,11 @@
 			"<rootDir>/src/config/",
 			"<rootDir>/src/util/constants.js"
 		],
-		"snapshotSerializers": [
-			"jest-serializer-html"
-		]
+		"snapshotSerializers": [ "jest-serializer-html" ]
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
+		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
 	},
 	"devDependencies": {
 		"@testing-library/react": "^9.1.4",

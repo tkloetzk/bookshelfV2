@@ -73,7 +73,7 @@ export default function Book({ book = {} }) {
           </Typography>
         )}
         action={(
-          <IconButton aria-label="owned">
+          <IconButton aria-label={book.owned ? 'owned' : 'unowned'}>
             {book.owned ? <OwnedBook /> : <UnownedBook />}
           </IconButton>
         )}
@@ -111,6 +111,7 @@ export default function Book({ book = {} }) {
       </CardContent>
       <CardActions classes={{ root: classes.expandAction }}>
         <IconButton
+          data-testid="expandButton"
           onClick={handleExpandClick}
           className={expanded ? classes.expandOpen : classes.expand}
         >
@@ -121,18 +122,22 @@ export default function Book({ book = {} }) {
         <CardContent>
           <Typography variant="caption" component="div">
 Amazon Rating:
+            {' '}
             {book.amazonAverageRating}
           </Typography>
           <Typography variant="caption" component="div">
 Goodreads Rating:
+            {' '}
             {book.goodreadsAverageRating}
           </Typography>
           <Typography variant="caption" component="div">
 Amazon Review:
+            {' '}
             {book.amazonRatingsCount}
           </Typography>
           <Typography variant="caption" component="div">
 Goodreads Review:
+            {' '}
             {book.goodreadsRatingsCount}
           </Typography>
         </CardContent>

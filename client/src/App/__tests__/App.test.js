@@ -1,15 +1,13 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { render, cleanup } from '@testing-library/react'
+import {
+  render, cleanup, fireEvent, wait,
+} from '@testing-library/react'
 import muiTheme from '../../config/themeConfig'
 import App from '../App'
 import '@testing-library/jest-dom/extend-expect'
 
 describe('App', () => {
-  const setState = jest.fn()
-  const useStateSpy = jest.spyOn(React, 'useState')
-  useStateSpy.mockImplementation((init) => [init, setState])
-
   afterEach(cleanup)
 
   describe('render', () => {
@@ -19,6 +17,22 @@ describe('App', () => {
           <App />
         </MuiThemeProvider>,
       )
+      expect(asFragment()).toMatchSnapshot()
+    })
+  })
+
+  describe('tabs', () => {
+    it('should show Bookshelf when bookshelf tab is clicked', async () => {
+      const { asFragment, getByTestId } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <App />
+        </MuiThemeProvider>,
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('bookshelfTab'))
+      })
+
       expect(asFragment()).toMatchSnapshot()
     })
   })
