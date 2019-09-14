@@ -9,11 +9,14 @@ import UnownedBook from '@material-ui/icons/HomeOutlined'
 import { makeStyles } from '@material-ui/core/styles'
 import CardContent from '@material-ui/core/CardContent'
 import PropTypes from 'prop-types'
+import CardActions from '@material-ui/core/CardActions'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import Collapse from '@material-ui/core/Collapse'
 
 const useStyles = makeStyles({
   card: {
     width: 235,
-    maxHeight: 455,
+    maxHeight: 441,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -27,21 +30,42 @@ const useStyles = makeStyles({
     alignSelf: 'center',
   },
   cardHeader: {
-    padding: '13px',
+    padding: '13px 13px 0px 13px',
+  },
+  headerContent: {
+    paddingLeft: 9,
   },
   avatar: {
     marginRight: 0,
   },
   description: {
     height: '153px',
+    overflow: 'auto',
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+  },
+  expandAction: {
+    padding: 0,
+  },
+  expanded: {
+    maxHeight: 546,
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
   },
 })
 
 export default function Book({ book = {} }) {
   const classes = useStyles()
+  const [expanded, setExpanded] = React.useState(false)
+
+  function handleExpandClick() {
+    setExpanded(!expanded)
+  }
 
   return (
-    <Card className={classes.card}>
+    <Card className={[classes.card, expanded ? classes.expanded : null].join(' ')}>
       <CardHeader
         avatar={(
           <Typography variant="body2">
@@ -59,17 +83,16 @@ export default function Book({ book = {} }) {
             {book.title}
           </Typography>
         )}
-        subheader={(
-          <Typography variant="caption" align="center">
-            {book.categories.join(', ')}
-          </Typography>
-        )}
         classes={{
           action: classes.iconButton,
           root: classes.cardHeader,
           avatar: classes.avatar,
+          content: classes.headerContent,
         }}
       />
+      <Typography variant="caption" align="center">
+        {book.categories.join(', ')}
+      </Typography>
       <CardMedia
         classes={{ media: classes.media }}
         component="img"
@@ -86,12 +109,36 @@ export default function Book({ book = {} }) {
           {book.description}
         </Typography>
       </CardContent>
+      <CardActions classes={{ root: classes.expandAction }}>
+        <IconButton
+          onClick={handleExpandClick}
+          className={expanded ? classes.expandOpen : classes.expand}
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="caption" component="div">
+Amazon Rating:
+            {book.amazonAverageRating}
+          </Typography>
+          <Typography variant="caption" component="div">
+Goodreads Rating:
+            {book.goodreadsAverageRating}
+          </Typography>
+          <Typography variant="caption" component="div">
+Amazon Review:
+            {book.amazonRatingsCount}
+          </Typography>
+          <Typography variant="caption" component="div">
+Goodreads Review:
+            {book.goodreadsRatingsCount}
+          </Typography>
+        </CardContent>
+      </Collapse>
     </Card>
   )
-}
-
-Book.defaultProps = {
-  book: {},
 }
 
 Book.propTypes = {
@@ -102,5 +149,9 @@ Book.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.string),
     thumbnail: PropTypes.string,
     description: PropTypes.string,
+    amazonAverageRating: PropTypes.number,
+    amazonRatingsCount: PropTypes.number,
+    goodreadsAverageRating: PropTypes.number,
+    goodreadsRatingsCount: PropTypes.number,
   }),
 }
