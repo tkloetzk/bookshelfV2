@@ -1,6 +1,8 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { fireEvent, render, wait } from '@testing-library/react'
+import {
+  fireEvent, render, wait, cleanup,
+} from '@testing-library/react'
 import muiTheme from '../../../config/themeConfig'
 import Book from '../Book'
 import '@testing-library/jest-dom/extend-expect'
@@ -30,8 +32,9 @@ describe('Book', () => {
       __v: 0,
     }
   })
+  afterEach(cleanup)
   describe('render', () => {
-    it('should render as expected with book prop', () => {
+    it('should render as expected', () => {
       const { asFragment } = render(
         <MuiThemeProvider theme={muiTheme}>
           <Book book={book} />

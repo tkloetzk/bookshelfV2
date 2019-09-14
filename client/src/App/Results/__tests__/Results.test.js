@@ -30,12 +30,14 @@ describe('render', () => {
     }]
   })
 
-  it('should render as expected with booklist prop', () => {
-    const { asFragment } = render(
-      <MuiThemeProvider theme={muiTheme}>
-        <Results booklist={booklist} />
-      </MuiThemeProvider>,
-    )
-    expect(asFragment()).toMatchSnapshot()
+  describe('renders', () => {
+    it('should render as expected', () => {
+      const { asFragment } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <Results booklist={booklist} />
+        </MuiThemeProvider>,
+      )
+      expect(asFragment()).toMatchSnapshot()
+    })
   })
 })

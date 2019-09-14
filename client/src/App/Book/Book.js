@@ -13,18 +13,23 @@ import CardActions from '@material-ui/core/CardActions'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     width: 235,
-    maxHeight: 441,
+    maxHeight: 459,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
     margin: '13px',
   },
+  header: {
+    backgroundColor: theme.palette.primary.gray,
+    paddingBottom: '13px',
+  },
   media: {
     width: '33%',
+    paddingTop: '16px',
   },
   iconButton: {
     alignSelf: 'center',
@@ -49,14 +54,14 @@ const useStyles = makeStyles({
     padding: 0,
   },
   expanded: {
-    maxHeight: 546,
+    maxHeight: 574,
   },
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-})
+}))
 
-export default function Book({ book = {} }) {
+export default function Book({ book }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
 
@@ -66,39 +71,43 @@ export default function Book({ book = {} }) {
 
   return (
     <Card className={[classes.card, expanded ? classes.expanded : null].join(' ')}>
-      <CardHeader
-        avatar={(
-          <Typography variant="body2">
-            {(Math.round(book.adjustedRating * 1000) / 1000).toString()}
-          </Typography>
+      <div className={classes.header}>
+        <CardHeader
+          avatar={(
+            <Typography variant="body2">
+              {(Math.round(book.adjustedRating * 1000) / 1000).toString()}
+            </Typography>
         )}
-        action={(
-          <IconButton aria-label={book.owned ? 'owned' : 'unowned'}>
-            {book.owned ? <OwnedBook /> : <UnownedBook />}
-          </IconButton>
+          action={(
+            <IconButton aria-label={book.owned ? 'owned' : 'unowned'}>
+              {book.owned ? <OwnedBook /> : <UnownedBook />}
+            </IconButton>
         )}
-        disableTypography
-        title={(
-          <Typography variant="body2" align="center">
-            {book.title}
-          </Typography>
+          disableTypography
+          title={(
+            <Typography variant="body2" align="center">
+              {book.title}
+            </Typography>
         )}
-        classes={{
-          action: classes.iconButton,
-          root: classes.cardHeader,
-          avatar: classes.avatar,
-          content: classes.headerContent,
-        }}
-      />
-      <Typography variant="caption" align="center">
-        {book.categories.join(', ')}
-      </Typography>
+          classes={{
+            action: classes.iconButton,
+            root: classes.cardHeader,
+            avatar: classes.avatar,
+            content: classes.headerContent,
+          }}
+        />
+        <Typography variant="caption" align="center">
+          {book.categories.join(', ')}
+        </Typography>
+      </div>
+      {book.thumbnail && (
       <CardMedia
         classes={{ media: classes.media }}
         component="img"
         image={book.thumbnail}
         title={book.title}
       />
+      )}
       <CardContent>
         <Typography
           variant="caption"
@@ -158,5 +167,5 @@ Book.propTypes = {
     amazonRatingsCount: PropTypes.number,
     goodreadsAverageRating: PropTypes.number,
     goodreadsRatingsCount: PropTypes.number,
-  }),
+  }).isRequired,
 }

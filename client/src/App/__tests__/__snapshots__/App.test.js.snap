@@ -161,10 +161,10 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
     </div>
   </header>
   <div
-    class="makeStyles-container-507"
+    class="makeStyles-container-508"
   >
     <div
-      class="MuiTabs-root makeStyles-tabs-506"
+      class="MuiTabs-root makeStyles-tabs-507"
     >
       <div
         class="MuiTabs-scroller MuiTabs-fixed"
@@ -210,7 +210,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
           </button>
         </div>
         <span
-          class="PrivateTabIndicator-root-532 PrivateTabIndicator-colorPrimary-533 MuiTabs-indicator"
+          class="PrivateTabIndicator-root-533 PrivateTabIndicator-colorPrimary-534 MuiTabs-indicator"
           style="left: 0px; width: 0px;"
         />
       </div>
@@ -228,7 +228,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
           style="width: 100%; flex-shrink: 0; overflow: auto;"
         >
           <div
-            class="MuiGrid-root makeStyles-container-536 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            class="MuiGrid-root makeStyles-container-537 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
             data-testid="searchView"
           >
             <div
@@ -256,11 +256,11 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-678 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-679 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-679"
+                      class="PrivateNotchedOutline-legend-680"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -299,66 +299,70 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
           >
             <div
-              class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-707  MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-708  MuiPaper-rounded"
             >
               <div
-                class="MuiCardHeader-root makeStyles-cardHeader-710"
+                class="makeStyles-header-709"
               >
                 <div
-                  class="MuiCardHeader-avatar makeStyles-avatar-712"
+                  class="MuiCardHeader-root makeStyles-cardHeader-712"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body2"
+                  <div
+                    class="MuiCardHeader-avatar makeStyles-avatar-714"
                   >
-                    3.85
-                  </p>
-                </div>
-                <div
-                  class="MuiCardHeader-content makeStyles-headerContent-711"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
-                  >
-                    The Happiest Toddler on the Block
-                  </p>
-                </div>
-                <div
-                  class="MuiCardHeader-action makeStyles-iconButton-709"
-                >
-                  <button
-                    aria-label="owned"
-                    class="MuiButtonBase-root MuiIconButton-root"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <p
+                      class="MuiTypography-root MuiTypography-body2"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        role="presentation"
-                        viewBox="0 0 24 24"
+                      3.85
+                    </p>
+                  </div>
+                  <div
+                    class="MuiCardHeader-content makeStyles-headerContent-713"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
+                    >
+                      The Happiest Toddler on the Block
+                    </p>
+                  </div>
+                  <div
+                    class="MuiCardHeader-action makeStyles-iconButton-711"
+                  >
+                    <button
+                      aria-label="owned"
+                      class="MuiButtonBase-root MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiIconButton-label"
                       >
-                        <path
-                          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
+                <span
+                  class="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter"
+                >
+                  Toddler, Parenting
+                </span>
               </div>
-              <span
-                class="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter"
-              >
-                Toddler, Parenting
-              </span>
               <img
-                class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-708"
+                class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-710"
                 src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
                 title="The Happiest Toddler on the Block"
               />
@@ -366,16 +370,16 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
                 class="MuiCardContent-root"
               >
                 <p
-                  class="MuiTypography-root makeStyles-description-713 MuiTypography-caption MuiTypography-colorTextSecondary"
+                  class="MuiTypography-root makeStyles-description-715 MuiTypography-caption MuiTypography-colorTextSecondary"
                 >
                   The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
                 </p>
               </div>
               <div
-                class="MuiCardActions-root makeStyles-expandAction-715 MuiCardActions-spacing"
+                class="MuiCardActions-root makeStyles-expandAction-717 MuiCardActions-spacing"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-714"
+                  class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-716"
                   data-testid="expandButton"
                   tabindex="0"
                   type="button"
@@ -563,63 +567,67 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
               class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-403  MuiPaper-rounded"
             >
               <div
-                class="MuiCardHeader-root makeStyles-cardHeader-406"
+                class="makeStyles-header-404"
               >
                 <div
-                  class="MuiCardHeader-avatar makeStyles-avatar-408"
+                  class="MuiCardHeader-root makeStyles-cardHeader-407"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body2"
+                  <div
+                    class="MuiCardHeader-avatar makeStyles-avatar-409"
                   >
-                    3.85
-                  </p>
-                </div>
-                <div
-                  class="MuiCardHeader-content makeStyles-headerContent-407"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
-                  >
-                    The Happiest Toddler on the Block
-                  </p>
-                </div>
-                <div
-                  class="MuiCardHeader-action makeStyles-iconButton-405"
-                >
-                  <button
-                    aria-label="owned"
-                    class="MuiButtonBase-root MuiIconButton-root"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiIconButton-label"
+                    <p
+                      class="MuiTypography-root MuiTypography-body2"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        role="presentation"
-                        viewBox="0 0 24 24"
+                      3.85
+                    </p>
+                  </div>
+                  <div
+                    class="MuiCardHeader-content makeStyles-headerContent-408"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
+                    >
+                      The Happiest Toddler on the Block
+                    </p>
+                  </div>
+                  <div
+                    class="MuiCardHeader-action makeStyles-iconButton-406"
+                  >
+                    <button
+                      aria-label="owned"
+                      class="MuiButtonBase-root MuiIconButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiIconButton-label"
                       >
-                        <path
-                          d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
                 </div>
+                <span
+                  class="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter"
+                >
+                  Toddler, Parenting
+                </span>
               </div>
-              <span
-                class="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter"
-              >
-                Toddler, Parenting
-              </span>
               <img
-                class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-404"
+                class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-405"
                 src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
                 title="The Happiest Toddler on the Block"
               />
@@ -627,16 +635,16 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
                 class="MuiCardContent-root"
               >
                 <p
-                  class="MuiTypography-root makeStyles-description-409 MuiTypography-caption MuiTypography-colorTextSecondary"
+                  class="MuiTypography-root makeStyles-description-410 MuiTypography-caption MuiTypography-colorTextSecondary"
                 >
                   The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
                 </p>
               </div>
               <div
-                class="MuiCardActions-root makeStyles-expandAction-411 MuiCardActions-spacing"
+                class="MuiCardActions-root makeStyles-expandAction-412 MuiCardActions-spacing"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-410"
+                  class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-411"
                   data-testid="expandButton"
                   tabindex="0"
                   type="button"
