@@ -69,7 +69,7 @@ export default function Book({ book = {} }) {
       <CardHeader
         avatar={(
           <Typography variant="body2">
-            {Math.round(book.adjustedRating * 1000) / 1000}
+            {(Math.round(book.adjustedRating * 1000) / 1000).toString()}
           </Typography>
         )}
         action={(

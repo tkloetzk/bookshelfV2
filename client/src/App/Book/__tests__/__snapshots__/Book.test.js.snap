@@ -253,7 +253,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Book render should render as expected 1`] = `
+exports[`Book render should render as expected with book prop 1`] = `
 <DocumentFragment>
   <div
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1  MuiPaper-rounded"

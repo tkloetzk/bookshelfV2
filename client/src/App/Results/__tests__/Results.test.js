@@ -1,15 +1,14 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { fireEvent, render, wait } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import muiTheme from '../../../config/themeConfig'
-import Book from '../Book'
+import Results from '../Results'
 import '@testing-library/jest-dom/extend-expect'
 
-
-describe('Book', () => {
-  let book
+describe('render', () => {
+  let booklist
   beforeEach(() => {
-    book = {
+    booklist = [{
       categories: [
         'Toddler',
         'Parenting',
@@ -28,42 +27,15 @@ describe('Book', () => {
       goodreadsAverageRating: 3.5,
       goodreadsRatingsCount: 5451,
       __v: 0,
-    }
+    }]
   })
-  describe('render', () => {
-    it('should render as expected with book prop', () => {
-      const { asFragment } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <Book book={book} />
-        </MuiThemeProvider>,
-      )
-      expect(asFragment()).toMatchSnapshot()
-    })
-  })
-  describe('expand', () => {
-    it('expands on handleExpandClick', async () => {
-      const { asFragment, getByTestId } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <Book book={book} />
-        </MuiThemeProvider>,
-      )
-      await wait(() => {
-        fireEvent.click(getByTestId('expandButton'))
-      })
 
-      expect(asFragment()).toMatchSnapshot()
-    })
-  })
-  describe('IconButtons', () => {
-    it('shows the unowned icon for an unowned book', () => {
-      book = { ...book, owned: false }
-      const { asFragment } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <Book book={book} />
-        </MuiThemeProvider>,
-      )
-
-      expect(asFragment()).toMatchSnapshot()
-    })
+  it('should render as expected with booklist prop', () => {
+    const { asFragment } = render(
+      <MuiThemeProvider theme={muiTheme}>
+        <Results booklist={booklist} />
+      </MuiThemeProvider>,
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 })
