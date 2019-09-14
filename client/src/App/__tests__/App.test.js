@@ -22,6 +22,23 @@ describe('App', () => {
   })
 
   describe('tabs', () => {
+    it('should show Search when search tab is clicked', async () => {
+      const { asFragment, getByTestId } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <App />
+        </MuiThemeProvider>,
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('bookshelfTab'))
+      })
+
+      await wait(() => {
+        fireEvent.click(getByTestId('searchTab'))
+      })
+
+      expect(asFragment()).toMatchSnapshot()
+    })
     it('should show Bookshelf when bookshelf tab is clicked', async () => {
       const { asFragment, getByTestId } = render(
         <MuiThemeProvider theme={muiTheme}>

@@ -228,22 +228,22 @@ exports[`Book expand expands on handleExpandClick 1`] = `
             <div
               class="MuiTypography-root MuiTypography-caption"
             >
-              Amazon Rating:(' ')4.2
+              Amazon Rating: 4.2
             </div>
             <div
               class="MuiTypography-root MuiTypography-caption"
             >
-              Goodreads Rating:(' ')3.5
+              Goodreads Rating: 3.5
             </div>
             <div
               class="MuiTypography-root MuiTypography-caption"
             >
-              Amazon Review:(' ')611
+              Amazon Review: 611
             </div>
             <div
               class="MuiTypography-root MuiTypography-caption"
             >
-              Goodreads Review:(' ')5451
+              Goodreads Review: 5451
             </div>
           </div>
         </div>
