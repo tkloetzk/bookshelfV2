@@ -1,5 +1,5 @@
 import Grid from '@material-ui/core/Grid'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Textfield from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/styles'
 import Button from '@material-ui/core/Button'
@@ -18,6 +18,13 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchBar() {
   const classes = useStyles()
   const [searchedISBNs, setSearchedISBNs] = React.useState('')
+  const [formattedISBNs, setFormattedISBNs] = React.useState([])
+
+  useEffect(() => {
+    if (formattedISBNs.length) {
+      // console.log('formatted isbns')
+    }
+  }, [formattedISBNs])
 
   function handleSearch() {
     const isbns = searchedISBNs.split(/[\n, ]/).filter((v) => v !== '')
@@ -29,6 +36,8 @@ export default function SearchBar() {
         promiseISBNs.push(formattedIsbn)
       }
     })
+
+    setFormattedISBNs(promiseISBNs)
 
     // if (promiseISBNs.length) {
     //   Promise.all(map(promiseISBNs, (isbn) => {
