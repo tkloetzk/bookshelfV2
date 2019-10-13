@@ -10,7 +10,7 @@ function calculateMeans(booklist) {
   let amazonVotes = 0
   // total = 0;
 
-  forEach(booklist, (book) => {
+  forEach(booklist, book => {
     goodreadsVotes += get(book, 'goodreadsAverageRating')
     amazonVotes += get(book, 'amazonAverageRating')
     // total +=
@@ -28,20 +28,20 @@ function calculateMeans(booklist) {
 function getAdjustedRating(ratingsCount, averageRating, meanVote, minVotes) {
   // double rating = averageRating * 2;
   return (
-    (ratingsCount / (ratingsCount + minVotes)) * averageRating
-    + (minVotes / (ratingsCount + minVotes)) * meanVote
+    (ratingsCount / (ratingsCount + minVotes)) * averageRating +
+    (minVotes / (ratingsCount + minVotes)) * meanVote
   )
 }
 
 function getGoodreadsRatingsCountList(booklist) {
   const votes = []
-  forEach(booklist, (book) => votes.push(book.goodreadsRatingsCount))
+  forEach(booklist, book => votes.push(book.goodreadsRatingsCount))
   return votes.sort((a, b) => a - b)
 }
 
 function getAmazonRatingsCountList(booklist) {
   const votes = []
-  forEach(booklist, (book) => votes.push(book.amazonRatingsCount))
+  forEach(booklist, book => votes.push(book.amazonRatingsCount))
   return votes.sort((a, b) => a - b)
 }
 
@@ -60,32 +60,33 @@ function trimmean(votes) {
   const roundDownNearedMultipleTwo = Math.floor(
     removeAmount >= 0
       ? (removeAmount / 2) * 2
-      : ((removeAmount - 2 + 1) / 2) * 2,
+      : ((removeAmount - 2 + 1) / 2) * 2
   )
   return getMean(
     votes.slice(
       roundDownNearedMultipleTwo,
-      votes.length - roundDownNearedMultipleTwo,
-    ),
+      votes.length - roundDownNearedMultipleTwo
+    )
   )
 }
 
 function calculateAdjustedRating(booklist) {
   for (let i = 0; i < booklist.length; i += 1) {
     const book = booklist[i]
-    const adjustedRating = (getAdjustedRating(
-      get(book, 'goodreadsRatingsCount'),
-      get(book, 'goodreadsAverageRating'),
-      meanGoodreadsVotes,
-      trimmean(getGoodreadsRatingsCountList(booklist)),
-    )
-        + getAdjustedRating(
+    const adjustedRating =
+      (getAdjustedRating(
+        get(book, 'goodreadsRatingsCount'),
+        get(book, 'goodreadsAverageRating'),
+        meanGoodreadsVotes,
+        trimmean(getGoodreadsRatingsCountList(booklist))
+      ) +
+        getAdjustedRating(
           get(book, 'amazonRatingsCount'),
           get(book, 'amazonAverageRating'),
           meanAmazonVotes,
-          trimmean(getAmazonRatingsCountList(booklist)),
-        ))
-      / 2
+          trimmean(getAmazonRatingsCountList(booklist))
+        )) /
+      2
     book.adjustedRating = adjustedRating
   }
 }

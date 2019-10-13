@@ -11,7 +11,7 @@ describe('SearchBar', () => {
       const { asFragment } = render(
         <MuiThemeProvider theme={muiTheme}>
           <SearchBar />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
       expect(asFragment()).toMatchSnapshot()
     })
@@ -21,7 +21,7 @@ describe('SearchBar', () => {
       const { getByTestId } = render(
         <MuiThemeProvider theme={muiTheme}>
           <SearchBar />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
       await wait(() => {
         fireEvent.change(getByTestId('searchBar'), {
@@ -35,7 +35,7 @@ describe('SearchBar', () => {
       const { getByTestId } = render(
         <MuiThemeProvider theme={muiTheme}>
           <SearchBar />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
       await wait(() => {
         fireEvent.change(getByTestId('searchBar'), { target: { value: '' } })

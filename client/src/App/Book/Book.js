@@ -13,7 +13,7 @@ import CardActions from '@material-ui/core/CardActions'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   card: {
     width: 235,
     maxHeight: 459,
@@ -70,25 +70,27 @@ export default function Book({ book }) {
   }
 
   return (
-    <Card className={[classes.card, expanded ? classes.expanded : null].join(' ')}>
+    <Card
+      className={[classes.card, expanded ? classes.expanded : null].join(' ')}
+    >
       <div className={classes.header}>
         <CardHeader
-          avatar={(
+          avatar={
             <Typography variant="body2">
               {(Math.round(book.adjustedRating * 1000) / 1000).toString()}
             </Typography>
-        )}
-          action={(
+          }
+          action={
             <IconButton aria-label={book.owned ? 'owned' : 'unowned'}>
               {book.owned ? <OwnedBook /> : <UnownedBook />}
             </IconButton>
-        )}
+          }
           disableTypography
-          title={(
+          title={
             <Typography variant="body2" align="center">
               {book.title}
             </Typography>
-        )}
+          }
           classes={{
             action: classes.iconButton,
             root: classes.cardHeader,
@@ -101,12 +103,12 @@ export default function Book({ book }) {
         </Typography>
       </div>
       {book.thumbnail && (
-      <CardMedia
-        classes={{ media: classes.media }}
-        component="img"
-        image={book.thumbnail}
-        title={book.title}
-      />
+        <CardMedia
+          classes={{ media: classes.media }}
+          component="img"
+          image={book.thumbnail}
+          title={book.title}
+        />
       )}
       <CardContent>
         <Typography
@@ -130,24 +132,16 @@ export default function Book({ book }) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="caption" component="div">
-Amazon Rating:
-            {' '}
-            {book.amazonAverageRating}
+            Amazon Rating: {book.amazonAverageRating}
           </Typography>
           <Typography variant="caption" component="div">
-Goodreads Rating:
-            {' '}
-            {book.goodreadsAverageRating}
+            Goodreads Rating: {book.goodreadsAverageRating}
           </Typography>
           <Typography variant="caption" component="div">
-Amazon Review:
-            {' '}
-            {book.amazonRatingsCount}
+            Amazon Review: {book.amazonRatingsCount}
           </Typography>
           <Typography variant="caption" component="div">
-Goodreads Review:
-            {' '}
-            {book.goodreadsRatingsCount}
+            Goodreads Review: {book.goodreadsRatingsCount}
           </Typography>
         </CardContent>
       </Collapse>

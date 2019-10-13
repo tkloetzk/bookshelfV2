@@ -1,8 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import {
-  render, cleanup, fireEvent, wait,
-} from '@testing-library/react'
+import { render, cleanup, fireEvent, wait } from '@testing-library/react'
 import muiTheme from '../../config/themeConfig'
 import App from '../App'
 import '@testing-library/jest-dom/extend-expect'
@@ -15,7 +13,7 @@ describe('App', () => {
       const { asFragment } = render(
         <MuiThemeProvider theme={muiTheme}>
           <App />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
       expect(asFragment()).toMatchSnapshot()
     })
@@ -26,7 +24,7 @@ describe('App', () => {
       const { asFragment, getByTestId } = render(
         <MuiThemeProvider theme={muiTheme}>
           <App />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
 
       await wait(() => {
@@ -43,7 +41,7 @@ describe('App', () => {
       const { asFragment, getByTestId } = render(
         <MuiThemeProvider theme={muiTheme}>
           <App />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
 
       await wait(() => {

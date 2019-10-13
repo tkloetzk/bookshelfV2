@@ -6,9 +6,7 @@ import App from './App/App'
 import muiTheme from './config/themeConfig'
 import configureStore from './store/configureStore'
 
-
 const store = configureStore()
-
 
 ReactDOM.render(
   <Provider store={store}>
@@ -16,5 +14,5 @@ ReactDOM.render(
       <App />
     </MuiThemeProvider>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )

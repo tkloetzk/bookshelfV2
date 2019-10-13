@@ -11,7 +11,6 @@ describe('calculator', () => {
         goodreadsRatingsCount: 5396,
       },
       {
-
         amazonAverageRating: 3.6,
         amazonRatingsCount: 75,
         title: 'Montessori',

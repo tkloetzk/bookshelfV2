@@ -7,7 +7,7 @@ import Search from './Search/Search'
 import Header from './header/Header'
 import Bookshelf from './Bookshelf/Bookshelf'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   tabs: {
     background: theme.palette.primary.gray,
   },

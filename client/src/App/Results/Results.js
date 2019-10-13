@@ -6,7 +6,7 @@ import sortBooklist from '../../util/calculator'
 
 const Results = ({ booklist }) => (
   <Grid container justify="center">
-    {sortBooklist(booklist).map((book) => (
+    {sortBooklist(booklist).map(book => (
       <Book key={book.isbn} book={book} />
     ))}
   </Grid>

@@ -10,7 +10,7 @@ import map from 'lodash/map'
 import { useDispatch } from 'react-redux'
 import { getBook } from '../../../store/book/bookActions'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   container: {
     padding: theme.spacing(2),
     margin: 0,
@@ -31,10 +31,10 @@ export default function SearchBar() {
   }, [formattedISBNs])
 
   async function handleSearch() {
-    const isbns = searchedISBNs.split(/[\n, ]/).filter((v) => v !== '')
+    const isbns = searchedISBNs.split(/[\n, ]/).filter(v => v !== '')
 
     const promiseISBNs = []
-    forEach(isbns, (isbn) => {
+    forEach(isbns, isbn => {
       const formattedIsbn = isbn.replace(/[- ]/g, '')
       if (isIsbn.validate(formattedIsbn)) {
         promiseISBNs.push(formattedIsbn)
@@ -44,9 +44,11 @@ export default function SearchBar() {
     setFormattedISBNs(promiseISBNs)
 
     if (promiseISBNs.length) {
-      Promise.all(map(promiseISBNs, (isbn) => {
-        dispatch(getBook(isbn))
-      }))
+      Promise.all(
+        map(promiseISBNs, isbn => {
+          dispatch(getBook(isbn))
+        })
+      )
     }
   }
   return (
@@ -61,7 +63,7 @@ export default function SearchBar() {
       <Grid item xs={8}>
         <Textfield
           value={searchedISBNs}
-          onChange={(event) => setSearchedISBNs(event.target.value)}
+          onChange={event => setSearchedISBNs(event.target.value)}
           multiline
           variant="outlined"
           fullWidth
