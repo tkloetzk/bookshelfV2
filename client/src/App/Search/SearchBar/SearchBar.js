@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button'
 import isEmpty from 'lodash/isEmpty'
 import isIsbn from 'is-isbn'
 import forEach from 'lodash/forEach'
+import map from 'lodash/map'
+import { useDispatch } from 'react-redux'
+import { getBook } from '../../../store/book/bookActions'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,6 +22,7 @@ export default function SearchBar() {
   const classes = useStyles()
   const [searchedISBNs, setSearchedISBNs] = React.useState('')
   const [formattedISBNs, setFormattedISBNs] = React.useState([])
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (formattedISBNs.length) {
@@ -26,7 +30,7 @@ export default function SearchBar() {
     }
   }, [formattedISBNs])
 
-  function handleSearch() {
+  async function handleSearch() {
     const isbns = searchedISBNs.split(/[\n, ]/).filter((v) => v !== '')
 
     const promiseISBNs = []
@@ -39,11 +43,11 @@ export default function SearchBar() {
 
     setFormattedISBNs(promiseISBNs)
 
-    // if (promiseISBNs.length) {
-    //   Promise.all(map(promiseISBNs, (isbn) => {
-    //     // getBook(isbn)
-    //   }));
-    // }
+    if (promiseISBNs.length) {
+      Promise.all(map(promiseISBNs, (isbn) => {
+        dispatch(getBook(isbn))
+      }))
+    }
   }
   return (
     <Grid
