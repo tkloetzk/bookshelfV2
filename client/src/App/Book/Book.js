@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
   header: {
     backgroundColor: theme.palette.primary.gray,
     paddingBottom: '13px',
+    width: '100%',
   },
   media: {
     width: '33%',

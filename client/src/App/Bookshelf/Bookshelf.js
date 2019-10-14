@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Results from '../Results/Results'
 import apiConfig from '../../config/apiConfig'
+import { useDispatch, useSelector } from 'react-redux'
+import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 
 export default function Bookshelf() {
-  const [bookshelf, setBookshelf] = useState([])
+  const bookshelf = useSelector(state => state.bookshelf.bookshelf)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await axios.post(apiConfig.bookshelf, [])
-      setBookshelf(response.data)
-    }
-    fetchData()
+    dispatch(getBookshelf())
   }, [])
 
   return <Results booklist={bookshelf} />

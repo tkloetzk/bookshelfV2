@@ -3,7 +3,7 @@ import SwipeableViews from 'react-swipeable-views'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import { makeStyles } from '@material-ui/styles'
-import Search from './Search/Search'
+import SearchPage from './SearchPage/Search'
 import Header from './header/Header'
 import Bookshelf from './Bookshelf/Bookshelf'
 
@@ -43,7 +43,7 @@ export default function App() {
           />
         </Tabs>
         <SwipeableViews index={index} onChangeIndex={setIndex}>
-          <Search />
+          <SearchPage />
           <Bookshelf />
         </SwipeableViews>
       </div>

@@ -1,34 +1,18 @@
-import Grid from '@material-ui/core/Grid'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Textfield from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/styles'
 import Button from '@material-ui/core/Button'
 import isEmpty from 'lodash/isEmpty'
 import isIsbn from 'is-isbn'
 import forEach from 'lodash/forEach'
-import map from 'lodash/map'
-import { useDispatch } from 'react-redux'
-import { getBook } from '../../../store/book/bookActions'
+import search from '../../../services/searchService'
+import union from 'lodash/union'
+import compareDifferences from '../../../util/compareDifferences'
+import Grid from '@material-ui/core/Grid'
+import { useSelector } from 'react-redux'
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    padding: theme.spacing(2),
-    margin: 0,
-    width: '100%',
-  },
-}))
-
-export default function SearchBar() {
-  const classes = useStyles()
+export default function SearchPage({ setBooklist }) {
+  const bookshelf = useSelector(state => state.bookshelf.bookshelf)
   const [searchedISBNs, setSearchedISBNs] = React.useState('')
-  const [formattedISBNs, setFormattedISBNs] = React.useState([])
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (formattedISBNs.length) {
-      // console.log('formatted isbns')
-    }
-  }, [formattedISBNs])
 
   async function handleSearch() {
     const isbns = searchedISBNs.split(/[\n, ]/).filter(v => v !== '')
@@ -41,25 +25,27 @@ export default function SearchBar() {
       }
     })
 
-    setFormattedISBNs(promiseISBNs)
+    const books = await search(union(promiseISBNs))
 
-    if (promiseISBNs.length) {
-      Promise.all(
-        map(promiseISBNs, isbn => {
-          dispatch(getBook(isbn))
-        })
-      )
-    }
+    //Could move this all into the util?
+    var booklist = forEach(books, searchedBook => {
+      return bookshelf.some(existingBook => {
+        let searchedBookCopy = searchedBook
+        if (searchedBook.isbn === existingBook.isbn) {
+          searchedBookCopy.differences = compareDifferences(
+            existingBook,
+            searchedBookCopy,
+            []
+          )
+        }
+        return searchedBookCopy
+      })
+    })
+    setBooklist(booklist)
   }
+
   return (
-    <Grid
-      container
-      justify="center"
-      alignItems="center"
-      spacing={4}
-      className={classes.container}
-      data-testid="searchView"
-    >
+    <>
       <Grid item xs={8}>
         <Textfield
           value={searchedISBNs}
@@ -81,6 +67,6 @@ export default function SearchBar() {
           Search
         </Button>
       </Grid>
-    </Grid>
+    </>
   )
 }
