@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import Results from '../Results/Results'
-import apiConfig from '../../config/apiConfig'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 
 export default function Bookshelf() {
@@ -11,7 +9,7 @@ export default function Bookshelf() {
 
   useEffect(() => {
     dispatch(getBookshelf())
-  }, [])
+  }, [dispatch])
 
   return <Results booklist={bookshelf} />
 }

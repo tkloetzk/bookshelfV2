@@ -3,7 +3,7 @@ import SwipeableViews from 'react-swipeable-views'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import { makeStyles } from '@material-ui/styles'
-import SearchPage from './SearchPage/Search'
+import SearchPage from './SearchPage/SearchPage'
 import Header from './header/Header'
 import Bookshelf from './Bookshelf/Bookshelf'
 

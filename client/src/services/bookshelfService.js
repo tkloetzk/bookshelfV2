@@ -1,5 +1,5 @@
-import apiConfig from '../config/apiConfig'
 import axios from 'axios'
+import apiConfig from '../config/apiConfig'
 
 export default function getBookshelfService(includedGenres = []) {
   return axios

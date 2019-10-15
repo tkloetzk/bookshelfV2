@@ -1,9 +1,8 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { fireEvent, render, wait } from '@testing-library/react'
-import muiTheme from '../../../../config/themeConfig'
-import SearchPage from '../SearchPage/SearchPage'
-import './node_modules/@testing-library/jest-dom/extend-expect'
+import muiTheme from '../../../config/themeConfig'
+import SearchPage from '../SearchPage'
 
 describe('SearchPage', () => {
   describe('render', () => {

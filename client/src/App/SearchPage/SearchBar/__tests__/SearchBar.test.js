@@ -2,7 +2,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { fireEvent, render, wait } from '@testing-library/react'
 import muiTheme from '../../../../config/themeConfig'
-import SearchBar from '../SearchBar/SearchBar'
+import SearchBar from '../SearchBar'
 import '@testing-library/jest-dom/extend-expect'
 
 describe('SearchBar', () => {

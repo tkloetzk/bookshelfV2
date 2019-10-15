@@ -4,11 +4,11 @@ import Button from '@material-ui/core/Button'
 import isEmpty from 'lodash/isEmpty'
 import isIsbn from 'is-isbn'
 import forEach from 'lodash/forEach'
-import search from '../../../services/searchService'
 import union from 'lodash/union'
-import compareDifferences from '../../../util/compareDifferences'
 import Grid from '@material-ui/core/Grid'
 import { useSelector } from 'react-redux'
+import compareDifferences from '../../../util/compareDifferences'
+import search from '../../../services/searchService'
 
 export default function SearchPage({ setBooklist }) {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
@@ -27,10 +27,10 @@ export default function SearchPage({ setBooklist }) {
 
     const books = await search(union(promiseISBNs))
 
-    //Could move this all into the util?
-    var booklist = forEach(books, searchedBook => {
+    // Could move this all into the util?
+    const booklist = forEach(books, searchedBook => {
       return bookshelf.some(existingBook => {
-        let searchedBookCopy = searchedBook
+        const searchedBookCopy = searchedBook
         if (searchedBook.isbn === existingBook.isbn) {
           searchedBookCopy.differences = compareDifferences(
             existingBook,
