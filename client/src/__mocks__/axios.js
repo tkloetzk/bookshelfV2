@@ -10,18 +10,6 @@ module.exports = {
     return this
   }),
   post: jest.fn(url => {
-    if (url === apiConfig.amazonV2) {
-      return Promise.resolve({
-        data: {
-          book: {
-            amazonAverageRating: 4.5,
-            amazonRatingsCount: 553,
-            price: '',
-            isbn: '9789079208043',
-          },
-        },
-      })
-    }
     if (url === apiConfig.bookshelf) {
       return Promise.resolve({
         data: [

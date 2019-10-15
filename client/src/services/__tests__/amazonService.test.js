@@ -1,42 +1,41 @@
 import axios from 'axios'
 import getAmazonBookService from '../amazonService'
 import apiConfig from '../../config/apiConfig'
-import MockAdapter from 'axios-mock-adapter'
 
 describe('getAmazonBookService', () => {
-  let mock
   let spy
-  beforeAll(() => {
-    mock = new MockAdapter(axios)
-  })
 
   beforeEach(() => {
     spy = jest.spyOn(axios, 'post')
-  })
-
-  afterEach(() => {
-    spy.mockRestore()
-    mock.reset()
-  })
-
-  afterAll(() => {
-    mock.restore()
   })
 
   it('calls service and returns response when successful', () => {
     const response = {
       data: {
         book: {
-          title: 'Amazon Book Title',
+          amazonAverageRating: 4.5,
+          amazonRatingsCount: 553,
+          price: '',
+          isbn: '9789079208043',
         },
       },
     }
 
-    const promise = Promise.resolve(response)
-
-    mock.onPost(apiConfig.amazonV2).replyOnce(200, promise)
-    return getAmazonBookService('1234').then(res => {
-      expect(spy).toHaveBeenCalledWith(apiConfig.amazonV2, '1234')
+    axios.post.mockResolvedValue(response)
+    return getAmazonBookService(response.data.book.isbn).then(res => {
+      expect(spy).toHaveBeenCalledWith(apiConfig.amazonV2, {
+        isbn: response.data.book.isbn,
+      })
+      expect(res).toEqual(response.data.book)
+    })
+  })
+  it('calls service and returns error response when unsuccessful', () => {
+    const error = 'Error message'
+    const isbn = '1234'
+    axios.post.mockRejectedValue(error)
+    return getAmazonBookService(isbn).then(res => {
+      expect(spy).toHaveBeenCalledWith(apiConfig.amazonV2, { isbn })
+      expect(res).toEqual({ amazonError: isbn, error })
     })
   })
 })
