@@ -6,7 +6,6 @@ import Bookshelf from '../Bookshelf'
 import '@testing-library/jest-dom/extend-expect'
 import configureMockStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
-import { getBookshelf } from '../../../store/bookshelf/bookshelfActions'
 
 const mockStore = configureMockStore()
 

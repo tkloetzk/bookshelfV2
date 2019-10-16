@@ -3,44 +3,28 @@ import React from 'react'
 import { fireEvent, render, wait } from '@testing-library/react'
 import muiTheme from '../../../config/themeConfig'
 import SearchPage from '../SearchPage'
+import configureMockStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+
+const mockStore = configureMockStore()
 
 describe('SearchPage', () => {
+  let store
+  beforeEach(() => {
+    store = mockStore({
+      bookshelf: { bookshelf: [] },
+    })
+  })
   describe('render', () => {
     it('should render as expected', () => {
       const { asFragment } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <SearchPage />
-        </MuiThemeProvider>
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchPage />
+          </MuiThemeProvider>
+        </Provider>
       )
       expect(asFragment()).toMatchSnapshot()
-    })
-  })
-  describe('search button', () => {
-    it('is enabled when the search bar has a value', async () => {
-      const { getByTestId } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <SearchPage />
-        </MuiThemeProvider>
-      )
-      await wait(() => {
-        fireEvent.change(getByTestId('searchPage'), {
-          target: { value: '123' },
-        })
-      })
-
-      expect(getByTestId('searchButton')).not.toBeDisabled()
-    })
-    it('is disabled when the search bar is empty', async () => {
-      const { getByTestId } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <SearchPage />
-        </MuiThemeProvider>
-      )
-      await wait(() => {
-        fireEvent.change(getByTestId('searchPage'), { target: { value: '' } })
-      })
-
-      expect(getByTestId('searchButton')).toBeDisabled()
     })
   })
 })
