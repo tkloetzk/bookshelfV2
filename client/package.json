@@ -65,7 +65,9 @@
 			"<rootDir>/src/index.js",
 			"<rootDir>/src/App/header/Header.js",
 			"<rootDir>/src/config/",
-			"<rootDir>/src/util/constants.js"
+			"<rootDir>/src/util/constants.js",
+			"<rootDir>/src/store/configureStore.js",
+			"<rootDir>/src/store/index.js"
 		],
 		"snapshotSerializers": [
 			"jest-serializer-html"
