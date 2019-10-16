@@ -6,6 +6,9 @@ export default function getGoodreadsBooksService(isbn) {
     .get(`${apiConfig.goodreads}/${isbn}`)
     .then(booklist => booklist.data)
     .catch(error => {
-      throw error
+      return {
+        goodreadsError: isbn,
+        error,
+      }
     })
 }

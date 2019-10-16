@@ -6,6 +6,9 @@ export default function getGoogleBookService(isbn) {
     .get(`${apiConfig.google}/${isbn}`)
     .then(book => book.data)
     .catch(error => {
-      throw error
+      return {
+        googleError: isbn,
+        error,
+      }
     })
 }
