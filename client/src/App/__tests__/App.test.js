@@ -1,19 +1,31 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { render, cleanup, fireEvent, wait } from '@testing-library/react'
+import { render, fireEvent, wait } from '@testing-library/react'
 import muiTheme from '../../config/themeConfig'
 import App from '../App'
 import '@testing-library/jest-dom/extend-expect'
+import configureMockStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+
+const mockStore = configureMockStore()
 
 describe('App', () => {
-  afterEach(cleanup)
+  let store
+  beforeEach(() => {
+    store = mockStore({
+      bookshelf: { bookshelf: [] },
+    })
+    store.dispatch = jest.fn()
+  })
 
   describe('render', () => {
     it('should render as expected', () => {
       const { asFragment } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <App />
-        </MuiThemeProvider>
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
+        </Provider>
       )
       expect(asFragment()).toMatchSnapshot()
     })
@@ -22,9 +34,11 @@ describe('App', () => {
   describe('tabs', () => {
     it('should show Search when search tab is clicked', async () => {
       const { asFragment, getByTestId } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <App />
-        </MuiThemeProvider>
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
+        </Provider>
       )
 
       await wait(() => {
@@ -39,9 +53,11 @@ describe('App', () => {
     })
     it('should show Bookshelf when bookshelf tab is clicked', async () => {
       const { asFragment, getByTestId } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <App />
-        </MuiThemeProvider>
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
+        </Provider>
       )
 
       await wait(() => {
