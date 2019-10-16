@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, and a duplicate book in bookshelf with differences 1`] = `
+exports[
+  `SearchBar handleSearch setBooklist returns correct booklist if there are books, and a duplicate book in bookshelf with differences 1`
+] = `
 Array [
   Array [
     Array [
@@ -29,9 +31,11 @@ Array [
     ],
   ],
 ]
-`;
+`
 
-exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, but no duplicates in bookshelf 1`] = `
+exports[
+  `SearchBar handleSearch setBooklist returns correct booklist if there are books, but no duplicates in bookshelf 1`
+] = `
 Array [
   Array [
     Array [
@@ -53,9 +57,11 @@ Array [
     ],
   ],
 ]
-`;
+`
 
-exports[`SearchBar handleSearch setBooklist returns correct booklist if there are no books in bookshelf 1`] = `
+exports[
+  `SearchBar handleSearch setBooklist returns correct booklist if there are no books in bookshelf 1`
+] = `
 Array [
   Array [
     Array [
@@ -77,9 +83,11 @@ Array [
     ],
   ],
 ]
-`;
+`
 
-exports[`SearchBar handleSearch validation does not include an isbn that is not valid 1`] = `
+exports[
+  `SearchBar handleSearch validation does not include an isbn that is not valid 1`
+] = `
 Array [
   Array [
     Array [
@@ -101,7 +109,7 @@ Array [
     ],
   ],
 ]
-`;
+`
 
 exports[`SearchBar render should render as expected 1`] = `
 <DocumentFragment>
@@ -163,4 +171,4 @@ exports[`SearchBar render should render as expected 1`] = `
     </button>
   </div>
 </DocumentFragment>
-`;
+`
