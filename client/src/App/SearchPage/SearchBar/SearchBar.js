@@ -25,9 +25,11 @@ export default function SearchPage({ setBooklist }) {
       }
     })
 
+    if (!promiseISBNs.length) return
+
+    setSearchedISBNs([])
     const books = await search(union(promiseISBNs))
 
-    // Could move this all into the util?
     const booklist = forEach(books, searchedBook => {
       return bookshelf.some(existingBook => {
         const searchedBookCopy = searchedBook

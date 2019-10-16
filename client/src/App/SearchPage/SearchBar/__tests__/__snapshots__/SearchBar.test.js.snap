@@ -1,68 +1,166 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, and a duplicate book in bookshelf with differences 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "amazonAverageRating": 4.5,
+        "amazonRatingsCount": 553,
+        "categories": Array [
+          "Family & Relationships",
+        ],
+        "description": "Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.",
+        "differences": Array [
+          Object {
+            "currentValue": 3.9,
+            "key": "amazonAverageRating",
+            "newValue": 4.5,
+          },
+        ],
+        "goodreadsAverageRating": 4,
+        "goodreadsRatingsCount": 40,
+        "isbn": "9781402218279",
+        "price": "",
+        "subtitle": "From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child",
+        "thumbnail": "http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "title": "The New Baby Answer Book",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, but no duplicates in bookshelf 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "amazonAverageRating": 4.5,
+        "amazonRatingsCount": 553,
+        "categories": Array [
+          "Family & Relationships",
+        ],
+        "description": "Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.",
+        "goodreadsAverageRating": 4,
+        "goodreadsRatingsCount": 40,
+        "isbn": "9781402218279",
+        "price": "",
+        "subtitle": "From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child",
+        "thumbnail": "http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "title": "The New Baby Answer Book",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`SearchBar handleSearch setBooklist returns correct booklist if there are no books in bookshelf 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "amazonAverageRating": 4.5,
+        "amazonRatingsCount": 553,
+        "categories": Array [
+          "Family & Relationships",
+        ],
+        "description": "Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.",
+        "goodreadsAverageRating": 4,
+        "goodreadsRatingsCount": 40,
+        "isbn": "9781402218279",
+        "price": "",
+        "subtitle": "From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child",
+        "thumbnail": "http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "title": "The New Baby Answer Book",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`SearchBar handleSearch validation does not include an isbn that is not valid 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "amazonAverageRating": 4.5,
+        "amazonRatingsCount": 553,
+        "categories": Array [
+          "Family & Relationships",
+        ],
+        "description": "Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.",
+        "goodreadsAverageRating": 4,
+        "goodreadsRatingsCount": 40,
+        "isbn": "9781402218279",
+        "price": "",
+        "subtitle": "From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child",
+        "thumbnail": "http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "title": "The New Baby Answer Book",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`SearchBar render should render as expected 1`] = `
 <DocumentFragment>
   <div
-    class="MuiGrid-root makeStyles-container-1 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
-    data-testid="searchView"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+      class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
       >
-        <div
-          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+        <textarea
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+          data-testid="searchBar"
+          rows="1"
+          style="height: 0px; overflow: hidden;"
+        />
+        <textarea
+          aria-hidden="true"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+          readonly=""
+          style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; width: 100%;"
+          tabindex="-1"
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
+          style="padding-left: 8px;"
         >
-          <textarea
-            aria-invalid="false"
-            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
-            data-testid="searchBar"
-            rows="1"
-            style="height: 0px; overflow: hidden;"
-          />
-          <textarea
-            aria-hidden="true"
-            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
-            readonly=""
-            style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; width: 100%;"
-            tabindex="-1"
-          />
-          <fieldset
-            aria-hidden="true"
-            class="PrivateNotchedOutline-root-143 MuiOutlinedInput-notchedOutline"
-            style="padding-left: 8px;"
+          <legend
+            class="PrivateNotchedOutline-legend-143"
+            style="width: 0.01px;"
           >
-            <legend
-              class="PrivateNotchedOutline-legend-144"
-              style="width: 0.01px;"
-            >
-              <span>
-                ​
-              </span>
-            </legend>
-          </fieldset>
-        </div>
+            <span>
+              ​
+            </span>
+          </legend>
+        </fieldset>
       </div>
     </div>
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+  >
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      data-testid="searchButton"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
-        data-testid="searchButton"
-        disabled=""
-        tabindex="-1"
-        type="button"
+      <span
+        class="MuiButton-label"
       >
-        <span
-          class="MuiButton-label"
-        >
-          Search
-        </span>
-      </button>
-    </div>
+        Search
+      </span>
+    </button>
   </div>
 </DocumentFragment>
 `;

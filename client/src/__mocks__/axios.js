@@ -2,9 +2,28 @@ import apiConfig from '../config/apiConfig'
 
 module.exports = {
   get: jest.fn(url => {
-    if (url === '/something') {
+    if (url === `${apiConfig.goodreads}/${9781402218279}`) {
       return Promise.resolve({
-        data: 'data',
+        data: {
+          goodreadsAverageRating: 4.0,
+          goodreadsRatingsCount: 40,
+          isbn: '9781402218279',
+        },
+      })
+    }
+    if (url === `${apiConfig.google}/${9781402218279}`) {
+      return Promise.resolve({
+        data: {
+          title: 'The New Baby Answer Book',
+          isbn: '9781402218279',
+          subtitle:
+            'From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child',
+          description:
+            'Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.',
+          thumbnail:
+            'http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+          categories: ['Family & Relationships'],
+        },
       })
     }
     return this
@@ -34,6 +53,18 @@ module.exports = {
             __v: 0,
           },
         ],
+      })
+    }
+    if (url === apiConfig.amazonV2) {
+      return Promise.resolve({
+        data: {
+          book: {
+            amazonAverageRating: 4.5,
+            amazonRatingsCount: 553,
+            price: '',
+            isbn: '9789079208043',
+          },
+        },
       })
     }
     return this
