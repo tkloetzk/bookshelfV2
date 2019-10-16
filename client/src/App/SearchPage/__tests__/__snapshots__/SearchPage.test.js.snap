@@ -72,4 +72,4 @@ exports[`SearchPage render should render as expected 1`] = `
     </div>
   </div>
 </DocumentFragment>
-`;
+`

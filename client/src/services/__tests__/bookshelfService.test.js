@@ -61,15 +61,14 @@ describe('bookshelfService', () => {
     })
   })
   it('calls getBookshelfService and returns error response when unsuccessful', () => {
-    const error = 'Error message'
-    const isbn = '1234'
-    axios.post.mockRejectedValue(error)
+    const errorMessage = 'Error message'
+    axios.post.mockRejectedValue(errorMessage)
     return getBookshelfService()
-      .then(res => {
+      .then(() => {
         expect(spy).toHaveBeenCalledWith(apiConfig.bookshelf, [])
       })
       .catch(error => {
-        expect(error).toEqual(error)
+        expect(error).toEqual(errorMessage)
       })
   })
 })

@@ -61,7 +61,7 @@ describe('bookshelfActions', () => {
       getBookshelfService.mockRejectedValue(error)
       await actions
         .getBookshelf()(dispatch)
-        .catch(e => {
+        .catch(() => {
           expect(console.error).toHaveBeenCalled()
         })
     })

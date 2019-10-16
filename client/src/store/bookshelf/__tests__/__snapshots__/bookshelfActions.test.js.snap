@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`bookshelfActions getBookshelf should dispatch success if getBookshelfService is successful 1`] = `
+exports[
+  `bookshelfActions getBookshelf should dispatch success if getBookshelfService is successful 1`
+] = `
 Array [
   Array [
     Object {
@@ -32,4 +34,4 @@ Array [
     },
   ],
 ]
-`;
+`

@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Bookshelf render should render as expected if bookshelf has books 1`] = `
+exports[
+  `Bookshelf render should render as expected if bookshelf has books 1`
+] = `
 <DocumentFragment>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
@@ -114,12 +116,14 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
     </div>
   </div>
 </DocumentFragment>
-`;
+`
 
-exports[`Bookshelf render should render as expected if bookshelf is empty 1`] = `
+exports[
+  `Bookshelf render should render as expected if bookshelf is empty 1`
+] = `
 <DocumentFragment>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
   />
 </DocumentFragment>
-`;
+`

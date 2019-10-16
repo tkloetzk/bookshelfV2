@@ -1,6 +1,4 @@
-import axios from 'axios'
 import search from '../searchService'
-import apiConfig from '../../config/apiConfig'
 import getGoogleBookService from '../googleService'
 import getGoodreadsBooksService from '../goodreadsService'
 import getAmazonBookService from '../amazonService'
@@ -12,8 +10,6 @@ jest.mock('../goodreadsService')
 jest.mock('../amazonService')
 
 describe('searchService', () => {
-  let spy
-
   beforeEach(() => {
     jest.resetAllMocks()
   })

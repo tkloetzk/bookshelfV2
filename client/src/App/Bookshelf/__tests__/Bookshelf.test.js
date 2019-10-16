@@ -1,18 +1,18 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { fireEvent, render, wait } from '@testing-library/react'
+import { render } from '@testing-library/react'
+import configureMockStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
 import muiTheme from '../../../config/themeConfig'
 import Bookshelf from '../Bookshelf'
 import '@testing-library/jest-dom/extend-expect'
-import configureMockStore from 'redux-mock-store'
-import { Provider } from 'react-redux'
 
 const mockStore = configureMockStore()
 
 describe('Bookshelf', () => {
   describe('render', () => {
     it('should render as expected if bookshelf is empty', () => {
-      let store = mockStore({
+      const store = mockStore({
         bookshelf: { bookshelf: [] },
       })
       store.dispatch = jest.fn()
@@ -28,7 +28,7 @@ describe('Bookshelf', () => {
       expect(asFragment()).toMatchSnapshot()
     })
     it('should render as expected if bookshelf has books', () => {
-      let store = mockStore({
+      const store = mockStore({
         bookshelf: {
           bookshelf: [
             {

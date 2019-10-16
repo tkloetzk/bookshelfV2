@@ -110,7 +110,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
     </div>
   </div>
 </DocumentFragment>
-`;
+`
 
 exports[`Book expand expands on handleExpandClick 1`] = `
 <DocumentFragment>
@@ -259,7 +259,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
     </div>
   </div>
 </DocumentFragment>
-`;
+`
 
 exports[`Book render should render as expected 1`] = `
 <DocumentFragment>
@@ -371,4 +371,4 @@ exports[`Book render should render as expected 1`] = `
     </div>
   </div>
 </DocumentFragment>
-`;
+`
