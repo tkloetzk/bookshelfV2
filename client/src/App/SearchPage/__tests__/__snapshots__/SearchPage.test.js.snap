@@ -31,11 +31,11 @@ exports[`SearchPage render should render as expected 1`] = `
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-144 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-145 MuiOutlinedInput-notchedOutline"
             style="padding-left: 8px;"
           >
             <legend
-              class="PrivateNotchedOutline-legend-145"
+              class="PrivateNotchedOutline-legend-146"
               style="width: 0.01px;"
             >
               <span>
@@ -47,7 +47,7 @@ exports[`SearchPage render should render as expected 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-2"
     >
       <button
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"

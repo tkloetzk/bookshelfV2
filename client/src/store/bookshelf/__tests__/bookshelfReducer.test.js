@@ -1,5 +1,5 @@
 import bookshelfReducer, { initialState } from '../bookshelfReducer'
-import * as types from '../bookshelfActionTypes'
+import FETCH_BOOKSHELF_SUCCESS from '../bookshelfActionTypes'
 
 describe('bookshelfReducer', () => {
   it('returned initialState', () => {
@@ -8,7 +8,7 @@ describe('bookshelfReducer', () => {
   it('sets bookshelf for FETCH_BOOKSHELF_SUCCESS', () => {
     const bookshelf = [{ title: 'book title' }]
     const action = {
-      type: types.FETCH_BOOKSHELF_SUCCESS,
+      type: FETCH_BOOKSHELF_SUCCESS,
       bookshelf,
     }
     expect(bookshelfReducer(initialState, action)).toEqual({

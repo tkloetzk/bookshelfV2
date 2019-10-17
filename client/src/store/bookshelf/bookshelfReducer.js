@@ -1,4 +1,4 @@
-import * as types from './bookshelfActionTypes'
+import FETCH_BOOKSHELF_SUCCESS from './bookshelfActionTypes'
 
 export const initialState = {
   bookshelf: [],
@@ -6,7 +6,7 @@ export const initialState = {
 
 export default function bookshelf(state = initialState, action) {
   switch (action.type) {
-    case types.FETCH_BOOKSHELF_SUCCESS:
+    case FETCH_BOOKSHELF_SUCCESS:
       return { ...state, bookshelf: action.bookshelf }
     default:
       return state

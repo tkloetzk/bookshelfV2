@@ -6,12 +6,24 @@ import isIsbn from 'is-isbn'
 import forEach from 'lodash/forEach'
 import union from 'lodash/union'
 import Grid from '@material-ui/core/Grid'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import find from 'lodash/find'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles } from '@material-ui/styles'
 import search from '../../../services/searchService'
 import compareDifferences from '../../../util/compareDifferences'
+import Fab from '@material-ui/core/Fab'
+import SaveIcon from '@material-ui/icons/Save'
+import {
+  addBookshelfService,
+  updateBooksBookshelfService,
+} from '../../../services/bookshelfService'
+import has from 'lodash/has'
+import remove from 'lodash/remove'
+import assign from 'lodash/assign'
+import map from 'lodash/map'
+import cloneDeep from 'lodash/cloneDeep'
+import { getBookshelf } from '../../../store/bookshelf/bookshelfActions'
 
 const useStyles = makeStyles(() => ({
   buttonProgress: {
@@ -20,10 +32,15 @@ const useStyles = makeStyles(() => ({
     marginLeft: -59,
     top: 7,
   },
+  fab: {
+    alignSelf: 'center',
+    marginLeft: '10px',
+  },
 }))
 
-export default function SearchPage({ setBooklist, booklist }) {
+export default function SearchPage({ setBooklist, booklist = [] }) {
   const classes = useStyles()
+  const dispatch = useDispatch()
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
   const [searchedISBNs, setSearchedISBNs] = React.useState('')
   const [loading, setLoading] = React.useState(false)
@@ -49,6 +66,7 @@ export default function SearchPage({ setBooklist, booklist }) {
       return bookshelf.some(existingBook => {
         const searchedBookCopy = searchedBook
         if (searchedBook.isbn === existingBook.isbn) {
+          searchedBookCopy.id = existingBook._id
           searchedBookCopy.differences = compareDifferences(
             existingBook,
             searchedBookCopy,
@@ -62,6 +80,31 @@ export default function SearchPage({ setBooklist, booklist }) {
     setLoading(false)
   }
 
+  async function handleSave() {
+    let booklistCopy = cloneDeep(booklist)
+    let modifiedBooksArray = []
+
+    forEach(booklist, book => {
+      if (has(book, 'differences')) {
+        const fields = map(book.differences, diff => {
+          return { [diff.key]: diff.newValue }
+        })
+
+        modifiedBooksArray.push({ id: book.id, fields: assign(...fields) })
+        remove(booklistCopy, {
+          isbn: book.isbn,
+        })
+      }
+    })
+
+    const promiseArray = []
+    if (!isEmpty(modifiedBooksArray))
+      promiseArray.push(updateBooksBookshelfService(modifiedBooksArray))
+    if (!isEmpty(booklistCopy))
+      promiseArray.push(addBookshelfService(booklistCopy))
+    await Promise.all(promiseArray)
+    dispatch(getBookshelf())
+  }
   return (
     <>
       <Grid item xs={8}>
@@ -74,7 +117,7 @@ export default function SearchPage({ setBooklist, booklist }) {
           inputProps={{ 'data-testid': 'searchBar' }}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item lg={2}>
         <Button
           variant="outlined"
           color="primary"
@@ -86,6 +129,18 @@ export default function SearchPage({ setBooklist, booklist }) {
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
+        )}
+        {booklist.length > 0 && (
+          <Fab
+            color="primary"
+            aria-label="Save"
+            className={classes.fab}
+            onClick={handleSave}
+            component={'button'}
+            data-testid="saveButton"
+          >
+            <SaveIcon />
+          </Fab>
         )}
       </Grid>
     </>

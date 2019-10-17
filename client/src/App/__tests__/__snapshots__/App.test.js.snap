@@ -108,11 +108,11 @@ exports[`App render should render as expected 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-174 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-175 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-175"
+                      class="PrivateNotchedOutline-legend-176"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -124,7 +124,7 @@ exports[`App render should render as expected 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-2"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
@@ -168,10 +168,10 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
     </div>
   </header>
   <div
-    class="makeStyles-container-406"
+    class="makeStyles-container-408"
   >
     <div
-      class="MuiTabs-root makeStyles-tabs-405"
+      class="MuiTabs-root makeStyles-tabs-407"
     >
       <div
         class="MuiTabs-scroller MuiTabs-fixed"
@@ -217,7 +217,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
           </button>
         </div>
         <span
-          class="PrivateTabIndicator-root-431 PrivateTabIndicator-colorPrimary-432 MuiTabs-indicator"
+          class="PrivateTabIndicator-root-433 PrivateTabIndicator-colorPrimary-434 MuiTabs-indicator"
           style="left: 0px; width: 0px;"
         />
       </div>
@@ -235,7 +235,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
           style="width: 100%; flex-shrink: 0; overflow: auto;"
         >
           <div
-            class="MuiGrid-root makeStyles-container-435 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            class="MuiGrid-root makeStyles-container-437 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
             data-testid="searchView"
           >
             <div
@@ -263,11 +263,11 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-578 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-581 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-579"
+                      class="PrivateNotchedOutline-legend-582"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -279,7 +279,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-2"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
@@ -332,10 +332,10 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
     </div>
   </header>
   <div
-    class="makeStyles-container-204"
+    class="makeStyles-container-205"
   >
     <div
-      class="MuiTabs-root makeStyles-tabs-203"
+      class="MuiTabs-root makeStyles-tabs-204"
     >
       <div
         class="MuiTabs-scroller MuiTabs-fixed"
@@ -381,7 +381,7 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
           </button>
         </div>
         <span
-          class="PrivateTabIndicator-root-229 PrivateTabIndicator-colorPrimary-230 MuiTabs-indicator"
+          class="PrivateTabIndicator-root-230 PrivateTabIndicator-colorPrimary-231 MuiTabs-indicator"
           style="left: 0px; width: 0px;"
         />
       </div>
@@ -399,7 +399,7 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
           style="width: 100%; flex-shrink: 0; overflow: auto;"
         >
           <div
-            class="MuiGrid-root makeStyles-container-233 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            class="MuiGrid-root makeStyles-container-234 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
             data-testid="searchView"
           >
             <div
@@ -427,11 +427,11 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-376 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-378 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-377"
+                      class="PrivateNotchedOutline-legend-379"
                       style="width: 0.01px;"
                     >
                       <span>
@@ -443,7 +443,7 @@ exports[`App tabs should show Search when search tab is clicked 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-2"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"

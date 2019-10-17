@@ -6,16 +6,55 @@ import { Provider } from 'react-redux'
 import muiTheme from '../../../../config/themeConfig'
 import SearchBar from '../SearchBar'
 import '@testing-library/jest-dom/extend-expect'
+import {
+  addBookshelfService,
+  updateBooksBookshelfService,
+} from '../../../../services/bookshelfService'
 
 const mockStore = configureMockStore()
 
+jest.mock('../../../../services/bookshelfService')
+
 describe('SearchBar', () => {
   let store
+  let props
+  let book
+  let differences
+
   beforeEach(() => {
     store = mockStore({
       bookshelf: { bookshelf: [] },
     })
+    store.dispatch = jest.fn()
+
+    props = { setBooklist: jest.fn(), booklist: [] }
+    book = {
+      amazonAverageRating: 4.5,
+      amazonRatingsCount: 553,
+      categories: ['Family & Relationships'],
+      description:
+        'Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.',
+      goodreadsAverageRating: 4,
+      goodreadsRatingsCount: 40,
+      isbn: '9781402218279',
+      price: '',
+      subtitle:
+        'From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child',
+      thumbnail:
+        'http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+      title: 'The New Baby Answer Book',
+      id: '1',
+    }
+    differences = [
+      {
+        currentValue: 3.9,
+        key: 'amazonAverageRating',
+        newValue: 4.5,
+      },
+    ]
+    jest.clearAllMocks()
   })
+
   describe('render', () => {
     it('should render as expected', () => {
       const { asFragment } = render(
@@ -61,11 +100,6 @@ describe('SearchBar', () => {
     })
   })
   describe('handleSearch', () => {
-    let props
-
-    beforeEach(() => {
-      props = { setBooklist: jest.fn(), booklist: [] }
-    })
     describe('validation', () => {
       it('does not call (search) if there are no promise isbns', async () => {
         const { getByTestId } = render(
@@ -170,6 +204,8 @@ describe('SearchBar', () => {
         store = mockStore({
           bookshelf: { bookshelf: [{ isbn: '1234' }] },
         })
+        store.dispatch = jest.fn()
+
         const { getByTestId } = render(
           <Provider store={store}>
             <MuiThemeProvider theme={muiTheme}>
@@ -193,6 +229,8 @@ describe('SearchBar', () => {
             bookshelf: [{ isbn: '9781402218279', amazonAverageRating: 3.9 }],
           },
         })
+        store.dispatch = jest.fn()
+
         const { getByTestId } = render(
           <Provider store={store}>
             <MuiThemeProvider theme={muiTheme}>
@@ -210,6 +248,115 @@ describe('SearchBar', () => {
         })
         expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
+    })
+  })
+  describe('handleSave', () => {
+    it('button is hidden if booklist is empty', () => {
+      const { asFragment } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+    it('button is visible if booklist is not empty', () => {
+      props = Object.assign({}, props, { booklist: [{ title: 'book title' }] })
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      expect(getByTestId('saveButton')).toBeVisible()
+    })
+    it('calls addBookshelfService and does not call updateBookshelfService if there are no books with differences', async () => {
+      props = Object.assign({}, props, { booklist: [book] })
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('saveButton'))
+      })
+
+      addBookshelfService.mockReturnValue(true)
+      expect(updateBooksBookshelfService).not.toHaveBeenCalled()
+      expect(addBookshelfService.mock.calls).toMatchSnapshot()
+      expect(addBookshelfService).toHaveBeenCalledTimes(1)
+      expect(store.dispatch).toHaveBeenCalledTimes(1)
+    })
+    it('does not call addBookshelfService but calls updateBooksBookshelfService with booklist containing only books with differences', async () => {
+      book = Object.assign({}, book, { differences })
+      props = Object.assign({}, props, { booklist: [book] })
+
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('saveButton'))
+      })
+
+      expect(updateBooksBookshelfService.mock.calls).toMatchSnapshot()
+      expect(updateBooksBookshelfService).toHaveBeenCalledTimes(1)
+      expect(addBookshelfService).not.toHaveBeenCalled()
+      expect(store.dispatch).toHaveBeenCalledTimes(1)
+    })
+    it('calls both addBookshelfService and updateBooksBookshelfService with booklist containing books with and without differences', async () => {
+      book = Object.assign({}, book, { differences })
+      props = Object.assign({}, props, {
+        booklist: [
+          book,
+          {
+            isbn: '000',
+            id: '999',
+            differences: [
+              {
+                currentValue: 400,
+                key: 'goodreadsRatingsCount',
+                newValue: 500,
+              },
+              {
+                currentValue: 100,
+                key: 'amazonRatingsCount',
+                newValue: 200,
+              },
+            ],
+          },
+          { title: 'book title', isbn: '1234' },
+        ],
+      })
+
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('saveButton'))
+      })
+
+      expect(updateBooksBookshelfService.mock.calls).toMatchSnapshot()
+      expect(updateBooksBookshelfService).toHaveBeenCalledTimes(1)
+      expect(addBookshelfService.mock.calls).toMatchSnapshot()
+      expect(addBookshelfService).toHaveBeenCalledTimes(1)
+      expect(store.dispatch).toHaveBeenCalledTimes(1)
     })
   })
 })
