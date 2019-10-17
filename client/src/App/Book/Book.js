@@ -27,10 +27,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.gray,
     paddingBottom: '13px',
     width: '100%',
+    height: '185px',
   },
   media: {
     width: '33%',
     paddingTop: '16px',
+    minHeight: '116px',
   },
   iconButton: {
     alignSelf: 'center',
@@ -103,14 +105,14 @@ export default function Book({ book }) {
           {book.categories.join(', ')}
         </Typography>
       </div>
-      {book.thumbnail && (
-        <CardMedia
-          classes={{ media: classes.media }}
-          component="img"
-          image={book.thumbnail}
-          title={book.title}
-        />
-      )}
+
+      <CardMedia
+        classes={{ media: classes.media }}
+        component="img"
+        image={book.thumbnail || null}
+        title={book.title}
+      />
+
       <CardContent>
         <Typography
           variant="caption"

@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SearchBar handleSearch setBooklist returns correct booklist if there are books, and a duplicate book in bookshelf with differences 1`
-] = `
+exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, and a duplicate book in bookshelf with differences 1`] = `
 Array [
   Array [
     Array [
@@ -31,11 +29,9 @@ Array [
     ],
   ],
 ]
-`
+`;
 
-exports[
-  `SearchBar handleSearch setBooklist returns correct booklist if there are books, but no duplicates in bookshelf 1`
-] = `
+exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, but no duplicates in bookshelf 1`] = `
 Array [
   Array [
     Array [
@@ -57,11 +53,9 @@ Array [
     ],
   ],
 ]
-`
+`;
 
-exports[
-  `SearchBar handleSearch setBooklist returns correct booklist if there are no books in bookshelf 1`
-] = `
+exports[`SearchBar handleSearch setBooklist returns correct booklist if there are no books in bookshelf 1`] = `
 Array [
   Array [
     Array [
@@ -83,11 +77,37 @@ Array [
     ],
   ],
 ]
-`
+`;
 
-exports[
-  `SearchBar handleSearch validation does not include an isbn that is not valid 1`
-] = `
+exports[`SearchBar handleSearch validation can add a new book to the booklist on additional search 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "isbn": "0123456789012",
+        "title": "book1",
+      },
+      Object {
+        "amazonAverageRating": 4.5,
+        "amazonRatingsCount": 553,
+        "categories": Array [
+          "Family & Relationships",
+        ],
+        "description": "Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.",
+        "goodreadsAverageRating": 4,
+        "goodreadsRatingsCount": 40,
+        "isbn": "9781402218279",
+        "price": "",
+        "subtitle": "From Birth to Kindergarten, Answers to the Top 150 Questions about Raising a Young Child",
+        "thumbnail": "http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "title": "The New Baby Answer Book",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`SearchBar handleSearch validation does not include an isbn that is not valid 1`] = `
 Array [
   Array [
     Array [
@@ -109,7 +129,7 @@ Array [
     ],
   ],
 ]
-`
+`;
 
 exports[`SearchBar render should render as expected 1`] = `
 <DocumentFragment>
@@ -138,11 +158,11 @@ exports[`SearchBar render should render as expected 1`] = `
         />
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-143 MuiOutlinedInput-notchedOutline"
           style="padding-left: 8px;"
         >
           <legend
-            class="PrivateNotchedOutline-legend-143"
+            class="PrivateNotchedOutline-legend-144"
             style="width: 0.01px;"
           >
             <span>
@@ -171,4 +191,4 @@ exports[`SearchBar render should render as expected 1`] = `
     </button>
   </div>
 </DocumentFragment>
-`
+`;

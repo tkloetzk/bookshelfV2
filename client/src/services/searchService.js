@@ -17,6 +17,7 @@ export default async function search(isbns) {
 
   const booksResponse = await Promise.all(promiseArray)
 
+  console.log('booksResponse', booksResponse)
   const searchedBooklist = booksResponse.map(book =>
     merge({}, book[0], book[1], book[2])
   )

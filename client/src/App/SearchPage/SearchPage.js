@@ -27,7 +27,11 @@ export default function SearchPage() {
       className={classes.container}
       data-testid="searchView"
     >
-      <SearchBar setBooklist={setBooklist} bookshelf={bookshelf} />
+      <SearchBar
+        setBooklist={setBooklist}
+        bookshelf={bookshelf}
+        booklist={booklist}
+      />
       <Grid item xs={12}>
         <Results booklist={booklist} />
       </Grid>

@@ -9,28 +9,43 @@ import Grid from '@material-ui/core/Grid'
 import { useSelector } from 'react-redux'
 import compareDifferences from '../../../util/compareDifferences'
 import search from '../../../services/searchService'
+import find from 'lodash/find'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import { makeStyles } from '@material-ui/styles'
 
-export default function SearchPage({ setBooklist }) {
+const useStyles = makeStyles(theme => ({
+  buttonProgress: {
+    color: 'green',
+    position: 'relative',
+    marginLeft: -59,
+    top: 7,
+  },
+}))
+
+export default function SearchPage({ setBooklist, booklist }) {
+  const classes = useStyles()
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
   const [searchedISBNs, setSearchedISBNs] = React.useState('')
+  const [loading, setLoading] = React.useState(false)
 
   async function handleSearch() {
-    const isbns = searchedISBNs.split(/[\n, ]/).filter(v => v !== '')
+    const isbns = searchedISBNs.split(/[\n,]/).filter(v => v !== '')
 
     const promiseISBNs = []
     forEach(isbns, isbn => {
       const formattedIsbn = isbn.replace(/[- ]/g, '')
-      if (isIsbn.validate(formattedIsbn)) {
+      if (isIsbn.validate(formattedIsbn) && !find(booklist, { isbn })) {
         promiseISBNs.push(formattedIsbn)
       }
     })
 
+    setSearchedISBNs([])
     if (!promiseISBNs.length) return
 
-    setSearchedISBNs([])
+    setLoading(true)
     const books = await search(union(promiseISBNs))
-
-    const booklist = forEach(books, searchedBook => {
+    console.log(books)
+    const searchedList = forEach(books, searchedBook => {
       return bookshelf.some(existingBook => {
         const searchedBookCopy = searchedBook
         if (searchedBook.isbn === existingBook.isbn) {
@@ -43,7 +58,8 @@ export default function SearchPage({ setBooklist }) {
         return searchedBookCopy
       })
     })
-    setBooklist(booklist)
+    setBooklist([...booklist, ...searchedList])
+    setLoading(false)
   }
 
   return (
@@ -62,12 +78,15 @@ export default function SearchPage({ setBooklist }) {
         <Button
           variant="outlined"
           color="primary"
-          disabled={isEmpty(searchedISBNs)}
+          disabled={loading || isEmpty(searchedISBNs)}
           data-testid="searchButton"
           onClick={handleSearch}
         >
           Search
         </Button>
+        {loading && (
+          <CircularProgress size={24} className={classes.buttonProgress} />
+        )}
       </Grid>
     </>
   )

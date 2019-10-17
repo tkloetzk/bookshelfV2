@@ -64,7 +64,7 @@ describe('SearchBar', () => {
     let props
 
     beforeEach(() => {
-      props = { setBooklist: jest.fn() }
+      props = { setBooklist: jest.fn(), booklist: [] }
     })
     describe('validation', () => {
       it('does not call (search) if there are no promise isbns', async () => {
@@ -102,6 +102,50 @@ describe('SearchBar', () => {
           fireEvent.click(getByTestId('searchButton'))
         })
         expect(props.setBooklist.mock.calls).toMatchSnapshot()
+      })
+      it('can add a new book to the booklist on additional search', async () => {
+        props = Object.assign({}, props, {
+          booklist: [{ title: 'book1', isbn: '0123456789012' }],
+        })
+
+        const { getByTestId } = render(
+          <Provider store={store}>
+            <MuiThemeProvider theme={muiTheme}>
+              <SearchBar {...props} />
+            </MuiThemeProvider>
+          </Provider>
+        )
+        await wait(() => {
+          fireEvent.change(getByTestId('searchBar'), {
+            target: { value: '9781402218279' },
+          })
+        })
+        await wait(() => {
+          fireEvent.click(getByTestId('searchButton'))
+        })
+        expect(props.setBooklist.mock.calls).toMatchSnapshot()
+      })
+      it('does not add a new book to the booklist if it already exists', async () => {
+        props = Object.assign({}, props, {
+          booklist: [{ isbn: '9781402218279' }],
+        })
+
+        const { getByTestId } = render(
+          <Provider store={store}>
+            <MuiThemeProvider theme={muiTheme}>
+              <SearchBar {...props} />
+            </MuiThemeProvider>
+          </Provider>
+        )
+        await wait(() => {
+          fireEvent.change(getByTestId('searchBar'), {
+            target: { value: '9781402218279' },
+          })
+        })
+        await wait(() => {
+          fireEvent.click(getByTestId('searchButton'))
+        })
+        expect(props.setBooklist).not.toHaveBeenCalled()
       })
     })
     describe('setBooklist', () => {
