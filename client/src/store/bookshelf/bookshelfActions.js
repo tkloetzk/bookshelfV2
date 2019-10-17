@@ -1,9 +1,12 @@
-import FETCH_BOOKSHELF_SUCCESS from './bookshelfActionTypes'
-import getBookshelfService from '../../services/bookshelfService'
+import * as types from './bookshelfActionTypes'
+import {
+  getBookshelfService,
+  addBookshelfService,
+} from '../../services/bookshelfService'
 
 export function getBookshelfSuccess(bookshelf) {
   return {
-    type: FETCH_BOOKSHELF_SUCCESS,
+    type: types.FETCH_BOOKSHELF_SUCCESS,
     bookshelf,
   }
 }
@@ -17,6 +20,26 @@ export function getBookshelf() {
       })
       .catch(error => {
         console.error('bookshelf error', error)
+      })
+  }
+}
+
+export function addBookToBookshelfSuccess() {
+  return {
+    type: types.ADD_BOOK_TO_BOOKSHELF_SUCCESS,
+  }
+}
+
+export function addBookToBookshelf(booklist) {
+  return dispatch => {
+    return addBookshelfService(booklist)
+      .then(() => {
+        dispatch(addBookToBookshelfSuccess())
+        dispatch(getBookshelf())
+        return true
+      })
+      .catch(error => {
+        console.error('add book to bookshelf error', error)
       })
   }
 }
