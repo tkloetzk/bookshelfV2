@@ -263,7 +263,7 @@ describe('SearchBar', () => {
       expect(asFragment()).toMatchSnapshot()
     })
     it('button is visible if booklist is not empty', () => {
-      props = Object.assign({}, props, { booklist: [{ title: 'book title' }] })
+      props = { ...props, booklist: [{ title: 'book title' }] }
       const { getByTestId } = render(
         <Provider store={store}>
           <MuiThemeProvider theme={muiTheme}>
@@ -275,7 +275,7 @@ describe('SearchBar', () => {
       expect(getByTestId('saveButton')).toBeVisible()
     })
     it('calls addBookshelfService and does not call updateBookshelfService if there are no books with differences', async () => {
-      props = Object.assign({}, props, { booklist: [book] })
+      props = { ...props, booklist: [book] }
       const { getByTestId } = render(
         <Provider store={store}>
           <MuiThemeProvider theme={muiTheme}>
@@ -295,8 +295,8 @@ describe('SearchBar', () => {
       expect(store.dispatch).toHaveBeenCalledTimes(1)
     })
     it('does not call addBookshelfService but calls updateBooksBookshelfService with booklist containing only books with differences', async () => {
-      book = Object.assign({}, book, { differences })
-      props = Object.assign({}, props, { booklist: [book] })
+      book = { ...book, differences }
+      props = { ...props, booklist: [book] }
 
       const { getByTestId } = render(
         <Provider store={store}>
@@ -316,8 +316,9 @@ describe('SearchBar', () => {
       expect(store.dispatch).toHaveBeenCalledTimes(1)
     })
     it('calls both addBookshelfService and updateBooksBookshelfService with booklist containing books with and without differences', async () => {
-      book = Object.assign({}, book, { differences })
-      props = Object.assign({}, props, {
+      book = { ...book, differences }
+      props = {
+        ...props,
         booklist: [
           book,
           {
@@ -338,7 +339,7 @@ describe('SearchBar', () => {
           },
           { title: 'book title', isbn: '1234' },
         ],
-      })
+      }
 
       const { getByTestId } = render(
         <Provider store={store}>

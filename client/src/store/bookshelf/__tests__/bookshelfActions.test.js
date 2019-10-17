@@ -1,8 +1,8 @@
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import FETCH_BOOKSHELF_SUCCESS from '../bookshelfActionTypes'
 import * as actions from '../bookshelfActions'
 import { getBookshelfService } from '../../../services/bookshelfService'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
 
 const createMockStore = configureMockStore([thunk])
 

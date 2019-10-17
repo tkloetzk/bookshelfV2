@@ -9,7 +9,7 @@ export function getBookshelfSuccess(bookshelf) {
 }
 
 export function getBookshelf() {
-  return function(dispatch) {
+  return dispatch => {
     return getBookshelfService()
       .then(bookshelf => {
         dispatch(getBookshelfSuccess(bookshelf))

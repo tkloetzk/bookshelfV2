@@ -1,6 +1,6 @@
 import axios from 'axios'
-import apiConfig from '../config/apiConfig'
 import map from 'lodash/map'
+import apiConfig from '../config/apiConfig'
 
 export function addBookshelfService(booklist) {
   return axios
@@ -20,15 +20,12 @@ export function updateBookOnBookshelfService(id, fields) {
 }
 
 export async function updateBooksBookshelfService(books) {
-  console.log(books)
   const promiseArray = map(books, book =>
     updateBookOnBookshelfService(book.id, book.fields)
   )
 
-  const response = await Promise.all(promiseArray)
-
-  console.log(response)
-  return response
+  // TODO: What to return?
+  return await Promise.all(promiseArray)
 }
 
 export function getBookshelfService(includedGenres = []) {

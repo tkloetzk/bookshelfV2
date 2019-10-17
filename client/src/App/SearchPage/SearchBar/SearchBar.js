@@ -10,19 +10,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import find from 'lodash/find'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles } from '@material-ui/styles'
-import search from '../../../services/searchService'
-import compareDifferences from '../../../util/compareDifferences'
 import Fab from '@material-ui/core/Fab'
 import SaveIcon from '@material-ui/icons/Save'
-import {
-  addBookshelfService,
-  updateBooksBookshelfService,
-} from '../../../services/bookshelfService'
 import has from 'lodash/has'
 import remove from 'lodash/remove'
 import assign from 'lodash/assign'
 import map from 'lodash/map'
 import cloneDeep from 'lodash/cloneDeep'
+import {
+  addBookshelfService,
+  updateBooksBookshelfService,
+} from '../../../services/bookshelfService'
+import compareDifferences from '../../../util/compareDifferences'
+import search from '../../../services/searchService'
 import { getBookshelf } from '../../../store/bookshelf/bookshelfActions'
 
 const useStyles = makeStyles(() => ({
@@ -81,8 +81,8 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
   }
 
   async function handleSave() {
-    let booklistCopy = cloneDeep(booklist)
-    let modifiedBooksArray = []
+    const booklistCopy = cloneDeep(booklist)
+    const modifiedBooksArray = []
 
     forEach(booklist, book => {
       if (has(book, 'differences')) {
@@ -136,7 +136,7 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
             aria-label="Save"
             className={classes.fab}
             onClick={handleSave}
-            component={'button'}
+            component="button"
             data-testid="saveButton"
           >
             <SaveIcon />
