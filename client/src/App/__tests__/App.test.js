@@ -1,6 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { render, fireEvent, wait } from '@testing-library/react'
+import { render, fireEvent, wait, cleanup } from '@testing-library/react'
 import configureMockStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import muiTheme from '../../config/themeConfig'
@@ -17,6 +17,7 @@ describe('App', () => {
     })
     store.dispatch = jest.fn()
   })
+  afterEach(cleanup)
 
   describe('render', () => {
     it('should render as expected', () => {

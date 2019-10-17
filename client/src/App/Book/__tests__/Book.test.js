@@ -39,6 +39,15 @@ describe('Book', () => {
       )
       expect(asFragment()).toMatchSnapshot()
     })
+    it('should render as expected if there is no thumbnail', () => {
+      book = Object.assign({}, book, { thumbnail: null })
+      const { asFragment } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <Book book={book} />
+        </MuiThemeProvider>
+      )
+      expect(asFragment()).toMatchSnapshot()
+    })
   })
   describe('expand', () => {
     it('expands on handleExpandClick', async () => {
