@@ -1,4 +1,3 @@
-import React from 'react'
 import compareDifferences from './compareDifferences'
 
 describe('compareDifferences', () => {

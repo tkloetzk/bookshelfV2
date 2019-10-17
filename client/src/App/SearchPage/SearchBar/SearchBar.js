@@ -7,13 +7,13 @@ import forEach from 'lodash/forEach'
 import union from 'lodash/union'
 import Grid from '@material-ui/core/Grid'
 import { useSelector } from 'react-redux'
-import compareDifferences from '../../../util/compareDifferences'
-import search from '../../../services/searchService'
 import find from 'lodash/find'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { makeStyles } from '@material-ui/styles'
+import search from '../../../services/searchService'
+import compareDifferences from '../../../util/compareDifferences'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   buttonProgress: {
     color: 'green',
     position: 'relative',
@@ -44,7 +44,7 @@ export default function SearchPage({ setBooklist, booklist }) {
 
     setLoading(true)
     const books = await search(union(promiseISBNs))
-    console.log(books)
+
     const searchedList = forEach(books, searchedBook => {
       return bookshelf.some(existingBook => {
         const searchedBookCopy = searchedBook

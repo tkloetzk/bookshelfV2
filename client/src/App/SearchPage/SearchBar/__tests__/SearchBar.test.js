@@ -104,9 +104,10 @@ describe('SearchBar', () => {
         expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
       it('can add a new book to the booklist on additional search', async () => {
-        props = Object.assign({}, props, {
+        props = {
+          ...props,
           booklist: [{ title: 'book1', isbn: '0123456789012' }],
-        })
+        }
 
         const { getByTestId } = render(
           <Provider store={store}>
@@ -126,9 +127,7 @@ describe('SearchBar', () => {
         expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
       it('does not add a new book to the booklist if it already exists', async () => {
-        props = Object.assign({}, props, {
-          booklist: [{ isbn: '9781402218279' }],
-        })
+        props = { ...props, booklist: [{ isbn: '9781402218279' }] }
 
         const { getByTestId } = render(
           <Provider store={store}>
