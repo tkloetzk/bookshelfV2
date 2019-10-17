@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.gray,
     paddingBottom: '13px',
     width: '100%',
-    height: '185px',
+    minHeight: '74px',
   },
   media: {
     width: '33%',
