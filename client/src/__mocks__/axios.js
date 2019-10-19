@@ -5,6 +5,7 @@ module.exports = {
     if (url === `${apiConfig.bookshelf}/update/1a2b`) {
       return Promise.resolve(true)
     }
+    return this
   }),
   get: jest.fn(url => {
     if (url === `${apiConfig.goodreads}/9781402218279`) {

@@ -97,7 +97,7 @@ describe('Book', () => {
       it('calls handleSave with correct parameters', async () => {
         book = { ...book, owned: false }
         const handleSave = jest.fn()
-        const { asFragment, getByTestId } = render(
+        const { getByTestId } = render(
           <MuiThemeProvider theme={muiTheme}>
             <Book book={book} handleSave={handleSave} />
           </MuiThemeProvider>

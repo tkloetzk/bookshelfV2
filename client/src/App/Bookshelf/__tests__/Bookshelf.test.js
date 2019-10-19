@@ -69,4 +69,18 @@ describe('Bookshelf', () => {
       expect(asFragment()).toMatchSnapshot()
     })
   })
+  describe('handleSave', () => {
+    const store = mockStore({
+      bookshelf: { bookshelf: [{ title: 'old book title' }] },
+    })
+    store.dispatch = jest.fn()
+
+    const { asFragment } = render(
+      <Provider store={store}>
+        <MuiThemeProvider theme={muiTheme}>
+          <Bookshelf />
+        </MuiThemeProvider>
+      </Provider>
+    )
+  })
 })

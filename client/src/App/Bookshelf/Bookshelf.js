@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import map from 'lodash/map'
+import assign from 'lodash/assign'
 import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 import { updateBookOnBookshelfService } from '../../services/bookshelfService'
-import map from 'lodash/map'
-import assign from 'lodash/assign'
 
 export default function Bookshelf() {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)

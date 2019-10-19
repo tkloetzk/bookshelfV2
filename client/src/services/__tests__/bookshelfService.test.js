@@ -86,7 +86,7 @@ describe('bookshelfService', () => {
 
     it('calls service and returns response when successful', () => {
       axios.put.mockResolvedValue()
-      return updateBookOnBookshelfService(id, fields).then(res => {
+      return updateBookOnBookshelfService(id, fields).then(() => {
         expect(axios.put).toHaveBeenCalledWith(
           `${apiConfig.bookshelf}/update/${id}`,
           fields

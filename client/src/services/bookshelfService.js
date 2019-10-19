@@ -19,13 +19,13 @@ export function updateBookOnBookshelfService(id, fields) {
     })
 }
 
-export async function updateBooksBookshelfService(books) {
+export function updateBooksBookshelfService(books) {
   const promiseArray = map(books, book =>
     updateBookOnBookshelfService(book.id, book.fields)
   )
 
   // TODO: What to return?
-  return await Promise.all(promiseArray)
+  return Promise.all(promiseArray)
 }
 
 export function getBookshelfService(includedGenres = []) {
