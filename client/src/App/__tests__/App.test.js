@@ -1,50 +1,71 @@
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
-import { mount } from 'enzyme';
-import muiTheme from '../../config/themeConfig';
-import App from '../App';
+import { MuiThemeProvider } from '@material-ui/core/styles'
+import React from 'react'
+import { render, fireEvent, wait, cleanup } from '@testing-library/react'
+import configureMockStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+import muiTheme from '../../config/themeConfig'
+import App from '../App'
+import '@testing-library/jest-dom/extend-expect'
+
+const mockStore = configureMockStore()
 
 describe('App', () => {
-  let component;
-
-  const setState = jest.fn();
-  const useStateSpy = jest.spyOn(React, 'useState');
-  useStateSpy.mockImplementation(init => [init, setState]);
-
+  let store
   beforeEach(() => {
-    component = mount(
-      <MuiThemeProvider theme={muiTheme}>
-        <App />
-      </MuiThemeProvider>,
-    ).find('App');
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+    store = mockStore({
+      bookshelf: { bookshelf: [] },
+    })
+    store.dispatch = jest.fn()
+  })
+  afterEach(cleanup)
 
   describe('render', () => {
     it('should render as expected', () => {
-      expect(component.html()).toMatchSnapshot();
-    });
-  });
+      const { asFragment } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
+        </Provider>
+      )
+      expect(asFragment()).toMatchSnapshot()
+    })
+  })
 
-  describe('handleChangeIndex', () => {
-    it('updates the index when clicking the bookshelf tab', () => {
-      component
-        .find('#bookshelfTab')
-        .hostNodes()
-        .props()
-        .onClick();
-      expect(setState).toHaveBeenCalledWith(1);
-    });
-    it('updates the index when clicking the search tab', () => {
-      component
-        .find('#searchTab')
-        .hostNodes()
-        .props()
-        .onClick();
-      expect(setState).toHaveBeenCalledWith(0);
-    });
-  });
-});
+  describe('tabs', () => {
+    it('should show Search when search tab is clicked', async () => {
+      const { asFragment, getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('bookshelfTab'))
+      })
+
+      await wait(() => {
+        fireEvent.click(getByTestId('searchTab'))
+      })
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+    it('should show Bookshelf when bookshelf tab is clicked', async () => {
+      const { asFragment, getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
+        </Provider>
+      )
+
+      await wait(() => {
+        fireEvent.click(getByTestId('bookshelfTab'))
+      })
+
+      expect(asFragment()).toMatchSnapshot()
+    })
+  })
+})

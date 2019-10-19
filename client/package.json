@@ -4,19 +4,30 @@
 	"private": true,
 	"dependencies": {
 		"@material-ui/core": "^4.4.0",
+		"@material-ui/icons": "^4.4.1",
 		"@material-ui/styles": "^4.3.3",
+		"@testing-library/jest-dom": "^4.1.0",
+		"axios": "^0.19.0",
+		"axios-mock-adapter": "^1.17.0",
 		"enzyme": "^3.10.0",
 		"enzyme-adapter-react-16": "^1.14.0",
-		"eslint-config-airbnb": "^18.0.1",
 		"eslint-import-resolver-webpack": "^0.11.1",
-		"eslint-plugin-import": "^2.18.2",
-		"eslint-plugin-jsx-a11y": "^6.2.3",
-		"eslint-plugin-react": "^7.14.3",
+		"http-proxy-middleware": "^0.20.0",
+		"is-isbn": "^1.1.0",
+		"lodash": "^4.17.15",
 		"material-ui": "^0.20.2",
+		"pretty-quick": "^1.11.1",
+		"prop-types": "^15.7.2",
 		"react": "^16.9.0",
 		"react-dom": "^16.9.0",
+		"react-redux": "^7.1.1",
 		"react-scripts": "3.1.1",
-		"react-swipeable-views": "^0.13.3"
+		"react-swipeable-views": "^0.13.3",
+		"react-tooltip": "^3.11.1",
+		"redux": "^4.0.4",
+		"redux-devtools-extension": "^2.13.8",
+		"redux-mock-store": "^1.5.3",
+		"redux-thunk": "^2.3.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -24,29 +35,67 @@
 		"test": "react-scripts test --verbose=false",
 		"eject": "react-scripts eject",
 		"test:watch": "react-scripts test --watch --verbose=false",
-		"test:coverage": "react-scripts test --coverage --colors"
+		"test:coverage": "react-scripts test --coverage --colors --watchAll=true",
+		"lint": "eslint ./src --fix",
+		"fix": "npm run fix:eslint && npm run fix:prettier",
+		"fix:eslint": "eslint --fix \"**/*.*\"",
+		"fix:prettier": "prettier --write \"**/*.*\""
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"prettier --write ",
+			"git add"
+		]
 	},
 	"eslintConfig": {
 		"extends": "react-app"
 	},
 	"jest": {
-		"collectCoverageFrom": [ "**/src/**/*.{js,jsx,ts,tsx}" ],
+		"collectCoverageFrom": [
+			"src/**/*.{js,jsx,ts,tsx}"
+		],
 		"coveragePathIgnorePatterns": [
 			"<rootDir>/node_modules",
 			"<rootDir>/src/setupTests.js",
+			"<rootDir>/src/setupProxy.js",
 			"<rootDir>/src/index.js",
-			"<rootDir>/src/App/header/Header.js"
+			"<rootDir>/src/App/header/Header.js",
+			"<rootDir>/src/config/",
+			"<rootDir>/src/util/constants.js",
+			"<rootDir>/src/store/configureStore.js",
+			"<rootDir>/src/store/index.js"
 		],
-		"snapshotSerializers": [ "jest-serializer-html" ]
+		"snapshotSerializers": [
+			"jest-serializer-html"
+		]
 	},
 	"browserslist": {
-		"production": [ ">0.2%", "not dead", "not op_mini all" ],
-		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
 	"devDependencies": {
+		"@testing-library/react": "^9.1.4",
 		"eslint": "^6.3.0",
-		"eslint-config-prettier": "^6.2.0",
-		"eslint-plugin-prettier": "^3.1.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-prettier": "^6.4.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^1.7.0",
 		"husky": "^3.0.5",
 		"jest-serializer-html": "^7.0.0",
 		"lint-staged": "^9.2.5",

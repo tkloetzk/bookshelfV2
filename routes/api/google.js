@@ -7,7 +7,7 @@ router.get('/v1/:isbn', (req, res) => {
   books.search(req.params.isbn, function(error, books) {
     if (!error) {
       const subtitle = get(books[0], 'subtitle', '');
-      const categories = get(books[0], 'categories', 'undefined');
+      const categories = get(books[0], 'categories', []);
       const book = {
         title: books[0].title,
         isbn: req.params.isbn,

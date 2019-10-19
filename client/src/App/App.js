@@ -1,10 +1,11 @@
-import React from 'react';
-import Search from './Search/Search';
-import SwipeableViews from 'react-swipeable-views';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import { makeStyles } from '@material-ui/styles';
-import Header from './header/Header';
+import React from 'react'
+import SwipeableViews from 'react-swipeable-views'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import { makeStyles } from '@material-ui/styles'
+import SearchPage from './SearchPage/SearchPage'
+import Header from './header/Header'
+import Bookshelf from './Bookshelf/Bookshelf'
 
 const useStyles = makeStyles(theme => ({
   tabs: {
@@ -13,18 +14,14 @@ const useStyles = makeStyles(theme => ({
   container: {
     marginTop: 103,
   },
-}));
+}))
 
 export default function App() {
-  const classes = useStyles();
-  const [index, setIndex] = React.useState(0);
-
-  function handleChangeIndex(newValue) {
-    setIndex(newValue);
-  }
+  const classes = useStyles()
+  const [index, setIndex] = React.useState(0)
 
   return (
-    <fragment>
+    <>
       <Header>Book Review Aggregator</Header>
       <div className={classes.container}>
         <Tabs
@@ -36,23 +33,20 @@ export default function App() {
         >
           <Tab
             label="Search"
-            id="searchTab"
-            onClick={() => handleChangeIndex(0)}
+            data-testid="searchTab"
+            onClick={() => setIndex(0)}
           />
           <Tab
             label="Bookshelf"
-            id="bookshelfTab"
-            onClick={() => handleChangeIndex(1)}
+            data-testid="bookshelfTab"
+            onClick={() => setIndex(1)}
           />
         </Tabs>
-        <SwipeableViews
-          index={index}
-          onChangeIndex={handleChangeIndex}
-        >
-          <Search />
-          <div>Test2</div>
+        <SwipeableViews index={index} onChangeIndex={setIndex}>
+          <SearchPage />
+          <Bookshelf />
         </SwipeableViews>
       </div>
-    </fragment>
-  );
+    </>
+  )
 }
