@@ -140,6 +140,7 @@ export default function Book({ book, handleSave }) {
         onClick={() =>
           handleSave(book, [{ key: 'read', newValue: !book.read }])
         }
+        data-testid="header"
       >
         <CardHeader
           avatar={

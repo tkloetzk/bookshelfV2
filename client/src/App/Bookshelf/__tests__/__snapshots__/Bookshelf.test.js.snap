@@ -9,13 +9,14 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-207  makeStyles-different-208 MuiPaper-rounded"
     >
       <div
-        class="makeStyles-header-209"
+        class="makeStyles-header-209 makeStyles-headerUnread-211"
+        data-testid="header"
       >
         <div
-          class="MuiCardHeader-root makeStyles-cardHeader-212"
+          class="MuiCardHeader-root makeStyles-cardHeader-214"
         >
           <div
-            class="MuiCardHeader-avatar makeStyles-avatar-214"
+            class="MuiCardHeader-avatar makeStyles-avatar-216"
           >
             <p
               class="MuiTypography-root MuiTypography-body2"
@@ -24,7 +25,7 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
             </p>
           </div>
           <div
-            class="MuiCardHeader-content makeStyles-headerContent-213"
+            class="MuiCardHeader-content makeStyles-headerContent-215"
           >
             <p
               class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -33,7 +34,7 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
             </p>
           </div>
           <div
-            class="MuiCardHeader-action makeStyles-iconButton-211"
+            class="MuiCardHeader-action makeStyles-iconButton-213"
           >
             <svg
               aria-hidden="true"
@@ -69,7 +70,7 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
         </span>
       </div>
       <img
-        class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-210"
+        class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-212"
         src="http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         title="The New Baby Answer Book"
       />
@@ -77,16 +78,16 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
         class="MuiCardContent-root"
       >
         <p
-          class="MuiTypography-root makeStyles-description-215 MuiTypography-caption MuiTypography-colorTextSecondary"
+          class="MuiTypography-root makeStyles-description-217 MuiTypography-caption MuiTypography-colorTextSecondary"
         >
           Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.
         </p>
       </div>
       <div
-        class="MuiCardActions-root makeStyles-expandAction-217 MuiCardActions-spacing"
+        class="MuiCardActions-root makeStyles-expandAction-219 MuiCardActions-spacing"
       >
         <button
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-216"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-218"
           data-testid="expandButton"
           tabindex="0"
           type="button"

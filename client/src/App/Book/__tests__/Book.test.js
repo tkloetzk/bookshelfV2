@@ -67,6 +67,15 @@ describe('Book', () => {
       )
       expect(asFragment()).toMatchSnapshot()
     })
+    it('renders as expected with read property', () => {
+      book = { ...book, read: true }
+      const { asFragment } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <Book book={book} />
+        </MuiThemeProvider>
+      )
+      expect(asFragment()).toMatchSnapshot()
+    })
   })
   describe('expand', () => {
     it('expands on handleExpandClick', async () => {
@@ -83,18 +92,18 @@ describe('Book', () => {
     })
   })
   describe('IconButtons', () => {
-    describe('ownedIcon', () => {
-      it('shows the unowned icon for an unowned book', () => {
-        book = { ...book, owned: false }
-        const { asFragment } = render(
-          <MuiThemeProvider theme={muiTheme}>
-            <Book book={book} />
-          </MuiThemeProvider>
-        )
+    it('shows the unowned icon for an unowned book', () => {
+      book = { ...book, owned: false }
+      const { asFragment } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <Book book={book} />
+        </MuiThemeProvider>
+      )
 
-        expect(asFragment()).toMatchSnapshot()
-      })
-      it('calls handleSave with correct parameters', async () => {
+      expect(asFragment()).toMatchSnapshot()
+    })
+    describe('handleSave', () => {
+      it('called with correct parameters for unread', async () => {
         book = { ...book, owned: false }
         const handleSave = jest.fn()
         const { getByTestId } = render(
@@ -107,7 +116,23 @@ describe('Book', () => {
           fireEvent.click(getByTestId('ownedIcon'))
         })
         expect(handleSave).toHaveBeenCalledWith(book, [
-          { key: 'owned', newValue: true },
+          { key: 'owned', newValue: !book.owned },
+        ])
+      })
+      it('called with correct parameters for owned', async () => {
+        book = { ...book, owned: false }
+        const handleSave = jest.fn()
+        const { getByTestId } = render(
+          <MuiThemeProvider theme={muiTheme}>
+            <Book book={book} handleSave={handleSave} />
+          </MuiThemeProvider>
+        )
+
+        await wait(() => {
+          fireEvent.click(getByTestId('header'))
+        })
+        expect(handleSave).toHaveBeenCalledWith(book, [
+          { key: 'read', newValue: !book.read },
         ])
       })
     })
