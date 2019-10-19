@@ -32,10 +32,15 @@ const useStyles = makeStyles(theme => ({
       '0px 0px 3px 6px yellow, 0px 1px 1px 2px yellow, 0px 2px 1px 1px yellow',
   },
   header: {
-    backgroundColor: theme.palette.primary.gray,
     paddingBottom: '13px',
     width: '100%',
     maxHeight: '84px',
+  },
+  headerRead: {
+    backgroundColor: theme.palette.primary.green,
+  },
+  headerUnread: {
+    backgroundColor: theme.palette.primary.gray,
   },
   media: {
     width: '33%',
@@ -44,6 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
   iconButton: {
     alignSelf: 'flex-end',
+    marginTop: 0,
   },
   cardHeader: {
     padding: '13px 13px 0px 13px',
@@ -126,7 +132,15 @@ export default function Book({ book, handleSave }) {
         differences.length ? classes.different : null,
       ].join(' ')}
     >
-      <div className={classes.header}>
+      <div
+        className={[
+          classes.header,
+          book.read ? classes.headerRead : classes.headerUnread,
+        ].join(' ')}
+        onClick={() =>
+          handleSave(book, [{ key: 'read', newValue: !book.read }])
+        }
+      >
         <CardHeader
           avatar={
             <Typography variant="body2">
