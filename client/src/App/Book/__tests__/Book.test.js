@@ -48,6 +48,25 @@ describe('Book', () => {
       )
       expect(asFragment()).toMatchSnapshot()
     })
+    it('should render as expected if there are differences', () => {
+      book = {
+        ...book,
+        differences: [
+          { key: 'title', currentValue: 'old title', newValue: book.title },
+          {
+            key: 'amazonRatingsCount',
+            currentValue: 123,
+            newValue: book.amazonRatingsCount,
+          },
+        ],
+      }
+      const { asFragment } = render(
+        <MuiThemeProvider theme={muiTheme}>
+          <Book book={book} />
+        </MuiThemeProvider>
+      )
+      expect(asFragment()).toMatchSnapshot()
+    })
   })
   describe('expand', () => {
     it('expands on handleExpandClick', async () => {
@@ -64,15 +83,33 @@ describe('Book', () => {
     })
   })
   describe('IconButtons', () => {
-    it('shows the unowned icon for an unowned book', () => {
-      book = { ...book, owned: false }
-      const { asFragment } = render(
-        <MuiThemeProvider theme={muiTheme}>
-          <Book book={book} />
-        </MuiThemeProvider>
-      )
+    describe('ownedIcon', () => {
+      it('shows the unowned icon for an unowned book', () => {
+        book = { ...book, owned: false }
+        const { asFragment } = render(
+          <MuiThemeProvider theme={muiTheme}>
+            <Book book={book} />
+          </MuiThemeProvider>
+        )
 
-      expect(asFragment()).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
+      })
+      it('calls handleSave with correct parameters', async () => {
+        book = { ...book, owned: false }
+        const handleSave = jest.fn()
+        const { asFragment, getByTestId } = render(
+          <MuiThemeProvider theme={muiTheme}>
+            <Book book={book} handleSave={handleSave} />
+          </MuiThemeProvider>
+        )
+
+        await wait(() => {
+          fireEvent.click(getByTestId('ownedIcon'))
+        })
+        expect(handleSave).toHaveBeenCalledWith(book, [
+          { key: 'owned', newValue: true },
+        ])
+      })
     })
   })
 })

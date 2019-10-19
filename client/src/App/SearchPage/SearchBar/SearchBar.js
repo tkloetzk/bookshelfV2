@@ -63,17 +63,16 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
     const books = await search(union(promiseISBNs))
 
     const searchedList = forEach(books, searchedBook => {
-      return bookshelf.some(existingBook => {
-        const searchedBookCopy = searchedBook
+      return bookshelf.forEach(existingBook => {
         if (searchedBook.isbn === existingBook.isbn) {
-          searchedBookCopy.id = existingBook._id
-          searchedBookCopy.differences = compareDifferences(
+          searchedBook.id = existingBook._id
+          searchedBook.differences = compareDifferences(
             existingBook,
-            searchedBookCopy,
+            searchedBook,
             []
           )
+          return false
         }
-        return searchedBookCopy
       })
     })
     setBooklist([...booklist, ...searchedList])
@@ -104,6 +103,7 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
       promiseArray.push(addBookshelfService(booklistCopy))
     await Promise.all(promiseArray)
     dispatch(getBookshelf())
+    setBooklist([])
   }
   return (
     <>

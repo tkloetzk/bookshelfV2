@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
+exports[`Book IconButtons ownedIcon shows the unowned icon for an unowned book 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-352  MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-473   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-353"
+      class="makeStyles-header-475"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-356"
+        class="MuiCardHeader-root makeStyles-cardHeader-478"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-358"
+          class="MuiCardHeader-avatar makeStyles-avatar-480"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -21,7 +21,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-357"
+          class="MuiCardHeader-content makeStyles-headerContent-479"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -30,11 +30,12 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-355"
+          class="MuiCardHeader-action makeStyles-iconButton-477"
         >
           <button
             aria-label="unowned"
             class="MuiButtonBase-root MuiIconButton-root"
+            data-testid="ownedIcon"
             tabindex="0"
             type="button"
           >
@@ -66,7 +67,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-354"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-476"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -74,16 +75,16 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-359 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-481 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-361 MuiCardActions-spacing"
+      class="MuiCardActions-root makeStyles-expandAction-483 MuiCardActions-spacing"
     >
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-360"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-482"
         data-testid="expandButton"
         tabindex="0"
         type="button"
@@ -115,16 +116,16 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
 exports[`Book expand expands on handleExpandClick 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-235 makeStyles-expanded-245 MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-355 makeStyles-expanded-366  MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-236"
+      class="makeStyles-header-357"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-239"
+        class="MuiCardHeader-root makeStyles-cardHeader-360"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-241"
+          class="MuiCardHeader-avatar makeStyles-avatar-362"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -133,7 +134,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-240"
+          class="MuiCardHeader-content makeStyles-headerContent-361"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -142,11 +143,12 @@ exports[`Book expand expands on handleExpandClick 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-238"
+          class="MuiCardHeader-action makeStyles-iconButton-359"
         >
           <button
             aria-label="owned"
             class="MuiButtonBase-root MuiIconButton-root"
+            data-testid="ownedIcon"
             tabindex="0"
             type="button"
           >
@@ -178,7 +180,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-237"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-358"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -186,16 +188,16 @@ exports[`Book expand expands on handleExpandClick 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-242 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-363 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-244 MuiCardActions-spacing"
+      class="MuiCardActions-root makeStyles-expandAction-365 MuiCardActions-spacing"
     >
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expandOpen-246"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-expandOpen-367"
         data-testid="expandButton"
         tabindex="0"
         type="button"
@@ -264,16 +266,16 @@ exports[`Book expand expands on handleExpandClick 1`] = `
 exports[`Book render should render as expected 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1  MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-2"
+      class="makeStyles-header-3"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-5"
+        class="MuiCardHeader-root makeStyles-cardHeader-6"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-7"
+          class="MuiCardHeader-avatar makeStyles-avatar-8"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -282,7 +284,7 @@ exports[`Book render should render as expected 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-6"
+          class="MuiCardHeader-content makeStyles-headerContent-7"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -291,11 +293,12 @@ exports[`Book render should render as expected 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-4"
+          class="MuiCardHeader-action makeStyles-iconButton-5"
         >
           <button
             aria-label="owned"
             class="MuiButtonBase-root MuiIconButton-root"
+            data-testid="ownedIcon"
             tabindex="0"
             type="button"
           >
@@ -327,7 +330,7 @@ exports[`Book render should render as expected 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-3"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-4"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -335,16 +338,132 @@ exports[`Book render should render as expected 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-8 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-9 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-10 MuiCardActions-spacing"
+      class="MuiCardActions-root makeStyles-expandAction-11 MuiCardActions-spacing"
     >
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-9"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-10"
+        data-testid="expandButton"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Book render should render as expected if there are differences 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-237  makeStyles-different-238 MuiPaper-rounded"
+  >
+    <div
+      class="makeStyles-header-239"
+    >
+      <div
+        class="MuiCardHeader-root makeStyles-cardHeader-242"
+      >
+        <div
+          class="MuiCardHeader-avatar makeStyles-avatar-244"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body2"
+          >
+            NaN
+          </p>
+        </div>
+        <div
+          class="MuiCardHeader-content makeStyles-headerContent-243"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
+          >
+            The Happiest Toddler on the Block
+          </p>
+        </div>
+        <div
+          class="MuiCardHeader-action makeStyles-iconButton-241"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="Differences"
+            class="MuiSvgIcon-root"
+            currentitem="false"
+            data-for="differencesIcon-9780553381436"
+            data-tip="true"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM11 5h2v6h-2zm0 8h2v2h-2z"
+            />
+          </svg>
+          <div
+            class="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+            id="differencesIcon-9780553381436"
+          >
+            <span>
+              title old title -&gt; The Happiest Toddler on the Block
+              <br />
+            </span>
+            <span>
+              amazonRatingsCount 123 -&gt; 611
+              <br />
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        class="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter"
+      >
+        Toddler, Parenting
+      </span>
+    </div>
+    <img
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-240"
+      src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      title="The Happiest Toddler on the Block"
+    />
+    <div
+      class="MuiCardContent-root"
+    >
+      <p
+        class="MuiTypography-root makeStyles-description-245 MuiTypography-caption MuiTypography-colorTextSecondary"
+      >
+        The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
+      </p>
+    </div>
+    <div
+      class="MuiCardActions-root makeStyles-expandAction-247 MuiCardActions-spacing"
+    >
+      <button
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-246"
         data-testid="expandButton"
         tabindex="0"
         type="button"
@@ -376,16 +495,16 @@ exports[`Book render should render as expected 1`] = `
 exports[`Book render should render as expected if there is no thumbnail 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-118  MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-119   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-119"
+      class="makeStyles-header-121"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-122"
+        class="MuiCardHeader-root makeStyles-cardHeader-124"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-124"
+          class="MuiCardHeader-avatar makeStyles-avatar-126"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -394,7 +513,7 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-123"
+          class="MuiCardHeader-content makeStyles-headerContent-125"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -403,11 +522,12 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-121"
+          class="MuiCardHeader-action makeStyles-iconButton-123"
         >
           <button
             aria-label="owned"
             class="MuiButtonBase-root MuiIconButton-root"
+            data-testid="ownedIcon"
             tabindex="0"
             type="button"
           >
@@ -439,23 +559,24 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-120"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-122"
+      src=" "
       title="The Happiest Toddler on the Block"
     />
     <div
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-125 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-127 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-127 MuiCardActions-spacing"
+      class="MuiCardActions-root makeStyles-expandAction-129 MuiCardActions-spacing"
     >
       <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-126"
+        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-128"
         data-testid="expandButton"
         tabindex="0"
         type="button"

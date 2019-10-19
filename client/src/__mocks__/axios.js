@@ -1,8 +1,13 @@
 import apiConfig from '../config/apiConfig'
 
 module.exports = {
+  put: jest.fn(url => {
+    if (url === `${apiConfig.bookshelf}/update/1a2b`) {
+      return Promise.resolve(true)
+    }
+  }),
   get: jest.fn(url => {
-    if (url === `${apiConfig.goodreads}/${9781402218279}`) {
+    if (url === `${apiConfig.goodreads}/9781402218279`) {
       return Promise.resolve({
         data: {
           goodreadsAverageRating: 4.0,
@@ -11,7 +16,7 @@ module.exports = {
         },
       })
     }
-    if (url === `${apiConfig.google}/${9781402218279}`) {
+    if (url === `${apiConfig.google}/9781402218279`) {
       return Promise.resolve({
         data: {
           title: 'The New Baby Answer Book',

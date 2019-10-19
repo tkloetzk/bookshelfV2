@@ -1,14 +1,12 @@
 import axios from 'axios'
-import { addBookshelfService, getBookshelfService } from '../bookshelfService'
+import {
+  addBookshelfService,
+  getBookshelfService,
+  updateBookOnBookshelfService,
+} from '../bookshelfService'
 import apiConfig from '../../config/apiConfig'
 
 describe('bookshelfService', () => {
-  let spy
-
-  beforeEach(() => {
-    spy = jest.spyOn(axios, 'post')
-  })
-
   describe('addBookshelfService', () => {
     it('calls service and returns response when successful', () => {
       const books = {
@@ -57,7 +55,7 @@ describe('bookshelfService', () => {
 
       axios.post.mockResolvedValue(books)
       return addBookshelfService(books.data).then(res => {
-        expect(spy).toHaveBeenCalledWith(
+        expect(axios.post).toHaveBeenCalledWith(
           `${apiConfig.bookshelf}/add`,
           books.data
         )
@@ -69,9 +67,41 @@ describe('bookshelfService', () => {
       axios.post.mockRejectedValue(errorMessage)
       return addBookshelfService([{ title: 'title book' }])
         .then(() => {
-          expect(spy).toHaveBeenCalledWith(`${apiConfig.bookshelf}/add`, [
-            { title: 'title book' },
-          ])
+          expect(axios.post).toHaveBeenCalledWith(
+            `${apiConfig.bookshelf}/add`,
+            [{ title: 'title book' }]
+          )
+        })
+        .catch(error => {
+          expect(error).toEqual(errorMessage)
+        })
+    })
+  })
+  // describe('updateBooksBookshelfService', () => {
+
+  // })
+  describe('updateBookOnBookshelfService', () => {
+    const id = '1a2b'
+    const fields = { title: 'New Book Title', goodreadsRatingsCount: 123 }
+
+    it('calls service and returns response when successful', () => {
+      axios.put.mockResolvedValue()
+      return updateBookOnBookshelfService(id, fields).then(res => {
+        expect(axios.put).toHaveBeenCalledWith(
+          `${apiConfig.bookshelf}/update/${id}`,
+          fields
+        )
+      })
+    })
+    it('calls service and returns error response when unsuccessful', () => {
+      const errorMessage = 'Error message'
+      axios.put.mockRejectedValue(errorMessage)
+      return updateBookOnBookshelfService(id, fields)
+        .then(() => {
+          expect(axios.put).toHaveBeenCalledWith(
+            `${apiConfig.bookshelf}/update/${id}`,
+            [{ title: 'title book' }]
+          )
         })
         .catch(error => {
           expect(error).toEqual(errorMessage)
@@ -126,7 +156,7 @@ describe('bookshelfService', () => {
 
       axios.post.mockResolvedValue(response)
       return getBookshelfService().then(res => {
-        expect(spy).toHaveBeenCalledWith(apiConfig.bookshelf, [])
+        expect(axios.post).toHaveBeenCalledWith(apiConfig.bookshelf, [])
         expect(res).toEqual(response.data)
       })
     })
@@ -135,7 +165,7 @@ describe('bookshelfService', () => {
       axios.post.mockRejectedValue(errorMessage)
       return getBookshelfService()
         .then(() => {
-          expect(spy).toHaveBeenCalledWith(apiConfig.bookshelf, [])
+          expect(axios.post).toHaveBeenCalledWith(apiConfig.bookshelf, [])
         })
         .catch(error => {
           expect(error).toEqual(errorMessage)

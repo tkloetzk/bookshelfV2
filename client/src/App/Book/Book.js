@@ -12,6 +12,9 @@ import PropTypes from 'prop-types'
 import CardActions from '@material-ui/core/CardActions'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
+import get from 'lodash/get'
+import Icon from '@material-ui/icons/AnnouncementOutlined'
+import ReactTooltip from 'react-tooltip'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -23,11 +26,16 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     margin: '13px',
   },
+  different: {
+    cursor: 'pointer',
+    boxShadow:
+      '0px 0px 3px 6px yellow, 0px 1px 1px 2px yellow, 0px 2px 1px 1px yellow',
+  },
   header: {
     backgroundColor: theme.palette.primary.gray,
     paddingBottom: '13px',
     width: '100%',
-    minHeight: '74px',
+    maxHeight: '84px',
   },
   media: {
     width: '33%',
@@ -35,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: '116px',
   },
   iconButton: {
-    alignSelf: 'center',
+    alignSelf: 'flex-end',
   },
   cardHeader: {
     padding: '13px 13px 0px 13px',
@@ -64,17 +72,59 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Book({ book }) {
+export default function Book({ book, handleSave }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
 
+  const differences = get(book, 'differences', [])
   function handleExpandClick() {
     setExpanded(!expanded)
   }
 
+  function BookAction() {
+    if (differences.length) {
+      return (
+        <>
+          <Icon
+            aria-label="Differences"
+            data-tip
+            data-for={`differencesIcon-${book.isbn}`}
+          />
+          <ReactTooltip
+            id={`differencesIcon-${book.isbn}`}
+            type="info"
+            effect="solid"
+          >
+            {differences.map(difference => (
+              <span key={difference.key}>
+                {difference.key} {difference.currentValue} ->{' '}
+                {difference.newValue}
+                <br />
+              </span>
+            ))}
+          </ReactTooltip>
+        </>
+      )
+    }
+    return (
+      <IconButton
+        aria-label={book.owned ? 'owned' : 'unowned'}
+        data-testid="ownedIcon"
+        onClick={() =>
+          handleSave(book, [{ key: 'owned', newValue: !book.owned }])
+        }
+      >
+        {book.owned ? <OwnedBook /> : <UnownedBook />}
+      </IconButton>
+    )
+  }
   return (
     <Card
-      className={[classes.card, expanded ? classes.expanded : null].join(' ')}
+      className={[
+        classes.card,
+        expanded ? classes.expanded : null,
+        differences.length ? classes.different : null,
+      ].join(' ')}
     >
       <div className={classes.header}>
         <CardHeader
@@ -83,11 +133,7 @@ export default function Book({ book }) {
               {(Math.round(book.adjustedRating * 1000) / 1000).toString()}
             </Typography>
           }
-          action={
-            <IconButton aria-label={book.owned ? 'owned' : 'unowned'}>
-              {book.owned ? <OwnedBook /> : <UnownedBook />}
-            </IconButton>
-          }
+          action={<BookAction />}
           disableTypography
           title={
             <Typography variant="body2" align="center">
@@ -109,7 +155,7 @@ export default function Book({ book }) {
       <CardMedia
         classes={{ media: classes.media }}
         component="img"
-        image={book.thumbnail || null}
+        image={book.thumbnail || ' '}
         title={book.title}
       />
 

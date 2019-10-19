@@ -6,16 +6,16 @@ exports[`render renders should render as expected 1`] = `
     class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-104  MuiPaper-rounded"
+      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-104   MuiPaper-rounded"
     >
       <div
-        class="makeStyles-header-105"
+        class="makeStyles-header-106"
       >
         <div
-          class="MuiCardHeader-root makeStyles-cardHeader-108"
+          class="MuiCardHeader-root makeStyles-cardHeader-109"
         >
           <div
-            class="MuiCardHeader-avatar makeStyles-avatar-110"
+            class="MuiCardHeader-avatar makeStyles-avatar-111"
           >
             <p
               class="MuiTypography-root MuiTypography-body2"
@@ -24,7 +24,7 @@ exports[`render renders should render as expected 1`] = `
             </p>
           </div>
           <div
-            class="MuiCardHeader-content makeStyles-headerContent-109"
+            class="MuiCardHeader-content makeStyles-headerContent-110"
           >
             <p
               class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -33,11 +33,12 @@ exports[`render renders should render as expected 1`] = `
             </p>
           </div>
           <div
-            class="MuiCardHeader-action makeStyles-iconButton-107"
+            class="MuiCardHeader-action makeStyles-iconButton-108"
           >
             <button
               aria-label="owned"
               class="MuiButtonBase-root MuiIconButton-root"
+              data-testid="ownedIcon"
               tabindex="0"
               type="button"
             >
@@ -69,7 +70,7 @@ exports[`render renders should render as expected 1`] = `
         </span>
       </div>
       <img
-        class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-106"
+        class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-107"
         src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         title="The Happiest Toddler on the Block"
       />
@@ -77,16 +78,16 @@ exports[`render renders should render as expected 1`] = `
         class="MuiCardContent-root"
       >
         <p
-          class="MuiTypography-root makeStyles-description-111 MuiTypography-caption MuiTypography-colorTextSecondary"
+          class="MuiTypography-root makeStyles-description-112 MuiTypography-caption MuiTypography-colorTextSecondary"
         >
           The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
         </p>
       </div>
       <div
-        class="MuiCardActions-root makeStyles-expandAction-113 MuiCardActions-spacing"
+        class="MuiCardActions-root makeStyles-expandAction-114 MuiCardActions-spacing"
       >
         <button
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-112"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-113"
           data-testid="expandButton"
           tabindex="0"
           type="button"
@@ -114,4 +115,4 @@ exports[`render renders should render as expected 1`] = `
     </div>
   </div>
 </DocumentFragment>
-`
+`;
