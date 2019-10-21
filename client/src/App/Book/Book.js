@@ -15,6 +15,8 @@ import Collapse from '@material-ui/core/Collapse'
 import get from 'lodash/get'
 import Icon from '@material-ui/icons/AnnouncementOutlined'
 import ReactTooltip from 'react-tooltip'
+import { useSelector } from 'react-redux'
+import some from 'lodash/some'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,7 +83,14 @@ const useStyles = makeStyles(theme => ({
 export default function Book({ book, handleSave }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+  // let hidden = true
 
+  // genres.forEach(genre => {
+  //   if (book.categories.includes(genre.category) && genre.checked) {
+  //     hidden = false
+  //   }
+  // })
+  // console.log(hidden)
   const differences = get(book, 'differences', [])
   function handleExpandClick() {
     setExpanded(!expanded)

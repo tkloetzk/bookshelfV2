@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import FETCH_BOOKSHELF_SUCCESS from '../bookshelfActionTypes'
+import * as types from '../bookshelfActionTypes'
 import * as actions from '../bookshelfActions'
 import { getBookshelfService } from '../../../services/bookshelfService'
 
@@ -46,7 +46,7 @@ describe('bookshelfActions', () => {
   describe('getBookshelfSuccess', () => {
     it('dispatches bookshelf when successful', () => {
       const action = {
-        type: FETCH_BOOKSHELF_SUCCESS,
+        type: types.FETCH_BOOKSHELF_SUCCESS,
         bookshelf,
       }
       expect(actions.getBookshelfSuccess(action.bookshelf)).toEqual(action)

@@ -5,9 +5,11 @@ import assign from 'lodash/assign'
 import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 import { updateBookOnBookshelfService } from '../../services/bookshelfService'
+import GenreSelector from './GenreSelector/GenreSelector'
 
 export default function Bookshelf() {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
+  const genres = useSelector(state => state.bookshelf.selectedGenres)
   const dispatch = useDispatch()
 
   async function handleSave(book, edits) {
@@ -23,5 +25,13 @@ export default function Bookshelf() {
     dispatch(getBookshelf())
   }, [dispatch])
 
-  return <Results booklist={bookshelf} handleSave={handleSave} />
+  if (genres.length > 0) {
+  }
+
+  return (
+    <>
+      <GenreSelector />
+      <Results booklist={bookshelf} handleSave={handleSave} />
+    </>
+  )
 }

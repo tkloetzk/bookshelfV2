@@ -3,6 +3,7 @@ import {
   addBookshelfService,
   getBookshelfService,
   updateBookOnBookshelfService,
+  getGenresBookshelfService,
 } from '../bookshelfService'
 import apiConfig from '../../config/apiConfig'
 
@@ -166,6 +167,30 @@ describe('bookshelfService', () => {
       return getBookshelfService()
         .then(() => {
           expect(axios.post).toHaveBeenCalledWith(apiConfig.bookshelf, [])
+        })
+        .catch(error => {
+          expect(error).toEqual(errorMessage)
+        })
+    })
+  })
+  describe('getGenresBookshelfService', () => {
+    it('calls service and returns response when successful', () => {
+      const response = { data: ['genre 1', 'genre 2'] }
+
+      axios.get.mockResolvedValue(response)
+      return getGenresBookshelfService().then(res => {
+        expect(axios.get).toHaveBeenCalledWith(`${apiConfig.bookshelf}/genres`)
+        expect(res).toEqual(response.data)
+      })
+    })
+    it('calls service and returns error response when unsuccessful', () => {
+      const errorMessage = 'Error message'
+      axios.get.mockRejectedValue(errorMessage)
+      return getGenresBookshelfService()
+        .then(() => {
+          expect(axios.get).toHaveBeenCalledWith(
+            `${apiConfig.bookshelf}/genres`
+          )
         })
         .catch(error => {
           expect(error).toEqual(errorMessage)
