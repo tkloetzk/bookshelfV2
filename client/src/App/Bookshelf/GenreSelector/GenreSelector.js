@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import Button from '@material-ui/core/Button'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormGroup from '@material-ui/core/FormGroup'
@@ -57,9 +59,11 @@ export default function GenreSelector() {
   function handleChange(value) {
     setSelectedGenres(value)
 
+    const genres = map(value, genre => genre.value)
+
     dispatch({
       type: SELECTED_GENRES,
-      genres: value,
+      selectedGenres: genres,
     })
   }
 
@@ -71,7 +75,7 @@ export default function GenreSelector() {
       spacing={4}
       className={classes.container}
     >
-      <Grid item xs={8}>
+      <Grid item xs={6}>
         <Select
           classes={classes}
           components={components}
@@ -80,6 +84,12 @@ export default function GenreSelector() {
           options={genres}
           isMulti
         />
+      </Grid>
+      <Grid item xs={2}>
+        <ButtonGroup size="medium" aria-label="AND/OR genres">
+          <Button>AND</Button>
+          <Button>OR</Button>
+        </ButtonGroup>
       </Grid>
     </Grid>
   )

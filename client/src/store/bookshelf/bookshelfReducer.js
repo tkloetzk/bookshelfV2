@@ -13,7 +13,7 @@ export default function bookshelf(state = initialState, action) {
     case types.FETCH_GENRES_SUCCESS:
       return { ...state, genres: action.genres }
     case types.SELECTED_GENRES:
-      return { ...state, selectedGenres: action.genres }
+      return { ...state, selectedGenres: action.selectedGenres }
     default:
       return state
   }

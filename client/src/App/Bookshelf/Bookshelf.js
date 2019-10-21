@@ -6,10 +6,11 @@ import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 import { updateBookOnBookshelfService } from '../../services/bookshelfService'
 import GenreSelector from './GenreSelector/GenreSelector'
+import intersection from 'lodash/intersection'
 
 export default function Bookshelf() {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
-  const genres = useSelector(state => state.bookshelf.selectedGenres)
+  const selectedGenres = useSelector(state => state.bookshelf.selectedGenres)
   const dispatch = useDispatch()
 
   async function handleSave(book, edits) {
@@ -25,9 +26,17 @@ export default function Bookshelf() {
     dispatch(getBookshelf())
   }, [dispatch])
 
-  if (genres.length > 0) {
+  if (selectedGenres.length > 0) {
+    var filteredEvents = bookshelf.filter(function(book) {
+      //  if (orSelector) {
+      if (selectedGenres.every(v => book.categories.includes(v))) {
+        console.log(book)
+      }
+      //  return selectedGenres.some(r=> book.categories.includes(r))
+      // }
+    })
+    // console.log(filteredEvents)
   }
-
   return (
     <>
       <GenreSelector />
