@@ -46,7 +46,7 @@ const components = {
   MultiValue,
 }
 
-export default function GenreSelector() {
+export default function GenreSelector({ setSelector, selector }) {
   const classes = useStyles()
   const dispatch = useDispatch()
   const genres = useSelector(state => state.bookshelf.genres)
@@ -87,8 +87,18 @@ export default function GenreSelector() {
       </Grid>
       <Grid item xs={2}>
         <ButtonGroup size="medium" aria-label="AND/OR genres">
-          <Button>AND</Button>
-          <Button>OR</Button>
+          <Button
+            onClick={() => setSelector('OR')}
+            disabled={selector === 'OR'}
+          >
+            OR
+          </Button>
+          <Button
+            onClick={() => setSelector('AND')}
+            disabled={selector === 'AND'}
+          >
+            AND
+          </Button>
         </ButtonGroup>
       </Grid>
     </Grid>

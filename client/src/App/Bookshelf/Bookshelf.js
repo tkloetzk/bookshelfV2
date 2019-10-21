@@ -12,6 +12,8 @@ export default function Bookshelf() {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
   const selectedGenres = useSelector(state => state.bookshelf.selectedGenres)
   const dispatch = useDispatch()
+  const [bookshelfFiltered, setBookshelfFiltered] = React.useState([])
+  const [selector, setSelector] = React.useState('OR')
 
   async function handleSave(book, edits) {
     const fields = map(edits, diff => {
@@ -26,21 +28,28 @@ export default function Bookshelf() {
     dispatch(getBookshelf())
   }, [dispatch])
 
-  if (selectedGenres.length > 0) {
-    var filteredEvents = bookshelf.filter(function(book) {
-      //  if (orSelector) {
-      if (selectedGenres.every(v => book.categories.includes(v))) {
-        console.log(book)
-      }
-      //  return selectedGenres.some(r=> book.categories.includes(r))
-      // }
-    })
-    // console.log(filteredEvents)
-  }
+  useEffect(() => {
+    setBookshelfFiltered(bookshelf)
+  }, [bookshelf])
+
+  useEffect(() => {
+    if (selectedGenres.length > 0) {
+      const filteredBooks = bookshelf.filter(function(book) {
+        if (selector === 'AND') {
+          return selectedGenres.every(v => book.categories.includes(v))
+        }
+        return selectedGenres.some(r => book.categories.includes(r))
+      })
+      setBookshelfFiltered(filteredBooks)
+    } else {
+      setBookshelfFiltered(bookshelf)
+    }
+  }, [selectedGenres, selector])
+
   return (
     <>
-      <GenreSelector />
-      <Results booklist={bookshelf} handleSave={handleSave} />
+      <GenreSelector setSelector={setSelector} selector={selector} />
+      <Results booklist={bookshelfFiltered} handleSave={handleSave} />
     </>
   )
 }
