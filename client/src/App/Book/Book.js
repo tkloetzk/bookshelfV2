@@ -15,8 +15,6 @@ import Collapse from '@material-ui/core/Collapse'
 import get from 'lodash/get'
 import Icon from '@material-ui/icons/AnnouncementOutlined'
 import ReactTooltip from 'react-tooltip'
-import { useSelector } from 'react-redux'
-import some from 'lodash/some'
 
 const useStyles = makeStyles(theme => ({
   card: {

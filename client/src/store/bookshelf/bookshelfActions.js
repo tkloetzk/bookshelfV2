@@ -1,9 +1,9 @@
+import map from 'lodash/map'
 import * as types from './bookshelfActionTypes'
 import {
   getBookshelfService,
   getGenresBookshelfService,
 } from '../../services/bookshelfService'
-import map from 'lodash/map'
 
 export function getGenresSuccess(genres) {
   return {

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import map from 'lodash/map'
 import assign from 'lodash/assign'
+import cloneDeep from 'lodash/cloneDeep'
 import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 import { updateBookOnBookshelfService } from '../../services/bookshelfService'
 import GenreSelector from './GenreSelector/GenreSelector'
-import cloneDeep from 'lodash/cloneDeep'
 
 export default function Bookshelf() {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
@@ -48,7 +48,7 @@ export default function Bookshelf() {
     })
 
     setBookshelfFiltered(filteredBooks)
-  }, [selectedGenres, selector, filters])
+  }, [selectedGenres, selector, filters, bookshelf])
 
   return (
     <>

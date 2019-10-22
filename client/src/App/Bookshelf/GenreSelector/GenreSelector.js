@@ -6,12 +6,12 @@ import Grid from '@material-ui/core/Grid'
 import { useDispatch, useSelector } from 'react-redux'
 import map from 'lodash/map'
 import Select from 'react-select'
-import { getGenres } from '../../../store/bookshelf/bookshelfActions'
 import Chip from '@material-ui/core/Chip'
 import CancelIcon from '@material-ui/icons/Cancel'
-import { SELECTED_GENRES } from '../../../store/bookshelf/bookshelfActionTypes'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
+import { SELECTED_GENRES } from '../../../store/bookshelf/bookshelfActionTypes'
+import { getGenres } from '../../../store/bookshelf/bookshelfActions'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -56,16 +56,16 @@ export default function GenreSelector({
 
   useEffect(() => {
     dispatch(getGenres())
-  }, [])
+  }, [dispatch])
 
   function handleChange(value) {
     setSelectedGenres(value)
 
-    const genres = map(value, genre => genre.value)
+    const genreValues = map(value, genre => genre.value)
 
     dispatch({
       type: SELECTED_GENRES,
-      selectedGenres: genres,
+      selectedGenres: genreValues,
     })
   }
 
