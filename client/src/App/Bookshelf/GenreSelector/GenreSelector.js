@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
-import FormLabel from '@material-ui/core/FormLabel'
-import FormControl from '@material-ui/core/FormControl'
-import FormGroup from '@material-ui/core/FormGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import { useDispatch, useSelector } from 'react-redux'
-import Checkbox from '@material-ui/core/Checkbox'
 import map from 'lodash/map'
 import Select from 'react-select'
 import { getGenres } from '../../../store/bookshelf/bookshelfActions'
 import Chip from '@material-ui/core/Chip'
 import CancelIcon from '@material-ui/icons/Cancel'
 import { SELECTED_GENRES } from '../../../store/bookshelf/bookshelfActionTypes'
+import ToggleButton from '@material-ui/lab/ToggleButton'
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -46,7 +43,12 @@ const components = {
   MultiValue,
 }
 
-export default function GenreSelector({ setSelector, selector }) {
+export default function GenreSelector({
+  setSelector,
+  setFilters,
+  selector,
+  filters,
+}) {
   const classes = useStyles()
   const dispatch = useDispatch()
   const genres = useSelector(state => state.bookshelf.genres)
@@ -75,6 +77,21 @@ export default function GenreSelector({ setSelector, selector }) {
       spacing={4}
       className={classes.container}
     >
+      <Grid item xs={2}>
+        <ToggleButtonGroup
+          onChange={(e, value) => setFilters(value)}
+          value={filters}
+          aria-label="OWNED/READ genres"
+          size="small"
+        >
+          <ToggleButton value="owned" aria-label="OWNED">
+            OWNED
+          </ToggleButton>
+          <ToggleButton value="read" aria-label="READ">
+            READ
+          </ToggleButton>
+        </ToggleButtonGroup>
+      </Grid>
       <Grid item xs={6}>
         <Select
           classes={classes}
@@ -86,20 +103,20 @@ export default function GenreSelector({ setSelector, selector }) {
         />
       </Grid>
       <Grid item xs={2}>
-        <ButtonGroup size="medium" aria-label="AND/OR genres">
-          <Button
-            onClick={() => setSelector('OR')}
-            disabled={selector === 'OR'}
-          >
+        <ToggleButtonGroup
+          onChange={(e, value) => setSelector(value)}
+          value={selector}
+          aria-label="AND/OR genres"
+          exclusive
+          size="small"
+        >
+          <ToggleButton value="OR" aria-label="OR">
             OR
-          </Button>
-          <Button
-            onClick={() => setSelector('AND')}
-            disabled={selector === 'AND'}
-          >
+          </ToggleButton>
+          <ToggleButton value="AND" aria-label="AND">
             AND
-          </Button>
-        </ButtonGroup>
+          </ToggleButton>
+        </ToggleButtonGroup>
       </Grid>
     </Grid>
   )

@@ -6,7 +6,7 @@ import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
 import { updateBookOnBookshelfService } from '../../services/bookshelfService'
 import GenreSelector from './GenreSelector/GenreSelector'
-import intersection from 'lodash/intersection'
+import cloneDeep from 'lodash/cloneDeep'
 
 export default function Bookshelf() {
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
@@ -14,6 +14,7 @@ export default function Bookshelf() {
   const dispatch = useDispatch()
   const [bookshelfFiltered, setBookshelfFiltered] = React.useState([])
   const [selector, setSelector] = React.useState('OR')
+  const [filters, setFilters] = React.useState([])
 
   async function handleSave(book, edits) {
     const fields = map(edits, diff => {
@@ -33,22 +34,30 @@ export default function Bookshelf() {
   }, [bookshelf])
 
   useEffect(() => {
+    let filteredBooks = cloneDeep(bookshelf)
     if (selectedGenres.length > 0) {
-      const filteredBooks = bookshelf.filter(function(book) {
+      filteredBooks = bookshelf.filter(function(book) {
         if (selector === 'AND') {
           return selectedGenres.every(v => book.categories.includes(v))
         }
         return selectedGenres.some(r => book.categories.includes(r))
       })
-      setBookshelfFiltered(filteredBooks)
-    } else {
-      setBookshelfFiltered(bookshelf)
     }
-  }, [selectedGenres, selector])
+    filteredBooks = filteredBooks.filter(function(book) {
+      return filters.every(v => book[v] === true)
+    })
+
+    setBookshelfFiltered(filteredBooks)
+  }, [selectedGenres, selector, filters])
 
   return (
     <>
-      <GenreSelector setSelector={setSelector} selector={selector} />
+      <GenreSelector
+        setSelector={setSelector}
+        selector={selector}
+        setFilters={setFilters}
+        filters={filters}
+      />
       <Results booklist={bookshelfFiltered} handleSave={handleSave} />
     </>
   )
