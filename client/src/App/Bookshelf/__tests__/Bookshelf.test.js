@@ -1,6 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import configureMockStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import muiTheme from '../../../config/themeConfig'
@@ -36,6 +36,9 @@ describe('Bookshelf', () => {
       title: 'The New Baby Answer Book',
     }
   })
+
+  afterEach(cleanup)
+
   describe('render', () => {
     it('should render as expected if bookshelf is empty', () => {
       const store = mockStore({
@@ -72,17 +75,20 @@ describe('Bookshelf', () => {
     })
   })
   // describe('handleSave', () => {
-  //   const store = mockStore({
-  //     bookshelf: { bookshelf: [book] },
-  //   })
-  //   store.dispatch = jest.fn()
+  //   it('calls updateBookOnBookshelfService with correct parameters', async () => {
+  //     const store = mockStore({
+  //       bookshelf: { bookshelf: [book] },
+  //     })
+  //     store.dispatch = jest.fn()
 
-  //   const { asFragment } = render(
-  //     <Provider store={store}>
-  //       <MuiThemeProvider theme={muiTheme}>
+  //     const wrapper = shallow(
+  //       <Provider store={store}>
   //         <Bookshelf />
-  //       </MuiThemeProvider>
-  //     </Provider>
-  //   )
+  //       </Provider>
+  //     )
+  //     const instance = wrapper.instance()
+  //     await instance.handleSave({}, [])
+  //     expect(store.dispatch).toHaveBeenCalledTimes(1)
+  //   })
   // })
 })
