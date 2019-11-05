@@ -15,6 +15,7 @@ import Collapse from '@material-ui/core/Collapse'
 import get from 'lodash/get'
 import Icon from '@material-ui/icons/AnnouncementOutlined'
 import ReactTooltip from 'react-tooltip'
+import Editable from 'react-x-editable'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,6 +82,7 @@ const useStyles = makeStyles(theme => ({
 export default function Book({ book, handleSave }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+
   // let hidden = true
 
   // genres.forEach(genre => {
@@ -169,9 +171,20 @@ export default function Book({ book, handleSave }) {
             content: classes.headerContent,
           }}
         />
-        <Typography variant="caption" align="center">
-          {book.categories.join(', ')}
-        </Typography>
+        <Editable
+          name="categories"
+          dataType="text"
+          title="Enter username"
+          showButtons={false}
+          value={book.categories.join(', ')}
+          display={function(value) {
+            return (
+              <Typography variant="caption" align="center">
+                {value}
+              </Typography>
+            )
+          }}
+        />
       </div>
 
       <CardMedia
