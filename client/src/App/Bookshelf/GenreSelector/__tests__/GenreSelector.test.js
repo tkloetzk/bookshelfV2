@@ -1,5 +1,4 @@
 import React from 'react'
-import GenreSelector from '../GenreSelector'
 import '@testing-library/jest-dom/extend-expect'
 import {
   render,
@@ -10,8 +9,9 @@ import {
 } from '@testing-library/react'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import configureMockStore from 'redux-mock-store'
-import muiTheme from '../../../../config/themeConfig'
 import { Provider } from 'react-redux'
+import muiTheme from '../../../../config/themeConfig'
+import GenreSelector from '../GenreSelector'
 
 const mockStore = configureMockStore()
 
@@ -122,7 +122,7 @@ describe('GenreSelector', () => {
   // expect(asFragment()).toMatchSnapshot()
   //   })
   // })
-  //describe('setBookshelfFiltered', () => {
+  // describe('setBookshelfFiltered', () => {
   // it('is called when bookshelf prop changes', () => {
   //   const store = mockStore({
   //     bookshelf: {
@@ -156,5 +156,5 @@ describe('GenreSelector', () => {
   //   )
   //   expect(props.setBookshelfFiltered).toHaveBeenCalledTimes(0)
   // })
-  //})
+  // })
 })

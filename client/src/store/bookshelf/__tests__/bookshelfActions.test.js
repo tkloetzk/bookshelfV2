@@ -1,5 +1,3 @@
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
 import map from 'lodash/map'
 import * as types from '../bookshelfActionTypes'
 import * as actions from '../bookshelfActions'
@@ -8,17 +6,12 @@ import {
   getGenresBookshelfService,
 } from '../../../services/bookshelfService'
 
-const createMockStore = configureMockStore([thunk])
-
 jest.mock('../../../services/bookshelfService')
 
 describe('bookshelfActions', () => {
   let bookshelf
   let dispatch
-  let store
   beforeEach(() => {
-    store = createMockStore()
-
     bookshelf = [
       {
         amazonAverageRating: 4.5,

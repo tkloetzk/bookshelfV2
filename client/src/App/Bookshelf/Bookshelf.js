@@ -23,7 +23,7 @@ export default function Bookshelf() {
 
   useEffect(() => {
     dispatch(getBookshelf())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
