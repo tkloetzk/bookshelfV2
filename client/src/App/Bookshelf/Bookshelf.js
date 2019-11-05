@@ -17,12 +17,13 @@ export default function Bookshelf() {
     })
 
     await updateBookOnBookshelfService(book._id, assign(...fields), false)
+
     dispatch(getBookshelf())
   }
 
   useEffect(() => {
     dispatch(getBookshelf())
-  }, [dispatch])
+  }, [])
 
   return (
     <>

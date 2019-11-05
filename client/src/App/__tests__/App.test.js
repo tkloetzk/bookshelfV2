@@ -13,7 +13,7 @@ describe('App', () => {
   let store
   beforeEach(() => {
     store = mockStore({
-      bookshelf: { bookshelf: [] },
+      bookshelf: { bookshelf: [], genres: [] },
     })
     store.dispatch = jest.fn()
   })

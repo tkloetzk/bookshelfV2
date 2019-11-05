@@ -16,4 +16,26 @@ describe('bookshelfReducer', () => {
       bookshelf,
     })
   })
+  it('sets genres for FETCH_GENRES_SUCCESS', () => {
+    const genres = ['genre1']
+    const action = {
+      type: types.FETCH_GENRES_SUCCESS,
+      genres,
+    }
+    expect(bookshelfReducer(initialState, action)).toEqual({
+      ...initialState,
+      genres,
+    })
+  })
+  it('sets genres for FETCH_GENRES_SUCCESS', () => {
+    const genres = ['genre1']
+    const action = {
+      type: types.FETCH_GENRES_SUCCESS,
+      genres,
+    }
+    expect(bookshelfReducer(initialState, action)).toEqual({
+      ...initialState,
+      genres,
+    })
+  })
 })

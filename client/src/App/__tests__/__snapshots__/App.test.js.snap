@@ -168,10 +168,10 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
     </div>
   </header>
   <div
-    class="makeStyles-container-408"
+    class="makeStyles-container-411"
   >
     <div
-      class="MuiTabs-root makeStyles-tabs-407"
+      class="MuiTabs-root makeStyles-tabs-410"
     >
       <div
         class="MuiTabs-scroller MuiTabs-fixed"
@@ -217,7 +217,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
           </button>
         </div>
         <span
-          class="PrivateTabIndicator-root-433 PrivateTabIndicator-colorPrimary-434 MuiTabs-indicator"
+          class="PrivateTabIndicator-root-436 PrivateTabIndicator-colorPrimary-437 MuiTabs-indicator"
           style="left: 0px; width: 0px;"
         />
       </div>
@@ -235,7 +235,7 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
           style="width: 100%; flex-shrink: 0; overflow: auto;"
         >
           <div
-            class="MuiGrid-root makeStyles-container-437 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            class="MuiGrid-root makeStyles-container-440 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
             data-testid="searchView"
           >
             <div
@@ -263,11 +263,11 @@ exports[`App tabs should show Bookshelf when bookshelf tab is clicked 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-581 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-584 MuiOutlinedInput-notchedOutline"
                     style="padding-left: 8px;"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legend-582"
+                      class="PrivateNotchedOutline-legend-585"
                       style="width: 0.01px;"
                     >
                       <span>

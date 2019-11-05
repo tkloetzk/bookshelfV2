@@ -49,14 +49,12 @@ export default function GenreSelector({ setBookshelfFiltered }) {
   const [selectedGenres, setSelectedGenres] = React.useState([])
   const [selector, setSelector] = React.useState('OR')
   const [filters, setFilters] = React.useState([])
-  // const selectedGenres = useSelector(state => state.bookshelf.selectedGenres)
 
   useEffect(() => {
     dispatch(getGenres())
   }, [dispatch])
 
   useEffect(() => {
-    console.log('filter')
     setBookshelfFiltered(bookshelf)
   }, [bookshelf])
 
@@ -78,17 +76,6 @@ export default function GenreSelector({ setBookshelfFiltered }) {
 
     setBookshelfFiltered(filteredBooks)
   }, [selectedGenres, selector, filters, bookshelf])
-
-  // function handleChange(value) {
-  //   setSelectedGenres(value)
-
-  //   const genreValues = map(value, genre => genre.value)
-
-  //   dispatch({
-  //     type: SELECTED_GENRES,
-  //     selectedGenres: genreValues,
-  //   })
-  // }
 
   return (
     genres.length > 0 && (

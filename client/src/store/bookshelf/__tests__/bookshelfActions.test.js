@@ -1,8 +1,12 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+import map from 'lodash/map'
 import * as types from '../bookshelfActionTypes'
 import * as actions from '../bookshelfActions'
-import { getBookshelfService } from '../../../services/bookshelfService'
+import {
+  getBookshelfService,
+  getGenresBookshelfService,
+} from '../../../services/bookshelfService'
 
 const createMockStore = configureMockStore([thunk])
 
@@ -56,9 +60,9 @@ describe('bookshelfActions', () => {
     it('should dispatch success if getBookshelfService is successful', async () => {
       getBookshelfService.mockResolvedValue(bookshelf)
 
-      return store.dispatch(actions.getBookshelf()).then(() => {
-        expect(store.getActions()).toMatchSnapshot()
-      })
+      await actions
+        .getBookshelf()(dispatch)
+        .then(resp => expect(resp).toMatchSnapshot())
     })
     it('should dispatch the error if getBookshelfService fails', async () => {
       const error = { id: 'error' }
@@ -66,6 +70,32 @@ describe('bookshelfActions', () => {
       getBookshelfService.mockRejectedValue(error)
       await actions
         .getBookshelf()(dispatch)
+        .catch(() => {
+          expect(console.error).toHaveBeenCalled()
+        })
+    })
+  })
+  describe('getGenres', () => {
+    let genres
+    beforeEach(() => {
+      genres = ['Religion', 'Newborn']
+    })
+    it('should dispatch success if getGenresBookshelfService is successful', async () => {
+      getGenresBookshelfService.mockResolvedValue(genres)
+
+      const genresResponse = map(genres, genre => {
+        return { label: genre, value: genre }
+      })
+      await actions
+        .getGenres()(dispatch)
+        .then(resp => expect(resp).toEqual(genresResponse))
+    })
+    it('should dispatch error if getGenresBookshelfService fails', async () => {
+      const error = { id: 'error' }
+
+      getGenresBookshelfService.mockRejectedValue(error)
+      await actions
+        .getGenres()(dispatch)
         .catch(() => {
           expect(console.error).toHaveBeenCalled()
         })

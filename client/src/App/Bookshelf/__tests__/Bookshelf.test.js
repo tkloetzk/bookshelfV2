@@ -42,7 +42,7 @@ describe('Bookshelf', () => {
   describe('render', () => {
     it('should render as expected if bookshelf is empty', () => {
       const store = mockStore({
-        bookshelf: { bookshelf: [] },
+        bookshelf: { bookshelf: [], genres: [] },
       })
       store.dispatch = jest.fn()
 
@@ -53,13 +53,14 @@ describe('Bookshelf', () => {
           </MuiThemeProvider>
         </Provider>
       )
-      expect(store.dispatch).toHaveBeenCalledTimes(1)
+      expect(store.dispatch).toHaveBeenCalledTimes(2)
       expect(asFragment()).toMatchSnapshot()
     })
     it('should render as expected if bookshelf has books', () => {
       const store = mockStore({
         bookshelf: {
           bookshelf: [book],
+          genres: [book.categories],
         },
       })
       store.dispatch = jest.fn()
@@ -70,7 +71,7 @@ describe('Bookshelf', () => {
           </MuiThemeProvider>
         </Provider>
       )
-      expect(store.dispatch).toHaveBeenCalledTimes(1)
+      expect(store.dispatch).toHaveBeenCalledTimes(2)
       expect(asFragment()).toMatchSnapshot()
     })
   })

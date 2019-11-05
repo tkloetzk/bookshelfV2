@@ -3,20 +3,181 @@
 exports[`Bookshelf render should render as expected if bookshelf has books 1`] = `
 <DocumentFragment>
   <div
+    class="MuiGrid-root makeStyles-container-107 MuiGrid-container MuiGrid-spacing-xs-4 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+    >
+      <div
+        aria-label="OWNED/READ genres"
+        class="MuiToggleButtonGroup-root"
+        role="group"
+      >
+        <button
+          aria-label="OWNED"
+          aria-pressed="false"
+          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedSizeSmall MuiToggleButton-sizeSmall"
+          tabindex="0"
+          type="button"
+          value="owned"
+        >
+          <span
+            class="MuiToggleButton-label"
+          >
+            OWNED
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="READ"
+          aria-pressed="false"
+          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedSizeSmall MuiToggleButton-sizeSmall"
+          tabindex="0"
+          type="button"
+          value="read"
+        >
+          <span
+            class="MuiToggleButton-label"
+          >
+            READ
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+    >
+      <div
+        class=" css-2b097c-container"
+      >
+        <div
+          class=" css-yk16xz-control"
+        >
+          <div
+            class=" css-1hwfws3"
+          >
+            <div
+              class=" css-1wa3eu0-placeholder"
+            >
+              Select...
+            </div>
+            <div
+              class="css-w8afj7-Input"
+            >
+              <div
+                class=""
+                style="display: inline-block;"
+              >
+                <input
+                  aria-autocomplete="list"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  autocorrect="off"
+                  id="react-select-2-input"
+                  spellcheck="false"
+                  style="box-sizing: content-box; width: 2px; border: 0px; font-size: inherit; opacity: 1; outline: 0; padding: 0px;"
+                  tabindex="0"
+                  type="text"
+                  value=""
+                />
+                <div
+                  style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: inherit; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class=" css-1g48xl4-IndicatorsContainer"
+          >
+            <span
+              class=" css-1okebmr-indicatorSeparator"
+            />
+            <div
+              aria-hidden="true"
+              class=" css-tlfecz-indicatorContainer"
+            >
+              <svg
+                aria-hidden="true"
+                class="css-tj5bde-Svg"
+                focusable="false"
+                height="20"
+                viewBox="0 0 20 20"
+                width="20"
+              >
+                <path
+                  d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+    >
+      <div
+        aria-label="AND/OR genres"
+        class="MuiToggleButtonGroup-root"
+        role="group"
+      >
+        <button
+          aria-label="OR"
+          aria-pressed="true"
+          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedSizeSmall Mui-selected MuiToggleButton-sizeSmall"
+          tabindex="0"
+          type="button"
+          value="OR"
+        >
+          <span
+            class="MuiToggleButton-label"
+          >
+            OR
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="AND"
+          aria-pressed="false"
+          class="MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedSizeSmall MuiToggleButton-sizeSmall"
+          tabindex="0"
+          type="button"
+          value="AND"
+        >
+          <span
+            class="MuiToggleButton-label"
+          >
+            AND
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
     class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-207  makeStyles-different-208 MuiPaper-rounded"
+      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-236  makeStyles-different-237 MuiPaper-rounded"
     >
       <div
-        class="makeStyles-header-209 makeStyles-headerUnread-211"
+        class="makeStyles-header-238 makeStyles-headerUnread-240"
         data-testid="header"
       >
         <div
-          class="MuiCardHeader-root makeStyles-cardHeader-214"
+          class="MuiCardHeader-root makeStyles-cardHeader-243"
         >
           <div
-            class="MuiCardHeader-avatar makeStyles-avatar-216"
+            class="MuiCardHeader-avatar makeStyles-avatar-245"
           >
             <p
               class="MuiTypography-root MuiTypography-body2"
@@ -25,7 +186,7 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
             </p>
           </div>
           <div
-            class="MuiCardHeader-content makeStyles-headerContent-215"
+            class="MuiCardHeader-content makeStyles-headerContent-244"
           >
             <p
               class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -34,7 +195,7 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
             </p>
           </div>
           <div
-            class="MuiCardHeader-action makeStyles-iconButton-213"
+            class="MuiCardHeader-action makeStyles-iconButton-242"
           >
             <svg
               aria-hidden="true"
@@ -70,7 +231,7 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
         </span>
       </div>
       <img
-        class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-212"
+        class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-241"
         src="http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         title="The New Baby Answer Book"
       />
@@ -78,16 +239,16 @@ exports[`Bookshelf render should render as expected if bookshelf has books 1`] =
         class="MuiCardContent-root"
       >
         <p
-          class="MuiTypography-root makeStyles-description-217 MuiTypography-caption MuiTypography-colorTextSecondary"
+          class="MuiTypography-root makeStyles-description-246 MuiTypography-caption MuiTypography-colorTextSecondary"
         >
           Answers the most important parenting questions about raising children from birth through kindergarten, covering such topics as discipline, sleeping, day care, safety, independence, and feeding.
         </p>
       </div>
       <div
-        class="MuiCardActions-root makeStyles-expandAction-219 MuiCardActions-spacing"
+        class="MuiCardActions-root makeStyles-expandAction-248 MuiCardActions-spacing"
       >
         <button
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-218"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-247"
           data-testid="expandButton"
           tabindex="0"
           type="button"
