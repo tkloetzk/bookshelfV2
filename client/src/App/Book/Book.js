@@ -237,12 +237,7 @@ export default function Book({ book, handleSave }) {
       </Collapse>
     </Card>
   ) : (
-    <BookEdit
-      book={book}
-      classes={classes}
-      handleSave={handleSave}
-      setEditMode={setEditMode}
-    />
+    <BookEdit book={book} handleSave={handleSave} setEditMode={setEditMode} />
   )
 }
 
