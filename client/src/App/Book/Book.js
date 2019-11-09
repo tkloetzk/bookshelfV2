@@ -16,6 +16,11 @@ import get from 'lodash/get'
 import Icon from '@material-ui/icons/AnnouncementOutlined'
 import ReactTooltip from 'react-tooltip'
 import Editable from 'react-x-editable'
+import Grid from '@material-ui/core/Grid'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+import EditIcon from '@material-ui/icons/Edit'
+import { FormControl, InputLabel, Input, TextField } from '@material-ui/core'
+import BookEdit from './BookEdit'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -77,23 +82,23 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  resize: {
+    fontSize: '12px',
+  },
 }))
 
 export default function Book({ book, handleSave }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
+  const [editMode, setEditMode] = React.useState(false)
 
-  // let hidden = true
-
-  // genres.forEach(genre => {
-  //   if (book.categories.includes(genre.category) && genre.checked) {
-  //     hidden = false
-  //   }
-  // })
-  // console.log(hidden)
   const differences = get(book, 'differences', [])
   function handleExpandClick() {
     setExpanded(!expanded)
+  }
+
+  function handleEditMode() {
+    setEditMode(!editMode)
   }
 
   function BookAction() {
@@ -133,7 +138,7 @@ export default function Book({ book, handleSave }) {
       </IconButton>
     )
   }
-  return (
+  return !editMode ? (
     <Card
       className={[
         classes.card,
@@ -171,20 +176,9 @@ export default function Book({ book, handleSave }) {
             content: classes.headerContent,
           }}
         />
-        <Editable
-          name="categories"
-          dataType="text"
-          title="Enter username"
-          showButtons={false}
-          value={book.categories.join(', ')}
-          display={function(value) {
-            return (
-              <Typography variant="caption" align="center">
-                {value}
-              </Typography>
-            )
-          }}
-        />
+        <Typography variant="caption" align="center">
+          {book.categories.join(', ')}
+        </Typography>
       </div>
 
       <CardMedia
@@ -204,15 +198,27 @@ export default function Book({ book, handleSave }) {
           {book.description}
         </Typography>
       </CardContent>
-      <CardActions classes={{ root: classes.expandAction }}>
-        <IconButton
-          data-testid="expandButton"
-          onClick={handleExpandClick}
-          className={expanded ? classes.expandOpen : classes.expand}
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
+      <Grid container>
+        <Grid item xs={4}>
+          <IconButton data-testid="editButton" onClick={handleEditMode}>
+            <EditIcon />
+          </IconButton>
+        </Grid>
+        <Grid item xs={4}>
+          <IconButton
+            data-testid="expandButton"
+            onClick={handleExpandClick}
+            className={expanded ? classes.expandOpen : classes.expand}
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </Grid>
+        <Grid item xs={4}>
+          <IconButton data-testid="deleteButton" onClick={handleExpandClick}>
+            <DeleteForeverIcon />
+          </IconButton>
+        </Grid>
+      </Grid>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="caption" component="div">
@@ -230,6 +236,13 @@ export default function Book({ book, handleSave }) {
         </CardContent>
       </Collapse>
     </Card>
+  ) : (
+    <BookEdit
+      book={book}
+      classes={classes}
+      handleSave={handleSave}
+      setEditMode={setEditMode}
+    />
   )
 }
 

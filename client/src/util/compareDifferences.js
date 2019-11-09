@@ -1,4 +1,9 @@
-export default function compareDifferences(oldBook, newBook, difference) {
+export default function compareDifferences(
+  oldBook,
+  newBook,
+  difference,
+  compareCategories = false
+) {
   Object.keys(oldBook).forEach(key => {
     if (typeof oldBook[key] !== 'object') {
       if (
@@ -7,7 +12,7 @@ export default function compareDifferences(oldBook, newBook, difference) {
         key !== '_id' &&
         key !== 'adjustedRating' &&
         key !== 'thumbnail' &&
-        key !== 'categories' &&
+        (!compareCategories && key !== 'categories') &&
         key !== 'owned' &&
         key !== 'read' &&
         newBook[key] !== '' &&
