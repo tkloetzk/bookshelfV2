@@ -8,8 +8,8 @@ import Chip from '@material-ui/core/Chip'
 import CancelIcon from '@material-ui/icons/Cancel'
 import ToggleButton from '@material-ui/lab/ToggleButton'
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup'
-import { getGenres } from '../../../store/bookshelf/bookshelfActions'
 import cloneDeep from 'lodash/cloneDeep'
+import { getGenres } from '../../../store/bookshelf/bookshelfActions'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -56,7 +56,7 @@ export default function GenreSelector({ setBookshelfFiltered }) {
 
   useEffect(() => {
     setBookshelfFiltered(bookshelf)
-  }, [bookshelf])
+  }, [bookshelf, setBookshelfFiltered])
 
   useEffect(() => {
     let filteredBooks = cloneDeep(bookshelf)
@@ -75,7 +75,7 @@ export default function GenreSelector({ setBookshelfFiltered }) {
     })
 
     setBookshelfFiltered(filteredBooks)
-  }, [selectedGenres, selector, filters, bookshelf])
+  }, [selectedGenres, selector, filters, bookshelf, setBookshelfFiltered])
 
   return (
     genres.length > 0 && (

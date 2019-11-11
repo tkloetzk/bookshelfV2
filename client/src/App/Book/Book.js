@@ -100,7 +100,7 @@ export default function Book({ book, handleSave, handleDelete }) {
 
   function handleOwnedButton(e) {
     e.stopPropagation()
-    const newBook = Object.assign({}, book, { owned: !book.owned })
+    const newBook = { ...book, owned: !book.owned }
     handleSave(newBook, [{ key: 'owned', newValue: !book.owned }])
   }
 

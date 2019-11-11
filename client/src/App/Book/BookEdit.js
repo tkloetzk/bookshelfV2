@@ -4,12 +4,12 @@ import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import IconButton from '@material-ui/core/IconButton'
 import SaveIcon from '@material-ui/icons/Save'
-import compareDifferences from '../../util/compareDifferences'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import FormLabel from '@material-ui/core/FormLabel'
 import CancelIcon from '@material-ui/icons/Cancel'
+import compareDifferences from '../../util/compareDifferences'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -34,9 +34,7 @@ export default function Book({ book, setEditMode, handleSave }) {
   const genres = useSelector(state => state.bookshelf.genres)
 
   function setValue(e) {
-    const newBookEdit = Object.assign({}, bookEdit, {
-      [e.target.id]: e.target.value,
-    })
+    const newBookEdit = { ...bookEdit, [e.target.id]: e.target.value }
     setBookEdit(newBookEdit)
   }
 

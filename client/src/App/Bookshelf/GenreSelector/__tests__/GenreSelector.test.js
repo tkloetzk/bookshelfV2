@@ -1,12 +1,6 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import {
-  render,
-  fireEvent,
-  cleanup,
-  wait,
-  renderHook,
-} from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import configureMockStore from 'redux-mock-store'
 import { Provider } from 'react-redux'

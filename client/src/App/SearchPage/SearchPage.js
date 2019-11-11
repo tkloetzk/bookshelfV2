@@ -2,9 +2,9 @@ import Grid from '@material-ui/core/Grid'
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { useSelector } from 'react-redux'
+import remove from 'lodash/remove'
 import Results from '../Results/Results'
 import SearchBar from './SearchBar/SearchBar'
-import remove from 'lodash/remove'
 
 const useStyles = makeStyles(theme => ({
   container: {

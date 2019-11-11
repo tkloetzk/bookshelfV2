@@ -11,7 +11,7 @@ function arraysEqual(a, b) {
   // Please note that calling sort on an array will modify that array.
   // you might want to clone your array first.
 
-  for (var i = 0; i < a.length; ++i) {
+  for (let i = 0; i < a.length; ++i) {
     if (a[i] !== b[i]) return false
   }
   return true
@@ -43,18 +43,20 @@ export default function compareDifferences(
           newValue: newBook[key],
         })
       }
-    } else {
-      if (isArray(oldBook[key]) && key === 'categories' && compareCategories) {
-        if (!isArray(newBook[key]) && !isEmpty(newBook[key])) {
-          newBook[key] = newBook[key].split(',')
-        }
-        if (!arraysEqual(oldBook[key], newBook[key])) {
-          difference.push({
-            key,
-            currentValue: oldBook[key],
-            newValue: newBook[key],
-          })
-        }
+    } else if (
+      isArray(oldBook[key]) &&
+      key === 'categories' &&
+      compareCategories
+    ) {
+      if (!isArray(newBook[key]) && !isEmpty(newBook[key])) {
+        newBook[key] = newBook[key].split(',')
+      }
+      if (!arraysEqual(oldBook[key], newBook[key])) {
+        difference.push({
+          key,
+          currentValue: oldBook[key],
+          newValue: newBook[key],
+        })
       }
     }
   }, difference)
