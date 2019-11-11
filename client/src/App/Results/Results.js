@@ -4,10 +4,15 @@ import PropTypes from 'prop-types'
 import Book from '../Book/Book'
 import sortBooklist from '../../util/calculator'
 
-const Results = ({ booklist, handleSave }) => (
+const Results = ({ booklist, handleSave, handleDelete }) => (
   <Grid container justify="center">
     {sortBooklist(booklist).map(book => (
-      <Book key={book.isbn} book={book} handleSave={handleSave} />
+      <Book
+        key={book.isbn}
+        book={book}
+        handleSave={handleSave}
+        handleDelete={handleDelete}
+      />
     ))}
   </Grid>
 )

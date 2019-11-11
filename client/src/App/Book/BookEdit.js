@@ -8,6 +8,8 @@ import compareDifferences from '../../util/compareDifferences'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
+import FormLabel from '@material-ui/core/FormLabel'
+import CancelIcon from '@material-ui/icons/Cancel'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -17,6 +19,13 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     margin: 13,
   },
+  autoCompleteRoot: {
+    height: 90,
+    overflowX: 'scroll',
+  },
+  text: {
+    fontSize: '12px',
+  },
 }))
 
 export default function Book({ book, setEditMode, handleSave }) {
@@ -25,7 +34,6 @@ export default function Book({ book, setEditMode, handleSave }) {
   const genres = useSelector(state => state.bookshelf.genres)
 
   function setValue(e) {
-    console.log(e.target)
     const newBookEdit = Object.assign({}, bookEdit, {
       [e.target.id]: e.target.value,
     })
@@ -34,7 +42,6 @@ export default function Book({ book, setEditMode, handleSave }) {
 
   function handleEditSave() {
     const diff = compareDifferences(book, bookEdit, [], true)
-    console.log(diff)
     handleSave(bookEdit, diff)
     setEditMode(false)
   }
@@ -46,7 +53,11 @@ export default function Book({ book, setEditMode, handleSave }) {
 
   return (
     <Card className={classes.card}>
-      <Grid container justify="center">
+      <Grid
+        container
+        justify="center"
+        style={{ height: '100%', overflowX: 'scroll' }}
+      >
         <Grid item xs={10}>
           <TextField
             value={bookEdit.title}
@@ -59,6 +70,9 @@ export default function Book({ book, setEditMode, handleSave }) {
           />
         </Grid>
         <Grid item xs={10}>
+          <FormLabel component="label" className={classes.text}>
+            Categories
+          </FormLabel>
           <Autocomplete
             multiple
             options={genres.map(genre => genre.value)}
@@ -73,9 +87,10 @@ export default function Book({ book, setEditMode, handleSave }) {
             renderInput={params => (
               <TextField
                 {...params}
-                label="Categories"
                 margin="dense"
                 fullWidth
+                multiline={false}
+                classes={{ root: classes.autoCompleteRoot }}
               />
             )}
           />
@@ -141,15 +156,15 @@ export default function Book({ book, setEditMode, handleSave }) {
             inputProps={{ style: { fontSize: 12 } }}
           />
         </Grid>
-        <Grid container>
-          <Grid item xs={6}>
+        <Grid container justify="flex-end" alignItems="flex-end">
+          <Grid item xs={5}>
             <IconButton data-testid="saveButton" onClick={handleEditSave}>
               <SaveIcon />
             </IconButton>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <IconButton data-testid="cancelButton" onClick={handleCancel}>
-              <SaveIcon />
+              <CancelIcon />
             </IconButton>
           </Grid>
         </Grid>

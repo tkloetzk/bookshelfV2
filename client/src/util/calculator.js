@@ -1,6 +1,7 @@
 import get from 'lodash/get'
 import forEach from 'lodash/forEach'
 import clone from 'lodash/clone'
+import parseInt from 'lodash/parseInt'
 
 let meanGoodreadsVotes
 let meanAmazonVotes
@@ -25,8 +26,10 @@ function calculateMeans(booklist) {
   return booklist
 }
 
-function getAdjustedRating(ratingsCount, averageRating, meanVote, minVotes) {
+function getAdjustedRating(ratings, avgRating, meanVote, minVotes) {
   // double rating = averageRating * 2;
+  const ratingsCount = parseInt(ratings)
+  const averageRating = parseFloat(avgRating)
   return (
     (ratingsCount / (ratingsCount + minVotes)) * averageRating +
     (minVotes / (ratingsCount + minVotes)) * meanVote

@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 import { useSelector } from 'react-redux'
 import Results from '../Results/Results'
 import SearchBar from './SearchBar/SearchBar'
+import remove from 'lodash/remove'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -17,6 +18,20 @@ export default function SearchPage() {
   const classes = useStyles()
   const [booklist, setBooklist] = React.useState([])
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
+
+  function handleSave(book) {
+    remove(booklist, {
+      isbn: book.isbn,
+    })
+    setBooklist([...booklist, book])
+  }
+
+  function handleDelete(book) {
+    remove(booklist, {
+      isbn: book.isbn,
+    })
+    setBooklist([...booklist])
+  }
 
   return (
     <Grid
@@ -33,7 +48,11 @@ export default function SearchPage() {
         booklist={booklist}
       />
       <Grid item xs={12}>
-        <Results booklist={booklist} />
+        <Results
+          booklist={booklist}
+          handleSave={handleSave}
+          handleDelete={handleDelete}
+        />
       </Grid>
     </Grid>
   )

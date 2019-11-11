@@ -3,17 +3,17 @@
 exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-601   MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1111   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-603 makeStyles-headerUnread-605"
+      class="makeStyles-header-1113 makeStyles-headerUnread-1115"
       data-testid="header"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-608"
+        class="MuiCardHeader-root makeStyles-cardHeader-1118"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-610"
+          class="MuiCardHeader-avatar makeStyles-avatar-1120"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -22,7 +22,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-609"
+          class="MuiCardHeader-content makeStyles-headerContent-1119"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -31,7 +31,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-607"
+          class="MuiCardHeader-action makeStyles-iconButton-1117"
         >
           <button
             aria-label="unowned"
@@ -68,7 +68,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-606"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-1116"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -76,39 +76,101 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-611 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-1121 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-613 MuiCardActions-spacing"
+      class="MuiGrid-root MuiGrid-container"
     >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-612"
-        data-testid="expandButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="editButton"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-1122"
+          data-testid="expandButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="deleteButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -117,17 +179,17 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
 exports[`Book expand expands on handleExpandClick 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-481 makeStyles-expanded-494  MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-889 makeStyles-expanded-902  MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-483 makeStyles-headerUnread-485"
+      class="makeStyles-header-891 makeStyles-headerUnread-893"
       data-testid="header"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-488"
+        class="MuiCardHeader-root makeStyles-cardHeader-896"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-490"
+          class="MuiCardHeader-avatar makeStyles-avatar-898"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -136,7 +198,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-489"
+          class="MuiCardHeader-content makeStyles-headerContent-897"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -145,7 +207,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-487"
+          class="MuiCardHeader-action makeStyles-iconButton-895"
         >
           <button
             aria-label="owned"
@@ -182,7 +244,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-486"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-894"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -190,39 +252,101 @@ exports[`Book expand expands on handleExpandClick 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-491 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-899 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-493 MuiCardActions-spacing"
+      class="MuiGrid-root MuiGrid-container"
     >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expandOpen-495"
-        data-testid="expandButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="editButton"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expandOpen-903"
+          data-testid="expandButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="deleteButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
     <div
       class="MuiCollapse-container"
@@ -268,17 +392,17 @@ exports[`Book expand expands on handleExpandClick 1`] = `
 exports[`Book render renders as expected with read property 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-361   MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-667   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-363 makeStyles-headerRead-364"
+      class="makeStyles-header-669 makeStyles-headerRead-670"
       data-testid="header"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-368"
+        class="MuiCardHeader-root makeStyles-cardHeader-674"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-370"
+          class="MuiCardHeader-avatar makeStyles-avatar-676"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -287,7 +411,7 @@ exports[`Book render renders as expected with read property 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-369"
+          class="MuiCardHeader-content makeStyles-headerContent-675"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -296,7 +420,7 @@ exports[`Book render renders as expected with read property 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-367"
+          class="MuiCardHeader-action makeStyles-iconButton-673"
         >
           <button
             aria-label="owned"
@@ -333,7 +457,7 @@ exports[`Book render renders as expected with read property 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-366"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-672"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -341,39 +465,101 @@ exports[`Book render renders as expected with read property 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-371 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-677 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-373 MuiCardActions-spacing"
+      class="MuiGrid-root MuiGrid-container"
     >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-372"
-        data-testid="expandButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="editButton"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-678"
+          data-testid="expandButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="deleteButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -461,33 +647,95 @@ exports[`Book render should render as expected 1`] = `
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-13 MuiCardActions-spacing"
+      class="MuiGrid-root MuiGrid-container"
     >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-12"
-        data-testid="expandButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="editButton"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-12"
+          data-testid="expandButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="deleteButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -496,17 +744,17 @@ exports[`Book render should render as expected 1`] = `
 exports[`Book render should render as expected if there are differences 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-241  makeStyles-different-242 MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-445  makeStyles-different-446 MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-243 makeStyles-headerUnread-245"
+      class="makeStyles-header-447 makeStyles-headerUnread-449"
       data-testid="header"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-248"
+        class="MuiCardHeader-root makeStyles-cardHeader-452"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-250"
+          class="MuiCardHeader-avatar makeStyles-avatar-454"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -515,7 +763,7 @@ exports[`Book render should render as expected if there are differences 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-249"
+          class="MuiCardHeader-content makeStyles-headerContent-453"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -524,7 +772,7 @@ exports[`Book render should render as expected if there are differences 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-247"
+          class="MuiCardHeader-action makeStyles-iconButton-451"
         >
           <svg
             aria-hidden="true"
@@ -564,7 +812,7 @@ exports[`Book render should render as expected if there are differences 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-246"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-450"
       src="http://books.google.com/books/content?id=njQpY18IazsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
       title="The Happiest Toddler on the Block"
     />
@@ -572,39 +820,101 @@ exports[`Book render should render as expected if there are differences 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-251 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-455 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-253 MuiCardActions-spacing"
+      class="MuiGrid-root MuiGrid-container"
     >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-252"
-        data-testid="expandButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="editButton"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-456"
+          data-testid="expandButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="deleteButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -613,17 +923,17 @@ exports[`Book render should render as expected if there are differences 1`] = `
 exports[`Book render should render as expected if there is no thumbnail 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-121   MuiPaper-rounded"
+    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-223   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-123 makeStyles-headerUnread-125"
+      class="makeStyles-header-225 makeStyles-headerUnread-227"
       data-testid="header"
     >
       <div
-        class="MuiCardHeader-root makeStyles-cardHeader-128"
+        class="MuiCardHeader-root makeStyles-cardHeader-230"
       >
         <div
-          class="MuiCardHeader-avatar makeStyles-avatar-130"
+          class="MuiCardHeader-avatar makeStyles-avatar-232"
         >
           <p
             class="MuiTypography-root MuiTypography-body2"
@@ -632,7 +942,7 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-content makeStyles-headerContent-129"
+          class="MuiCardHeader-content makeStyles-headerContent-231"
         >
           <p
             class="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
@@ -641,7 +951,7 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
           </p>
         </div>
         <div
-          class="MuiCardHeader-action makeStyles-iconButton-127"
+          class="MuiCardHeader-action makeStyles-iconButton-229"
         >
           <button
             aria-label="owned"
@@ -678,7 +988,7 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
       </span>
     </div>
     <img
-      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-126"
+      class="MuiCardMedia-root MuiCardMedia-media makeStyles-media-228"
       src=" "
       title="The Happiest Toddler on the Block"
     />
@@ -686,39 +996,101 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
       class="MuiCardContent-root"
     >
       <p
-        class="MuiTypography-root makeStyles-description-131 MuiTypography-caption MuiTypography-colorTextSecondary"
+        class="MuiTypography-root makeStyles-description-233 MuiTypography-caption MuiTypography-colorTextSecondary"
       >
         The pediatrician-author of The Happiest Baby on the Block offers parents a groundbreaking new approach for dealing with toddlers, drawing a parallel between a child's development and humankind's journey to civilization and presenting specific behavioral techniques designed to enhance parent-child communication, alleviate tantrums, and increase positive relationships. Reprint. 60,000 first printing.
       </p>
     </div>
     <div
-      class="MuiCardActions-root makeStyles-expandAction-133 MuiCardActions-spacing"
+      class="MuiGrid-root MuiGrid-container"
     >
-      <button
-        class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-132"
-        data-testid="expandButton"
-        tabindex="0"
-        type="button"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
       >
-        <span
-          class="MuiIconButton-label"
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="editButton"
+          tabindex="0"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
+          <span
+            class="MuiIconButton-label"
           >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-expand-234"
+          data-testid="expandButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          data-testid="deleteButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>

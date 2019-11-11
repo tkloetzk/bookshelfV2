@@ -28,6 +28,12 @@ export function updateBooksBookshelfService(books) {
   return Promise.all(promiseArray)
 }
 
+export function deleteBookOnBookshelfService(id) {
+  return axios.delete(`${apiConfig.bookshelf}/delete/${id}`).catch(error => {
+    throw error
+  })
+}
+
 export function getBookshelfService(includedGenres = []) {
   return axios
     .post(apiConfig.bookshelf, includedGenres)

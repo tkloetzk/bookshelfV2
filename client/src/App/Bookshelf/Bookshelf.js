@@ -4,7 +4,10 @@ import map from 'lodash/map'
 import assign from 'lodash/assign'
 import Results from '../Results/Results'
 import { getBookshelf } from '../../store/bookshelf/bookshelfActions'
-import { updateBookOnBookshelfService } from '../../services/bookshelfService'
+import {
+  updateBookOnBookshelfService,
+  deleteBookOnBookshelfService,
+} from '../../services/bookshelfService'
 import GenreSelector from './GenreSelector/GenreSelector'
 
 export default function Bookshelf() {
@@ -21,6 +24,12 @@ export default function Bookshelf() {
     dispatch(getBookshelf())
   }
 
+  async function handleDelete(book) {
+    await deleteBookOnBookshelfService(book._id)
+
+    dispatch(getBookshelf())
+  }
+
   useEffect(() => {
     dispatch(getBookshelf())
   }, [dispatch])
@@ -28,7 +37,11 @@ export default function Bookshelf() {
   return (
     <>
       <GenreSelector setBookshelfFiltered={setBookshelfFiltered} />
-      <Results booklist={bookshelfFiltered} handleSave={handleSave} />
+      <Results
+        booklist={bookshelfFiltered}
+        handleSave={handleSave}
+        handleDelete={handleDelete}
+      />
     </>
   )
 }

@@ -9,17 +9,14 @@ import UnownedBook from '@material-ui/icons/HomeOutlined'
 import { makeStyles } from '@material-ui/core/styles'
 import CardContent from '@material-ui/core/CardContent'
 import PropTypes from 'prop-types'
-import CardActions from '@material-ui/core/CardActions'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import get from 'lodash/get'
 import Icon from '@material-ui/icons/AnnouncementOutlined'
 import ReactTooltip from 'react-tooltip'
-import Editable from 'react-x-editable'
 import Grid from '@material-ui/core/Grid'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import EditIcon from '@material-ui/icons/Edit'
-import { FormControl, InputLabel, Input, TextField } from '@material-ui/core'
 import BookEdit from './BookEdit'
 
 const useStyles = makeStyles(theme => ({
@@ -87,7 +84,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Book({ book, handleSave }) {
+export default function Book({ book, handleSave, handleDelete }) {
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
   const [editMode, setEditMode] = React.useState(false)
@@ -99,6 +96,12 @@ export default function Book({ book, handleSave }) {
 
   function handleEditMode() {
     setEditMode(!editMode)
+  }
+
+  function handleOwnedButton(e) {
+    e.stopPropagation()
+    const newBook = Object.assign({}, book, { owned: !book.owned })
+    handleSave(newBook, [{ key: 'owned', newValue: !book.owned }])
   }
 
   function BookAction() {
@@ -130,9 +133,7 @@ export default function Book({ book, handleSave }) {
       <IconButton
         aria-label={book.owned ? 'owned' : 'unowned'}
         data-testid="ownedIcon"
-        onClick={() =>
-          handleSave(book, [{ key: 'owned', newValue: !book.owned }])
-        }
+        onClick={handleOwnedButton}
       >
         {book.owned ? <OwnedBook /> : <UnownedBook />}
       </IconButton>
@@ -177,7 +178,7 @@ export default function Book({ book, handleSave }) {
           }}
         />
         <Typography variant="caption" align="center">
-          {book.categories.join(', ')}
+          {(book.categories || []).join(', ')}
         </Typography>
       </div>
 
@@ -214,7 +215,10 @@ export default function Book({ book, handleSave }) {
           </IconButton>
         </Grid>
         <Grid item xs={4}>
-          <IconButton data-testid="deleteButton" onClick={handleExpandClick}>
+          <IconButton
+            data-testid="deleteButton"
+            onClick={() => handleDelete(book)}
+          >
             <DeleteForeverIcon />
           </IconButton>
         </Grid>
@@ -243,15 +247,27 @@ export default function Book({ book, handleSave }) {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    adjustedRating: PropTypes.number,
+    adjustedRating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     owned: PropTypes.bool,
     title: PropTypes.string,
     categories: PropTypes.arrayOf(PropTypes.string),
     thumbnail: PropTypes.string,
     description: PropTypes.string,
-    amazonAverageRating: PropTypes.number,
-    amazonRatingsCount: PropTypes.number,
-    goodreadsAverageRating: PropTypes.number,
-    goodreadsRatingsCount: PropTypes.number,
+    amazonAverageRating: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    amazonRatingsCount: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    goodreadsAverageRating: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    goodreadsRatingsCount: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
   }).isRequired,
 }

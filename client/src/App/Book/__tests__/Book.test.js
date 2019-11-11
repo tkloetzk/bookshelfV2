@@ -104,7 +104,7 @@ describe('Book', () => {
     })
     describe('handleSave', () => {
       it('called with correct parameters for unread', async () => {
-        book = { ...book, owned: false }
+        book = { owned: false }
         const handleSave = jest.fn()
         const { getByTestId } = render(
           <MuiThemeProvider theme={muiTheme}>
@@ -115,7 +115,7 @@ describe('Book', () => {
         await wait(() => {
           fireEvent.click(getByTestId('ownedIcon'))
         })
-        expect(handleSave).toHaveBeenCalledWith(book, [
+        expect(handleSave).toHaveBeenCalledWith({ owned: !book.owned }, [
           { key: 'owned', newValue: !book.owned },
         ])
       })
