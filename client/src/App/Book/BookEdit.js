@@ -64,7 +64,10 @@ export default function Book({ book, setEditMode, handleSave }) {
             label="Title"
             margin="dense"
             onChange={setValue}
-            inputProps={{ style: { fontSize: 12 } }}
+            inputProps={{
+              style: { fontSize: 12 },
+              'data-testid': 'titleTextBar',
+            }}
           />
         </Grid>
         <Grid item xs={10}>

@@ -7,6 +7,12 @@ module.exports = {
     }
     return this
   }),
+  delete: jest.fn(url => {
+    if (url === `${apiConfig.bookshelf}/delete/1a2b`) {
+      return Promise.resolve(true)
+    }
+    return true
+  }),
   get: jest.fn(url => {
     if (url === `${apiConfig.goodreads}/9781402218279`) {
       return Promise.resolve({

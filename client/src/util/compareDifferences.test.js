@@ -74,4 +74,21 @@ describe('compareDifferences', () => {
     const response = compareDifferences(oldBook, newBook, [])
     expect(JSON.stringify(response)).toEqual(JSON.stringify(edits))
   })
+  it('with compareCategories', () => {
+    const oldBook = {
+      categories: ['Juvenile Fiction'],
+    }
+    const newBook = {
+      categories: "Children's Book",
+    }
+    const edits = [
+      {
+        key: 'categories',
+        currentValue: ['Juvenile Fiction'],
+        newValue: ["Children's Book"],
+      },
+    ]
+    const response = compareDifferences(oldBook, newBook, [], true)
+    expect(JSON.stringify(response)).toEqual(JSON.stringify(edits))
+  })
 })

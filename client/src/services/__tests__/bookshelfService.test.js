@@ -3,7 +3,9 @@ import {
   addBookshelfService,
   getBookshelfService,
   updateBookOnBookshelfService,
+  updateBooksBookshelfService,
   getGenresBookshelfService,
+  deleteBookOnBookshelfService,
 } from '../bookshelfService'
 import apiConfig from '../../config/apiConfig'
 
@@ -79,7 +81,8 @@ describe('bookshelfService', () => {
     })
   })
   // describe('updateBooksBookshelfService', () => {
-
+  //   const fields = { title: 'New Book Title', goodreadsRatingsCount: 123 }
+  //   updateBooksBookshelfService([{ id: '1234', fields }])
   // })
   describe('updateBookOnBookshelfService', () => {
     const id = '1a2b'
@@ -107,6 +110,25 @@ describe('bookshelfService', () => {
         .catch(error => {
           expect(error).toEqual(errorMessage)
         })
+    })
+  })
+  describe('deleteBookOnBookshelfService', () => {
+    const id = '1a2b'
+
+    // it('calls service and returns response when successful', () => {
+    //   axios.delete.mockResolvedValue()
+    //   return deleteBookOnBookshelfService(id).then(() => {
+    //     expect(axios.delete).toHaveBeenCalledWith(
+    //       `${apiConfig.bookshelf}/delete/${id}`
+    //     )
+    //   })
+    // })
+    it('calls service and returns error response when unsuccessful', () => {
+      const errorMessage = 'Error message'
+      axios.delete.mockRejectedValue(errorMessage)
+      return deleteBookOnBookshelfService(id).catch(error => {
+        expect(error).toEqual(errorMessage)
+      })
     })
   })
   describe('getBookshelfService', () => {

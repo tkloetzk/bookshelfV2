@@ -4,6 +4,10 @@ import { fireEvent, render, wait, cleanup } from '@testing-library/react'
 import muiTheme from '../../../config/themeConfig'
 import Book from '../Book'
 import '@testing-library/jest-dom/extend-expect'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
+
+const mockStore = configureMockStore()
 
 describe('Book', () => {
   let book
@@ -92,6 +96,26 @@ describe('Book', () => {
     })
   })
   describe('IconButtons', () => {
+    let store
+    beforeEach(() => {
+      store = mockStore({
+        bookshelf: { genres: book.categories },
+      })
+    })
+    it('shows edit mode on edit button click', async () => {
+      const { asFragment, getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <Book book={book} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+      await wait(() => {
+        fireEvent.click(getByTestId('editButton'))
+      })
+
+      expect(asFragment()).toMatchSnapshot()
+    })
     it('shows the unowned icon for an unowned book', () => {
       book = { ...book, owned: false }
       const { asFragment } = render(
@@ -101,6 +125,21 @@ describe('Book', () => {
       )
 
       expect(asFragment()).toMatchSnapshot()
+    })
+    describe('handleDelete', () => {
+      it('called with correct parameter', async () => {
+        const handleDelete = jest.fn()
+        const { getByTestId } = render(
+          <MuiThemeProvider theme={muiTheme}>
+            <Book book={book} handleDelete={handleDelete} />
+          </MuiThemeProvider>
+        )
+
+        await wait(() => {
+          fireEvent.click(getByTestId('deleteButton'))
+        })
+        expect(handleDelete).toHaveBeenCalledWith(book)
+      })
     })
     describe('handleSave', () => {
       it('called with correct parameters for unread', async () => {
