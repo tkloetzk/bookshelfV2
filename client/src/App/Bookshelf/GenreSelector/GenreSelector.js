@@ -119,10 +119,18 @@ export default function GenreSelector({ setBookshelfFiltered }) {
             exclusive
             size="small"
           >
-            <ToggleButton value="OR" aria-label="OR">
+            <ToggleButton
+              value="OR"
+              aria-label="OR"
+              data-testid="orFilterButton"
+            >
               OR
             </ToggleButton>
-            <ToggleButton value="AND" aria-label="AND">
+            <ToggleButton
+              value="AND"
+              aria-label="AND"
+              data-testid="andFilterButton"
+            >
               AND
             </ToggleButton>
           </ToggleButtonGroup>

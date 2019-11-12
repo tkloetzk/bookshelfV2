@@ -1,6 +1,6 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, wait, fireEvent } from '@testing-library/react'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import configureMockStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
@@ -78,44 +78,56 @@ describe('GenreSelector', () => {
       expect(asFragment()).toMatchSnapshot()
     })
   })
-  // describe('filters', () => {
-  //   it('returns filters genres of an AND selector', async () => {
-  //     const store = mockStore({
-  //       bookshelf: {
-  //         bookshelf: [
-  //           book,
-  //           {
-  //             isbn: '1234',
-  //             title: 'Test Title',
-  //             categories: ['Parenting', 'Newborn'],
-  //           },
-  //         ],
-  //         genres: ['Parenting', 'Newborn', 'Self-Help'],
-  //       },
-  //     })
-  //     store.dispatch = jest.fn()
+  describe('filters', () => {
+    it('returns filters genres of an AND selector', async () => {
+      jest.setTimeout(2000 * 60 * 10)
 
-  //     const { asFragment, getByTestId } = render(
-  //       <Provider store={store}>
-  //         <MuiThemeProvider theme={muiTheme}>
-  //           <GenreSelector {...props} />
-  //         </MuiThemeProvider>
-  //       </Provider>
-  //     )
+      const store = mockStore({
+        bookshelf: {
+          bookshelf: [
+            book,
+            {
+              isbn: '1234',
+              title: 'Test Title',
+              categories: ['Newborn'],
+            },
+            {
+              isbn: '1234',
+              title: 'Test Title',
+              categories: ['Dont show me'],
+            },
+          ],
+          genres: ['Parenting', 'Newborn', 'Dont show me'],
+        },
+      })
+      store.dispatch = jest.fn()
 
-  //     expect(wrapper.state('openIndex')).toBe(0)
+      const { getByRole, asFragment, getByTestId, debug } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <GenreSelector {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
 
-  // await wait(() => {
-  //   fireEvent.change(getByTestId('selectGenres'), {
-  //     target: { value: [{ label: 'Religion', value: 'Religion' }] },
-  //   })
+      // console.log(getByRole('textbox'))
+      // expect(wrapper.state('openIndex')).toBe(0)
 
-  //   fireEvent.click(getByTestId('andButton'))
-  // })
+      // debug()
+      // await wait(() => {
+      //   fireEvent.change(getByRole('textbox'), { value: [{value: 'Parenting'}]})
+      // })
 
-  // expect(asFragment()).toMatchSnapshot()
-  //   })
-  // })
+      // await wait(() => {
+      //   fireEvent.click(getByTestId('orFilterButton'))
+      // })
+      //debug()
+
+      //expect(props.setBookshelfFiltered).toHaveBeenCalledWith([])
+
+      // expect(asFragment()).toMatchSnapshot()
+    })
+  })
   // describe('setBookshelfFiltered', () => {
   // it('is called when bookshelf prop changes', () => {
   //   const store = mockStore({
@@ -150,5 +162,5 @@ describe('GenreSelector', () => {
   //   )
   //   expect(props.setBookshelfFiltered).toHaveBeenCalledTimes(0)
   // })
-  // })
+  //})
 })
