@@ -74,21 +74,51 @@ describe('compareDifferences', () => {
     const response = compareDifferences(oldBook, newBook, [])
     expect(JSON.stringify(response)).toEqual(JSON.stringify(edits))
   })
-  it('with compareCategories', () => {
-    const oldBook = {
-      categories: ['Juvenile Fiction'],
-    }
-    const newBook = {
-      categories: "Children's Book",
-    }
-    const edits = [
-      {
-        key: 'categories',
-        currentValue: ['Juvenile Fiction'],
-        newValue: ["Children's Book"],
-      },
-    ]
-    const response = compareDifferences(oldBook, newBook, [], true)
-    expect(JSON.stringify(response)).toEqual(JSON.stringify(edits))
+  describe('compareCategories', () => {
+    it('with compareCategories', () => {
+      const oldBook = {
+        categories: ['Juvenile Fiction'],
+      }
+      const newBook = {
+        categories: "Children's Book",
+      }
+      const edits = [
+        {
+          key: 'categories',
+          currentValue: oldBook.categories,
+          newValue: [newBook.categories],
+        },
+      ]
+      const response = compareDifferences(oldBook, newBook, [], true)
+      expect(JSON.stringify(response)).toEqual(JSON.stringify(edits))
+    })
+    it('categories are the same', () => {
+      const oldBook = {
+        categories: ['Juvenile Fiction'],
+      }
+      const newBook = {
+        categories: 'Juvenile Fiction',
+      }
+
+      const response = compareDifferences(oldBook, newBook, [], true)
+      expect(response).toEqual([])
+    })
+    it('categories are different lengths', () => {
+      const oldBook = {
+        categories: ['Juvenile Fiction', 'Test Category'],
+      }
+      const newBook = {
+        categories: "Children's Book",
+      }
+      const edits = [
+        {
+          key: 'categories',
+          currentValue: oldBook.categories,
+          newValue: [newBook.categories],
+        },
+      ]
+      const response = compareDifferences(oldBook, newBook, [], true)
+      expect(JSON.stringify(response)).toEqual(JSON.stringify(edits))
+    })
   })
 })
