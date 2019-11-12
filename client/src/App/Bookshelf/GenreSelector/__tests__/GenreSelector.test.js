@@ -78,56 +78,56 @@ describe('GenreSelector', () => {
       expect(asFragment()).toMatchSnapshot()
     })
   })
-  describe('filters', () => {
-    it('returns filters genres of an AND selector', async () => {
-      jest.setTimeout(2000 * 60 * 10)
+  // describe('filters', () => {
+  //   it('returns filters genres of an AND selector', async () => {
+  //     jest.setTimeout(2000 * 60 * 10)
 
-      const store = mockStore({
-        bookshelf: {
-          bookshelf: [
-            book,
-            {
-              isbn: '1234',
-              title: 'Test Title',
-              categories: ['Newborn'],
-            },
-            {
-              isbn: '1234',
-              title: 'Test Title',
-              categories: ['Dont show me'],
-            },
-          ],
-          genres: ['Parenting', 'Newborn', 'Dont show me'],
-        },
-      })
-      store.dispatch = jest.fn()
+  //     const store = mockStore({
+  //       bookshelf: {
+  //         bookshelf: [
+  //           book,
+  //           {
+  //             isbn: '1234',
+  //             title: 'Test Title',
+  //             categories: ['Newborn'],
+  //           },
+  //           {
+  //             isbn: '1234',
+  //             title: 'Test Title',
+  //             categories: ['Dont show me'],
+  //           },
+  //         ],
+  //         genres: ['Parenting', 'Newborn', 'Dont show me'],
+  //       },
+  //     })
+  //     store.dispatch = jest.fn()
 
-      const { getByRole, asFragment, getByTestId, debug } = render(
-        <Provider store={store}>
-          <MuiThemeProvider theme={muiTheme}>
-            <GenreSelector {...props} />
-          </MuiThemeProvider>
-        </Provider>
-      )
+  //     const { getByRole, asFragment, getByTestId, debug } = render(
+  //       <Provider store={store}>
+  //         <MuiThemeProvider theme={muiTheme}>
+  //           <GenreSelector {...props} />
+  //         </MuiThemeProvider>
+  //       </Provider>
+  //     )
 
-      // console.log(getByRole('textbox'))
-      // expect(wrapper.state('openIndex')).toBe(0)
+  // console.log(getByRole('textbox'))
+  // expect(wrapper.state('openIndex')).toBe(0)
 
-      // debug()
-      // await wait(() => {
-      //   fireEvent.change(getByRole('textbox'), { value: [{value: 'Parenting'}]})
-      // })
+  // debug()
+  // await wait(() => {
+  //   fireEvent.change(getByRole('textbox'), { value: [{value: 'Parenting'}]})
+  // })
 
-      // await wait(() => {
-      //   fireEvent.click(getByTestId('orFilterButton'))
-      // })
-      //debug()
+  // await wait(() => {
+  //   fireEvent.click(getByTestId('orFilterButton'))
+  // })
+  //debug()
 
-      //expect(props.setBookshelfFiltered).toHaveBeenCalledWith([])
+  //expect(props.setBookshelfFiltered).toHaveBeenCalledWith([])
 
-      // expect(asFragment()).toMatchSnapshot()
-    })
-  })
+  // expect(asFragment()).toMatchSnapshot()
+  //   })
+  // })
   // describe('setBookshelfFiltered', () => {
   // it('is called when bookshelf prop changes', () => {
   //   const store = mockStore({

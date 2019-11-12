@@ -50,6 +50,10 @@ export default function GenreSelector({ setBookshelfFiltered }) {
   const [selector, setSelector] = React.useState('OR')
   const [filters, setFilters] = React.useState([])
 
+  function work(e) {
+    console.log('here', e)
+    setSelectedGenres(e)
+  }
   useEffect(() => {
     dispatch(getGenres())
   }, [dispatch])
@@ -106,7 +110,7 @@ export default function GenreSelector({ setBookshelfFiltered }) {
             classes={classes}
             components={components}
             value={selectedGenres}
-            onChange={setSelectedGenres}
+            onChange={work}
             options={genres}
             isMulti
           />
