@@ -46,7 +46,7 @@ module.exports = {
         data: [
           {
             categories: ['Toddler', 'Parenting'],
-            read: false,
+            unread: false,
             owned: true,
             _id: '5c7893eabc9b222a3547548f',
             amazonAverageRating: 4.2,

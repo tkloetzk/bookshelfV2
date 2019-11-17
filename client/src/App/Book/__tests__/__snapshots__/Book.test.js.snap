@@ -362,7 +362,7 @@ exports[`Book IconButtons shows the unowned icon for an unowned book 1`] = `
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1448   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-1450 makeStyles-headerUnread-1452"
+      class="makeStyles-header-1450 makeStyles-headerRead-1451"
       data-testid="header"
     >
       <div
@@ -538,7 +538,7 @@ exports[`Book expand expands on handleExpandClick 1`] = `
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-889 makeStyles-expanded-902  MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-891 makeStyles-headerUnread-893"
+      class="makeStyles-header-891 makeStyles-headerRead-892"
       data-testid="header"
     >
       <div
@@ -745,13 +745,13 @@ exports[`Book expand expands on handleExpandClick 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Book render renders as expected with read property 1`] = `
+exports[`Book render renders as expected with unread property 1`] = `
 <DocumentFragment>
   <div
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-667   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-669 makeStyles-headerRead-670"
+      class="makeStyles-header-669 makeStyles-headerUnread-671"
       data-testid="header"
     >
       <div
@@ -927,7 +927,7 @@ exports[`Book render should render as expected 1`] = `
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-3 makeStyles-headerUnread-5"
+      class="makeStyles-header-3 makeStyles-headerRead-4"
       data-testid="header"
     >
       <div
@@ -1103,7 +1103,7 @@ exports[`Book render should render as expected if there are differences 1`] = `
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-445  makeStyles-different-446 MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-447 makeStyles-headerUnread-449"
+      class="makeStyles-header-447 makeStyles-headerRead-448"
       data-testid="header"
     >
       <div
@@ -1282,7 +1282,7 @@ exports[`Book render should render as expected if there is no thumbnail 1`] = `
     class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-223   MuiPaper-rounded"
   >
     <div
-      class="makeStyles-header-225 makeStyles-headerUnread-227"
+      class="makeStyles-header-225 makeStyles-headerRead-226"
       data-testid="header"
     >
       <div

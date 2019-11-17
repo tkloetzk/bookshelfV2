@@ -17,7 +17,7 @@ describe('Book', () => {
   beforeEach(() => {
     book = {
       categories: ['Toddler', 'Parenting'],
-      read: false,
+      unread: true,
       owned: true,
       _id: '5c7893eabc9b222a3547548f',
       amazonAverageRating: 4.2,

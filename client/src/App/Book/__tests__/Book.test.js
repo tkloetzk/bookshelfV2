@@ -14,7 +14,7 @@ describe('Book', () => {
   beforeEach(() => {
     book = {
       categories: ['Toddler', 'Parenting'],
-      read: false,
+      unread: false,
       owned: true,
       _id: '5c7893eabc9b222a3547548f',
       amazonAverageRating: 4.2,
@@ -71,8 +71,8 @@ describe('Book', () => {
       )
       expect(asFragment()).toMatchSnapshot()
     })
-    it('renders as expected with read property', () => {
-      book = { ...book, read: true }
+    it('renders as expected with unread property', () => {
+      book = { ...book, unread: true }
       const { asFragment } = render(
         <MuiThemeProvider theme={muiTheme}>
           <Book book={book} />
@@ -171,7 +171,7 @@ describe('Book', () => {
           fireEvent.click(getByTestId('header'))
         })
         expect(handleSave).toHaveBeenCalledWith(book, [
-          { key: 'read', newValue: !book.read },
+          { key: 'unread', newValue: !book.unread },
         ])
       })
     })

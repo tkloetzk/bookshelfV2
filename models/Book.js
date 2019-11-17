@@ -41,9 +41,9 @@ const BookSchema = new Schema(
     goodreadsRatingsCount: {
       type: Number,
     },
-    read: {
+    unread: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     owned: {
       type: Boolean,

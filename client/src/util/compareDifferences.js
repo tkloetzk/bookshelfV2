@@ -33,9 +33,8 @@ export default function compareDifferences(
         key !== 'thumbnail' &&
         key !== 'categories' &&
         key !== 'owned' &&
-        key !== 'read' &&
-        newBook[key] !== '' &&
-        newBook[key] !== 0
+        key !== 'unread' &&
+        !isEmpty(newBook[key])
       ) {
         difference.push({
           key,
@@ -52,6 +51,9 @@ export default function compareDifferences(
         newBook[key] = newBook[key].split(',')
       }
       if (!arraysEqual(oldBook[key], newBook[key])) {
+        if (isEmpty(newBook[key])) {
+          newBook[key] = oldBook[key]
+        }
         difference.push({
           key,
           currentValue: oldBook[key],

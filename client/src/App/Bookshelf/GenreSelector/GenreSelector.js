@@ -50,10 +50,6 @@ export default function GenreSelector({ setBookshelfFiltered }) {
   const [selector, setSelector] = React.useState('OR')
   const [filters, setFilters] = React.useState([])
 
-  function work(e) {
-    console.log('here', e)
-    setSelectedGenres(e)
-  }
   useEffect(() => {
     dispatch(getGenres())
   }, [dispatch])
@@ -94,14 +90,14 @@ export default function GenreSelector({ setBookshelfFiltered }) {
           <ToggleButtonGroup
             onChange={(e, value) => setFilters(value)}
             value={filters}
-            aria-label="OWNED/READ genres"
+            aria-label="OWNED/UNREAD genres"
             size="small"
           >
             <ToggleButton value="owned" aria-label="OWNED">
               OWNED
             </ToggleButton>
-            <ToggleButton value="read" aria-label="READ">
-              READ
+            <ToggleButton value="unread" aria-label="UNREAD">
+              UNREAD
             </ToggleButton>
           </ToggleButtonGroup>
         </Grid>
@@ -110,7 +106,7 @@ export default function GenreSelector({ setBookshelfFiltered }) {
             classes={classes}
             components={components}
             value={selectedGenres}
-            onChange={work}
+            onChange={setSelectedGenres}
             options={genres}
             isMulti
           />

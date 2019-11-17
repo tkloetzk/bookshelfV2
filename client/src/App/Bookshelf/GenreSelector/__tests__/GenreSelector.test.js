@@ -110,22 +110,23 @@ describe('GenreSelector', () => {
   //       </Provider>
   //     )
 
-  // console.log(getByRole('textbox'))
-  // expect(wrapper.state('openIndex')).toBe(0)
+  //     console.log(getByRole('textbox'))
 
-  // debug()
-  // await wait(() => {
-  //   fireEvent.change(getByRole('textbox'), { value: [{value: 'Parenting'}]})
-  // })
+  //     debug()
+  //     await wait(() => {
+  //       fireEvent.change(getByRole('textbox'), {
+  //         value: [{ value: 'Newborn' }],
+  //       })
+  //     })
 
-  // await wait(() => {
-  //   fireEvent.click(getByTestId('orFilterButton'))
-  // })
-  //debug()
+  //     await wait(() => {
+  //       fireEvent.click(getByTestId('andFilterButton'))
+  //     })
+  //     debug()
 
-  //expect(props.setBookshelfFiltered).toHaveBeenCalledWith([])
+  //    expect(props.setBookshelfFiltered).toHaveBeenCalledWith([])
 
-  // expect(asFragment()).toMatchSnapshot()
+  //     //   expect(asFragment()).toMatchSnapshot()
   //   })
   // })
   // describe('setBookshelfFiltered', () => {

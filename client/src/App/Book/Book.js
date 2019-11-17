@@ -89,7 +89,9 @@ export default function Book({ book, handleSave, handleDelete }) {
   const [expanded, setExpanded] = React.useState(false)
   const [editMode, setEditMode] = React.useState(false)
 
+  const unread = get(book, 'unread', true)
   const differences = get(book, 'differences', [])
+
   function handleExpandClick() {
     setExpanded(!expanded)
   }
@@ -150,17 +152,15 @@ export default function Book({ book, handleSave, handleDelete }) {
       <div
         className={[
           classes.header,
-          book.read ? classes.headerRead : classes.headerUnread,
+          unread ? classes.headerUnread : classes.headerRead,
         ].join(' ')}
-        onClick={() =>
-          handleSave(book, [{ key: 'read', newValue: !book.read }])
-        }
+        onClick={() => handleSave(book, [{ key: 'unread', newValue: !unread }])}
         data-testid="header"
       >
         <CardHeader
           avatar={
             <Typography variant="body2">
-              {(Math.round(book.adjustedRating * 1000) / 1000).toString()}
+              {(Math.round(book.adjustedRating * 1000) / 1000).toString() || ''}
             </Typography>
           }
           action={<BookAction />}

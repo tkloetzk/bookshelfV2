@@ -16,7 +16,7 @@ describe('bookshelfService', () => {
         data: [
           {
             categories: ['Religion'],
-            read: false,
+            unread: true,
             owned: false,
             _id: '5c9d7c34bc300b4070e9d9c9',
             title: "Raising a Daughter After God's Own Heart",
@@ -35,7 +35,7 @@ describe('bookshelfService', () => {
           },
           {
             categories: ['Newborn'],
-            read: true,
+            unread: false,
             owned: true,
             _id: '5c6f350badff7d391560777d',
             amazonAverageRating: 4.6,
@@ -137,7 +137,7 @@ describe('bookshelfService', () => {
         data: [
           {
             categories: ['Religion'],
-            read: false,
+            unread: true,
             owned: false,
             _id: '5c9d7c34bc300b4070e9d9c9',
             title: "Raising a Daughter After God's Own Heart",
@@ -156,7 +156,7 @@ describe('bookshelfService', () => {
           },
           {
             categories: ['Newborn'],
-            read: true,
+            unread: false,
             owned: true,
             _id: '5c6f350badff7d391560777d',
             amazonAverageRating: 4.6,

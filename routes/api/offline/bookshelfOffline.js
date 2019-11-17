@@ -16,7 +16,7 @@ global.bookshelf = [
     isbn: '9780310338130',
     title: 'Hands Free Mama1',
     owned: false,
-    read: false,
+    unread: false,
     subtitle:
       'A Guide to Putting Down the Phone, Burning the To-Do List, and Letting Go of Perfection to Grasp What Really Matters!',
     description:
@@ -34,7 +34,7 @@ global.bookshelf = [
     amazonRatingsCount: 20,
     price: '',
     owned: false,
-    read: true,
+    unread: true,
     isbn: '9780736917728',
     title: "Raising a Daughter After God's Own Heart",
     subtitle: '',
@@ -55,7 +55,7 @@ global.bookshelf = [
     isbn: '9781400079094',
     title: 'Operating Instructions1',
     owned: false,
-    read: true,
+    unread: true,
     subtitle: "A Journal Of My Son's First Year",
     description:
       "A single mother and writer grappling alone with the problems of a newborn baby presents a vivid account of the confusion, joys, sorrows, and struggles of the first year in her son's life. Reprint. 20,000 first printing.",
@@ -73,7 +73,7 @@ global.bookshelf = [
     price: '',
     isbn: '9781932740080',
     owned: true,
-    read: false,
+    unread: false,
     title: 'On Becoming Baby Wise',
     subtitle:
       'Book One : the Classic Reference Guide Utilized by Over 1,000,000 Parents Worldwide',
