@@ -137,6 +137,21 @@ Array [
 ]
 `;
 
+exports[`SearchBar handleSave does not call addBookshelfService but calls updateBooksBookshelfService with booklist containing only books with differences 2`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "fields": Object {
+          "amazonAverageRating": 4.5,
+        },
+        "id": "1",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`SearchBar handleSearch setBooklist returns correct booklist if there are books, and a duplicate book in bookshelf with differences 1`] = `
 Array [
   Array [

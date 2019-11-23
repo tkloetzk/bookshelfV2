@@ -34,7 +34,8 @@ export default function compareDifferences(
         key !== 'categories' &&
         key !== 'owned' &&
         key !== 'unread' &&
-        !isEmpty(newBook[key])
+        newBook[key] !== '' &&
+        newBook[key] !== 0
       ) {
         difference.push({
           key,

@@ -81,7 +81,6 @@ export default function Book({ book, setEditMode, handleSave }) {
             freeSolo
             id="categories"
             filterSelectedOptions
-            disableCloseOnSelect
             onChange={(e, value) =>
               setValue({ target: { id: 'categories', value } })
             }

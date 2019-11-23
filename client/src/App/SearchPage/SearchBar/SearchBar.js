@@ -24,6 +24,8 @@ import {
 import compareDifferences from '../../../util/compareDifferences'
 import search from '../../../services/searchService'
 import { getBookshelf } from '../../../store/bookshelf/bookshelfActions'
+import LOADING_STATUSES from '../../../util/constants'
+import Notification from '../../Notification/Notification'
 
 const useStyles = makeStyles(() => ({
   buttonProgress: {
@@ -43,6 +45,7 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
   const dispatch = useDispatch()
   const bookshelf = useSelector(state => state.bookshelf.bookshelf)
   const [searchedISBNs, setSearchedISBNs] = React.useState('')
+  const [duplicateNoDifferences, setDuplicateNoDifferences] = React.useState([])
   const [loading, setLoading] = React.useState(false)
 
   async function handleSearch() {
@@ -62,7 +65,8 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
     setLoading(true)
     const books = await search(union(promiseISBNs))
 
-    const searchedList = forEach(books, searchedBook => {
+    const searchedList = []
+    forEach(books, searchedBook => {
       return bookshelf.forEach(existingBook => {
         if (searchedBook.isbn === existingBook.isbn) {
           searchedBook.id = existingBook._id
@@ -71,7 +75,12 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
             searchedBook,
             []
           )
-          return false
+
+          if (searchedBook.differences.length) {
+            searchedList.push(searchedBook)
+          } else {
+            duplicateNoDifferences.push(searchedBook.isbn)
+          }
         }
       })
     })
@@ -105,6 +114,7 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
     dispatch(getBookshelf())
     setBooklist([])
   }
+
   return (
     <>
       <Grid item xs={8}>
@@ -142,6 +152,16 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
             <SaveIcon />
           </Fab>
         )}
+        <Notification
+          //open={true}
+          open={duplicateNoDifferences.length ? true : false}
+          handleClose={() => setDuplicateNoDifferences([])}
+          autoHideDuration={3500}
+          message={`${duplicateNoDifferences.join(
+            ', '
+          )} already shelved with no differences`}
+          type={LOADING_STATUSES.info}
+        />
       </Grid>
     </>
   )
