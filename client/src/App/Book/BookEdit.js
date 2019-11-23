@@ -11,7 +11,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import CancelIcon from '@material-ui/icons/Cancel'
 import compareDifferences from '../../util/compareDifferences'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   card: {
     width: 235,
     maxHeight: 459,
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   text: {
     fontSize: '12px',
   },
-}))
+})
 
 export default function Book({ book, setEditMode, handleSave }) {
   const classes = useStyles()

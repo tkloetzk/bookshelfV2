@@ -1,11 +1,11 @@
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { fireEvent, render, wait, cleanup } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import configureMockStore from 'redux-mock-store'
 import muiTheme from '../../../config/themeConfig'
 import Book from '../Book'
 import '@testing-library/jest-dom/extend-expect'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
 
 const mockStore = configureMockStore()
 

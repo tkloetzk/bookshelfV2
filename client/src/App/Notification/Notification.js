@@ -8,9 +8,9 @@ import IconButton from '@material-ui/core/IconButton'
 import Snackbar from '@material-ui/core/Snackbar'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
 import WarningIcon from '@material-ui/icons/Warning'
-import LOADING_STATUSES from '../../util/constants'
 import { makeStyles } from '@material-ui/styles'
 import React from 'react'
+import LOADING_STATUSES from '../../util/constants'
 
 const variantIcon = {
   [LOADING_STATUSES.success]: CheckCircleIcon,

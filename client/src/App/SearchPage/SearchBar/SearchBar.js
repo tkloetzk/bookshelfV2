@@ -64,7 +64,7 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
     setLoading(true)
     const books = await search(union(promiseISBNs))
 
-    let searchedList = forEach(books, searchedBook => {
+    const searchedList = forEach(books, searchedBook => {
       return forEach(bookshelf, existingBook => {
         if (searchedBook.isbn === existingBook.isbn) {
           searchedBook.id = existingBook._id
@@ -78,10 +78,8 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
     })
 
     const duplicated = remove(searchedList, book => {
-      console.log(book)
       if (has(book, 'differences') && isEmpty(book.differences)) return book
     })
-    console.log(searchedList)
 
     setDuplicateNoDifferences(map(duplicated, book => book.isbn))
     setBooklist([...booklist, ...searchedList])
@@ -153,8 +151,8 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
           </Fab>
         )}
         <Notification
-          //open={true}
-          open={duplicateNoDifferences.length ? true : false}
+          // open={true}
+          open={!!duplicateNoDifferences.length}
           handleClose={() => setDuplicateNoDifferences([])}
           autoHideDuration={3500}
           message={`${duplicateNoDifferences.join(
