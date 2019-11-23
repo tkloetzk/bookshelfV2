@@ -138,11 +138,6 @@ describe('SearchBar', () => {
         expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
       it('can add a new book to the booklist on additional search', async () => {
-        props = {
-          ...props,
-          booklist: [{ title: 'book1', isbn: '0123456789012' }],
-        }
-
         const { getByTestId } = render(
           <Provider store={store}>
             <MuiThemeProvider theme={muiTheme}>
@@ -154,10 +149,16 @@ describe('SearchBar', () => {
           fireEvent.change(getByTestId('searchBar'), {
             target: { value: '9781402218279' },
           })
-        })
-        await wait(() => {
           fireEvent.click(getByTestId('searchButton'))
         })
+
+        await wait(() => {
+          fireEvent.change(getByTestId('searchBar'), {
+            target: { value: '0123456789012' },
+          })
+          fireEvent.click(getByTestId('searchButton'))
+        })
+
         expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
       it('does not add a new book to the booklist if it already exists', async () => {
@@ -172,82 +173,81 @@ describe('SearchBar', () => {
         )
         await wait(() => {
           fireEvent.change(getByTestId('searchBar'), {
-            target: { value: '9781402218279' },
+            target: { value: '9781402218279, 9781402218275' },
           })
         })
         await wait(() => {
           fireEvent.click(getByTestId('searchButton'))
         })
-        expect(props.setBooklist).not.toHaveBeenCalled()
+        expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
     })
-    describe('setBooklist', () => {
-      it('returns correct booklist if there are no books in bookshelf', async () => {
-        const { getByTestId } = render(
-          <Provider store={store}>
-            <MuiThemeProvider theme={muiTheme}>
-              <SearchBar {...props} />
-            </MuiThemeProvider>
-          </Provider>
-        )
-        await wait(() => {
-          fireEvent.change(getByTestId('searchBar'), {
-            target: { value: '9781402218279' },
-          })
+  })
+  describe('setBooklist', () => {
+    it('returns correct booklist if there are no books in bookshelf', async () => {
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+      await wait(() => {
+        fireEvent.change(getByTestId('searchBar'), {
+          target: { value: '9781402218279' },
         })
-        await wait(() => {
-          fireEvent.click(getByTestId('searchButton'))
-        })
-        expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
-      it('returns correct booklist if there are books, but no duplicates in bookshelf', async () => {
-        store = mockStore({
-          bookshelf: { bookshelf: [{ isbn: '1234' }] },
-        })
-        store.dispatch = jest.fn()
+      await wait(() => {
+        fireEvent.click(getByTestId('searchButton'))
+      })
+      expect(props.setBooklist.mock.calls).toMatchSnapshot()
+    })
+    it('returns correct booklist if there are books, but no duplicates in bookshelf', async () => {
+      props = { ...props, booklist: [{ isbn: '1234' }] }
 
-        const { getByTestId } = render(
-          <Provider store={store}>
-            <MuiThemeProvider theme={muiTheme}>
-              <SearchBar {...props} />
-            </MuiThemeProvider>
-          </Provider>
-        )
-        await wait(() => {
-          fireEvent.change(getByTestId('searchBar'), {
-            target: { value: '9781402218279' },
-          })
-        })
-        await wait(() => {
-          fireEvent.click(getByTestId('searchButton'))
-        })
-        expect(props.setBooklist.mock.calls).toMatchSnapshot()
-      })
-      it('returns correct booklist if there are books, and a duplicate book in bookshelf with differences', async () => {
-        store = mockStore({
-          bookshelf: {
-            bookshelf: [{ isbn: '9781402218279', amazonAverageRating: 3.9 }],
-          },
-        })
-        store.dispatch = jest.fn()
+      store.dispatch = jest.fn()
 
-        const { getByTestId } = render(
-          <Provider store={store}>
-            <MuiThemeProvider theme={muiTheme}>
-              <SearchBar {...props} />
-            </MuiThemeProvider>
-          </Provider>
-        )
-        await wait(() => {
-          fireEvent.change(getByTestId('searchBar'), {
-            target: { value: '9781402218279' },
-          })
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+      await wait(() => {
+        fireEvent.change(getByTestId('searchBar'), {
+          target: { value: '9781402218279' },
         })
-        await wait(() => {
-          fireEvent.click(getByTestId('searchButton'))
-        })
-        expect(props.setBooklist.mock.calls).toMatchSnapshot()
       })
+      await wait(() => {
+        fireEvent.click(getByTestId('searchButton'))
+      })
+      expect(props.setBooklist.mock.calls).toMatchSnapshot()
+    })
+    it('returns correct booklist if there are books, and a duplicate book in bookshelf with differences', async () => {
+      store = mockStore({
+        bookshelf: {
+          bookshelf: [{ isbn: '9781402218279', amazonAverageRating: 3.9 }],
+        },
+      })
+      store.dispatch = jest.fn()
+
+      const { getByTestId } = render(
+        <Provider store={store}>
+          <MuiThemeProvider theme={muiTheme}>
+            <SearchBar {...props} />
+          </MuiThemeProvider>
+        </Provider>
+      )
+      await wait(() => {
+        fireEvent.change(getByTestId('searchBar'), {
+          target: { value: '9781402218279' },
+        })
+      })
+      await wait(() => {
+        fireEvent.click(getByTestId('searchButton'))
+      })
+      expect(props.setBooklist.mock.calls).toMatchSnapshot()
     })
   })
   describe('handleSave', () => {

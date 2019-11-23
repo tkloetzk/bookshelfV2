@@ -23,6 +23,15 @@ module.exports = {
         },
       })
     }
+    if (url === `${apiConfig.goodreads}/0123456789012`) {
+      return Promise.resolve({
+        data: {
+          goodreadsAverageRating: 3.0,
+          goodreadsRatingsCount: 30,
+          isbn: '0123456789012',
+        },
+      })
+    }
     if (url === `${apiConfig.google}/9781402218279`) {
       return Promise.resolve({
         data: {
@@ -35,6 +44,18 @@ module.exports = {
           thumbnail:
             'http://books.google.com/books/content?id=oD0omQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
           categories: ['Family & Relationships'],
+        },
+      })
+    }
+    if (url === `${apiConfig.google}/0123456789012`) {
+      return Promise.resolve({
+        data: {
+          title: 'New book title',
+          isbn: '0123456789012',
+          subtitle: 'Subtitle',
+          description: 'Description',
+          thumbnail: '',
+          categories: ['Parenting'],
         },
       })
     }

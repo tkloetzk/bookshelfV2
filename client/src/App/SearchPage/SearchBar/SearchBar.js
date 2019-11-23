@@ -58,16 +58,14 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
         promiseISBNs.push(formattedIsbn)
       }
     })
-
     setSearchedISBNs([])
     if (!promiseISBNs.length) return
 
     setLoading(true)
     const books = await search(union(promiseISBNs))
 
-    const searchedList = []
-    forEach(books, searchedBook => {
-      return bookshelf.forEach(existingBook => {
+    let searchedList = forEach(books, searchedBook => {
+      return forEach(bookshelf, existingBook => {
         if (searchedBook.isbn === existingBook.isbn) {
           searchedBook.id = existingBook._id
           searchedBook.differences = compareDifferences(
@@ -75,15 +73,17 @@ export default function SearchPage({ setBooklist, booklist = [] }) {
             searchedBook,
             []
           )
-
-          if (searchedBook.differences.length) {
-            searchedList.push(searchedBook)
-          } else {
-            duplicateNoDifferences.push(searchedBook.isbn)
-          }
         }
       })
     })
+
+    const duplicated = remove(searchedList, book => {
+      console.log(book)
+      if (has(book, 'differences') && isEmpty(book.differences)) return book
+    })
+    console.log(searchedList)
+
+    setDuplicateNoDifferences(map(duplicated, book => book.isbn))
     setBooklist([...booklist, ...searchedList])
     setLoading(false)
   }
